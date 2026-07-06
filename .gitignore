@@ -15,7 +15,6 @@
 *.7z
 *.tar
 *.gz
-*.sql
 *.bak
 *.patch
 
