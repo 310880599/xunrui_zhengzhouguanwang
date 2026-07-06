@@ -1,0 +1,249 @@
+
+
+			#tooltip{
+				position:absolute;
+				border:1px solid #ccc;
+				background:#333;
+				padding:2px;
+				display:none;
+				color:#fff;
+				z-index: 999;
+			}
+
+			html {
+				font-size: 100px;
+			}
+
+			#span_nativeplace select{background-color: #fff;}
+
+
+			.common_active{
+				-webkit-animation-duration: 2s;
+				-webkit-animation-delay: 0;
+				-webkit-animation-iteration-count: infinite;
+				-moz-animation-duration: 2s;
+				-moz-animation-delay: 0;
+				-moz-animation-iteration-count: infinite;
+				animation-duration: 2s;
+				animation-delay: 0;
+				animation-iteration-count: infinite;
+			}
+
+			.index_part041_link a{
+				-webkit-animation-duration: 1s;
+				-webkit-animation-delay: 0;
+				-webkit-animation-iteration-count: infinite;
+				-moz-animation-duration: 1s;
+				-moz-animation-delay: 0;
+				-moz-animation-iteration-count: infinite;
+				animation-duration: 1s;
+				animation-delay: 0;
+				animation-iteration-count: infinite;
+			}
+
+			.part05_bottom_font {
+				-webkit-animation-duration: 1s;
+				-webkit-animation-delay: 2s;
+				-webkit-animation-iteration-count: infinite;
+				-moz-animation-duration: 1s;
+				-moz-animation-delay: 2s;
+				-moz-animation-iteration-count: infinite;
+				animation-duration: 1s;
+				animation-delay: 2s;
+				animation-iteration-count: infinite;
+			}
+
+            
+            
+            .Video-part {
+              width: 1920px;
+              margin: 0 auto;
+              margin-top: 114px;
+            }
+            .Video-part .video-img {
+              cursor: pointer;
+              width: 100%;
+              height: 281px;
+              background: #eef0f4;
+              position: relative;
+            }
+            .Video-part .video-img img {
+              width: 662px;
+              position: absolute;
+              left: 0;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              margin: auto;
+            }
+            .Video-part .video-box {
+              display: none;
+              width: 100%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.6);
+              z-index: 9999;
+              position: fixed;
+              top: 0;
+              left: 0;
+              bottom: 0;
+              right: 0;
+              margin: auto;
+            }
+            .Video-part .video-box .jsmodern-video {
+              width: 100% !important;
+              height: 100% !important;
+            }
+            .Video-part .video-box #video {
+              height: 730px;
+              width: 1300px;
+              position: absolute;
+              top: 0;
+              left: 0;
+              bottom: 0;
+              right: 0;
+              margin: auto;
+            }
+            .Video-part .video-box #video .guanbi {
+              cursor: pointer;
+              width: 64px;
+              position: absolute;
+              right: 10px;
+              top: 10px;
+              z-index: 1000;
+              transition: all 0.5s;
+              transform: scale(0.8);
+            }
+            .Video-part .video-box #video .guanbi:hover {
+              transform: scale(1);
+            }
+            .Video-part .video-box #video-modal video {
+              width: 100%;
+              height: 100%;
+              object-fit: fill;
+            }
+            .Video-part .video-box .VideoBtn {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              display: block;
+              width: 70px;
+              height: 70px;
+              margin-left: -35px;
+              margin-top: -35px;
+              cursor: pointer;
+              z-index: 10;
+            }
+            .Video-part .video-box .VideoBtn img {
+              width: 70px;
+            }
+
+			
+
+
+
+
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					-webkit-transform: translate3d(0, 25%, 0);
+					transform: translate3d(0, 25%, 0);
+				}
+
+				to {
+					opacity: 1;
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+				}
+			}
+
+			.animate__fadeInUp {
+				-webkit-animation-name: fadeInUp;
+				animation-name: fadeInUp;
+			}
+
+			/* 呼吸 */
+			.animate__animated.animate__pulse {
+            -webkit-animation-duration: 1s;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-duration: 1s;
+            -moz-animation-iteration-count: infinite;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+			}
+
+			/* 大小弹跳 */
+			.animate__animated.animate__heartBeat {
+				-webkit-animation-duration: 1s;
+				-webkit-animation-iteration-count: infinite;
+				-moz-animation-duration: 1s;
+				-moz-animation-iteration-count: infinite;
+				animation-duration: 1s;
+				animation-iteration-count: infinite;
+			}
+
+
+
+			.animate__animated.animate__tada {
+				-webkit-animation-duration: 1s;
+				-webkit-animation-iteration-count: infinite;
+				-moz-animation-duration: 1s;
+				-moz-animation-iteration-count: infinite;
+				animation-duration: 1s;
+				animation-iteration-count: infinite;
+			}
+
+			.animate__animated.animate__headShake {
+				-webkit-animation-duration: 1s;
+				-webkit-animation-iteration-count: infinite;
+				-moz-animation-duration: 1s;
+				-moz-animation-iteration-count: infinite;
+				animation-duration: 1s;
+				animation-iteration-count: infinite;
+			}
+
+			.animate__animated.animate__fadeIn {
+				-webkit-animation-duration: 1s;
+				-moz-animation-duration: 1s;
+				animation-duration: 1s;
+			}	
+
+
+			input::-webkit-input-placeholder {
+			color: #000000 !important;
+			font-size: 0.22rem !important;
+			font-weight: normal !important;
+			}
+
+
+
+		
+
+
+
+			
+
+			.boxs5 input::-webkit-input-placeholder { /* WebKit browsers */ 
+
+				color: #000 !important; font-size: 0.16rem !important;font-weight: normal !important;
+
+			} 
+
+			.boxs5 input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+
+				color: #000 !important; font-size: 0.16rem !important;font-weight: normal !important;
+
+			} 
+
+			.boxs5 input::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+
+				color: #000 !important; font-size: 0.16rem !important;font-weight: normal !important;
+
+			} 
+
+			.boxs5 input:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+
+				color: #000 !important; font-size: 0.16rem !important;font-weight: normal !important;
+
+			} 
+
+

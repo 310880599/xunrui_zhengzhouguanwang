@@ -1,0 +1,79 @@
+{template "header.html"}
+
+<div class="note note-danger">
+    <p><a href="javascript:dr_update_cache();">{dr_lang('更改数据之后需要更新缓存之后才能生效')}</a></p>
+</div>
+<form action="" class="form-horizontal" method="post" name="myform" id="myform">
+    {$form}
+    <div class="portlet bordered light myfbody">
+        <div class="portlet-title tabbable-line">
+            <ul class="nav nav-tabs" style="float:left;">
+                <li class="{if $page==0}active{/if}">
+                    <a href="#tab_0" data-toggle="tab" onclick="$('#dr_page').val('0')"> <i class="fa fa-cog"></i> {dr_lang('插件设置')} </a>
+                </li>
+            </ul>
+        </div>
+        <div class="portlet-body">
+            <div class="tab-content">
+                <div class="tab-pane {if $page==0}active{/if}" id="tab_0">
+                    <div class="form-body">
+
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">设置搜索模块</label>
+                            <div class="col-md-9">
+                                <div class="mt-checkbox-inline">
+                                    {cache name=module-content}
+                                    <label class="mt-checkbox mt-checkbox-outline">
+                                        <input type="checkbox" {if dr_in_array($t.dirname, $data.mid)} checked{/if} name="data[mid][]" value="{$t.dirname}"> {$t.name}
+                                        <span></span>
+                                    </label>
+                                    {/cache}
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">搜索分页规则</label>
+                            <div class="col-md-9">
+                                <input class="form-control input-xlarge" type="text" name="data[pagerule]" value="{$data['pagerule']}" >
+                                <p>例如规则：so-{keyword}-{page}.html</p>
+                                <p>解析规则："so\-(.+)\-([0-9]+).html(.*)"  => 'index.php?s=so&keyword=$1&page=$2',</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">搜索地址规则</label>
+                            <div class="col-md-9">
+                                <input class="form-control input-xlarge" type="text" name="data[urlrule]" value="{$data['urlrule']}" >
+                                <p>例如规则：so-{keyword}.html</p>
+                                <p>解析规则："so\-(.+)\.html(.*)"  => 'index.php?s=so&keyword=$1',</p>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">搜索框代码，可放在任意页面</label>
+                            <div class="col-md-9">
+                                <code>{php echo nl2br(htmlspecialchars(file_get_contents(APPPATH.'Views/form.html')));}</code>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="portlet-body form myfooter">
+            <div class="form-actions text-center">
+                <button type="button" onclick="dr_ajax_submit('{dr_now_url()}&page='+$('#dr_page').val(), 'myform', '2000')" class="btn green"> <i class="fa fa-save"></i> {dr_lang('保存')}</button>
+            </div>
+        </div>
+</form>
+
+
+
+{template "footer.html"}

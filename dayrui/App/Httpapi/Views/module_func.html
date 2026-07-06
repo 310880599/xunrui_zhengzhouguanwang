@@ -1,0 +1,27 @@
+{template "header.html"}
+<div class="note note-danger">
+    <p>自定义函数需要开发者预先定义在/config/custom.php中，支持多个函数可以用|分隔</p>
+</div>
+
+<pre>
+{code}
+function my_call_functest($value) {
+    return $value;
+}
+{/code}
+</pre>
+
+<h4 class="block">内置回调函数</h4>
+<p class="note">
+    dr_get_file：单文件<br>
+    dr_get_files：多文件<br>
+    dr_get_image：图片专用字段<br>
+    radio_name：单选按钮名称<br>
+    select_name：单选的名称<br>
+    checkbox_name：多选或复选的名称<br>
+    linkage_name：联动菜单的名称<br>
+    linkages_name：联动菜单多选的名称<br>
+    ftable：表格数据格式化<br>
+</p>
+
+{template "footer.html"}

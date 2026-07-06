@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<title>{$meta_title}</title>
+        <meta name="keywords" content="{$meta_keywords}"/>
+        <meta name="description" content="{$meta_description}" />
+		<link rel="stylesheet" href="{THEME_PATH}assets/zhengzhoudaguanwangmobile/css/common.css">
+		<link rel="stylesheet" href="{THEME_PATH}assets/zhengzhoudaguanwangmobile/css/swiper.min.css">
+		<link rel="stylesheet" href="{THEME_PATH}assets/zhengzhoudaguanwangmobile/css/aboutYugong.css">
+		<script type="text/javascript" src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/js/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript" src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/js/swiper.min.js"></script>
+		<script type='text/javascript' src='{THEME_PATH}assets/zhengzhoudaguanwangmobile/layer/layer.js'></script>
+		<script type="text/javascript">
+			(function (doc, win) {
+				var docEl = doc.documentElement,
+						resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+						recalc = function () {
+							var clientWidth = docEl.clientWidth;
+							if (!clientWidth) return;
+							if(clientWidth>=750){
+								docEl.style.fontSize = '100px';
+							}else{
+								docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+							}
+						};
+
+				if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<style>
+		    
+		    .layui-layer-content{color: #fff !important;}
+		    
+		    .layui-layer-padding{color: #333 !important}
+		    
+		    .part07{width: 100%;height: 3.96rem;margin-bottom: 0.34rem;}
+
+            .part07_center{width: 6.82rem;height: 3.96rem;margin: 0 auto;position: relative;overflow: hidden;border-radius: 0.3rem;}
+		    
+		</style>
+	</head>
+	<body style="position: relative;">
+
+        {template "header.html"}
+
+        {template "nav.html"}	
+
+		<div class="container">
+			<div class="part01">
+				<div class="part01_center">
+					<div class="part01_center_h3">
+						<h3>
+                            <b>20年</b>工程机械厂家&nbsp;&nbsp;&nbsp;畅销全球100多个国家和地区！
+                        </h3>
+					</div>
+					<div class="part01_center_h6">
+						<h6>
+                            20 Years Construction Machinery Manufacturer Best-selling in more than 100 countries and regions around the world!
+                        </h6>
+					</div>
+				</div>
+			</div>
+
+
+			
+			<div class="part05">
+				<div class="part05_center">
+					<div class="part05_top">
+						<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/aboutYugongMobile/part05_top_icon.png" alt="">
+						<h3>
+							公司简介
+						</h3>
+					</div>
+					<div class="part05_bottom">
+						<p>
+							郑州豫工工程机械创始于2005年，是一家集公路、桥梁、隧道、矿山、市政等工程机械研发、生产、销售于一体的大型综合性企业。
+						</p>
+						<p>
+							郑州豫工工程机械致力于路面机械、桥梁预应力设备、工程钻机注浆设备、环保设备、隧道喷浆支护设备、切割破拆设备的研发生产，提供专业施工方案和成熟稳定的配套设备，深耕全球，助力祖国工程建设。     
+						</p>
+					</div>
+				</div>	
+			</div>
+
+
+			<div class="part03">
+				<div class="part03_top">
+				    <a href="https://tb.53kf.com/code/client/94ed3a1a92adb3360088b64c2da46c228/13" style="text-decoration: none;">
+					    <img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part03_top_image.png" alt="">
+					</a>
+				</div>
+				<div class="part03_center">
+					<div class="part03_center_top">
+						<h3>
+							算一算 购买一套设备需要多少钱?
+						</h3>
+						<h6>
+							一台也是批发价 快留下信息锁定工厂优惠报价吧
+						</h6>
+					</div>
+					<div class="part03_center_form">
+						<form>
+							<input class="part03_center_form_name" id="name3" type="text" placeholder="请输入姓名">
+							<input class="part03_center_form_tel" id="tel3" type="text" placeholder="请输入手机号">
+							<input type="text" id="cp3" style="display:none" value="郑州大官网手机端关于豫工中间">
+							<button class="part03_center_form_button" type="button" id="fenge_zixun2">
+								<h3>
+									免费获取工厂活动价
+								</h3>
+							</button>
+						</form>
+					</div>
+				</div>	
+			</div>
+			
+			
+			
+			
+			
+			<script>
+                   
+                    $(function(){
+                        
+                        $('#fenge_zixun2').click(function(){
+                            
+                            
+                            
+                            
+                            var newTitle = document.getElementById("cp3").value;
+                            
+                            var newAuthor = document.getElementById("name3").value;
+                            
+                            var newDianhua = document.getElementById("tel3").value;
+                            
+                            var newWangzhi = window.location.href;
+                            
+                            //var newLiuyan = document.getElementById("ly").value;
+                            
+                            var newLiuyan = "";
+                            
+                            var newData = "is_ajax=1&data[title]="+newTitle+"&data[author]="+newAuthor+"&data[dianhua]="+newDianhua+"&data[wangzhi]="+newWangzhi+"&data[liuyan]="+newLiuyan+"";
+                            
+                            
+                            //console.log(newTitle);
+                            
+                            //console.log(newAuthor);
+                            
+                            //console.log(newWangzhi);
+                        
+                            //console.log(newLiuyan);
+                            
+                            
+                            if(newDianhua){
+                                
+                                
+                                
+                            
+                                newDianhua = Number(newDianhua);
+                                
+                                newDianhua = String(newDianhua);
+                                
+                            
+                                //console.log(newDianhua.length);
+                                
+                                
+                                //console.log(typeof(newDianhua));
+                                
+                                
+                                //console.log(newDianhua);
+                                
+                                
+                                //console.log(typeof(newDianhua) == "string");
+                                
+                                
+                                //console.log(newDianhua.length == 11);
+                                
+                            
+                                if((typeof(newDianhua) == "string")&&(newDianhua.length == 11)){
+                                    
+                                    
+                                    $.ajax({
+                                         type: "post",
+                                         url: "https://kuayu2.hnyugong.com/index.php?v=1&appid=1&appsecret=PHPCMF32C04A005323F&s=form&c=biaodan12&m=post",
+                                         data: newData,
+                                         header: {
+                                                'Content-Type': 'application/x-www-form-urlencoded',
+                                         },
+                                         //dataType: "json",
+                                         success: function(data){
+                                             
+                                            console.log(data.code);
+                                            console.log(data.msg);
+                                            
+                                            if(data.code == 0){
+                                                
+                                                //layer.alert('见到你真的很高兴', {icon: 6});
+                                                
+                                            }else if(data.code > 0){
+                                                
+                                                //layer.alert('见到你真的很高兴', {icon: 6});
+                                                
+                                                layer.alert('恭喜报名成功！稍后产品经理会与您联系',{icon: 1});
+                                                
+                                                
+                                                
+                                                document.getElementById("name3").value = "";
+                                                
+                                                document.getElementById("tel3").value = "";
+                                                
+                                                //document.getElementById("ly").value = "";
+                                                
+                                            }else{
+                                                
+                                                
+                                            }
+                                                     
+                                         },
+                                         error:function(XMLHttpRequest, textstatus,errorThrown){
+                                            //debugger
+                                            // 状态码
+                                            console.log(XMLHttpRequest.status);
+                                            // 状态
+                                            console.log(XMLHttpRequest.readyState);
+                                            // 错误信息
+                                            console.log(textstatus);
+                                            ___hideLoading();
+                                            if(XMLHttpRequest.readyState==0){
+                                                // 对应登录超时问题，直接酷到登录页面
+                                                location.href='../Login.action';
+                                            }else{
+                                                 $.messager.alert("提示'，系统内部错误，请联系管理员处理!",'info');
+                                            }
+                                        }
+                                     });
+                                     
+                                    
+                                }else{
+                                    
+                                    
+                                    layer.msg('电话号码不是11位');
+                                    
+                                    //console.log(123);
+                                    
+                                    
+                                }
+                                
+                                
+                                
+                                
+                            
+                                
+                                
+                            }else{
+                                
+                                layer.msg('电话不能为空');
+                                
+                                
+                            }
+                            
+                
+                            
+                            
+                            
+                            
+                             
+                             
+                        });
+                    });
+                            
+            </script> 
+			
+			
+			
+			<div class="part06">
+				<div class="part06_center">
+					<div class="part06_top">
+						<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/aboutYugongMobile/part06_top_icon.png" alt="">
+						<h3>
+							生产能力
+						</h3>
+					</div>
+					<div class="part06_bottom">
+						<p>
+							公司建成5万平现代化生产厂区，技术力量雄厚，加工设备齐全，检测手段完备；
+						</p>
+						<p>
+							经过20余年高速发展，在工程机械领域积累了丰富的生产经验；
+						</p>
+						<p>
+							主营产品系列包括路面施工、桥梁预应力、隧道喷浆支护、工程用注浆泵车、各类工程钻机、环保绿化、切割破拆、市政工程等八大产品系列，一百多款产品；
+						</p>
+					</div>
+				</div>	
+			</div>
+			
+			<div class="part07">
+				<div class="part07_center">
+	                <div class="swiper-container14" id="swiper_container14">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part022_right_piece_image_01.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part022_right_piece_image_08.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part022_right_piece_image_09.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part022_right_piece_image_10.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part022_right_piece_image_11.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part022_right_piece_image_12.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part022_right_piece_image_13.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part022_right_piece_image_14.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part022_right_piece_image_02.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part022_right_piece_image_03.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part022_right_piece_image_04.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part022_right_piece_image_05.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part022_right_piece_image_06.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part022_right_piece_image_07.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+				</div>	
+			</div>
+			
+			<script>
+
+				var mySwiper14= new Swiper('.swiper-container14', {	 
+					spaceBetween: 20,
+					effect: 'slide',
+					speed: 300,
+					autoplay: false,
+					loop:false,
+                    pagination: {
+                        el: ".part07_center .swiper-pagination",
+                        clickable: true,
+                    },
+
+				})
+
+			</script>
+			
+			
+			<div class="part08">
+				<div class="part08_center">
+					<div class="part08_top">
+						<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/aboutYugongMobile/part06_top_icon.png" alt="">
+						<h3>
+							国际合作
+						</h3>
+					</div>
+					<div class="part08_bottom">
+						<p>
+							匠心铸就品质，诚信赢得市场！"优厂优品、优质优价"是豫工人永恒的追求。
+						</p>
+						<p>
+							20余年来，豫工机械用产品抢占市场，用服务创造市场，用品牌开拓市场，凭借专业的品质、合理的价格、良好的服务与口碑，得到了国内外客户的一致好评，累计服务工程项目10万+！
+						</p>
+						<p>
+							多款产品在国家大批重点建设项目及重大工程中被广泛采用和推广，长期供货于中国中铁、中国建筑、中水中交、中国电建、郑州地铁集团等知名企业！
+						</p>
+					</div>
+				</div>	
+			</div>
+			
+			
+			<div class="part09">
+				<div class="part09_center">
+				    <div class="swiper-container15" id="swiper_container15">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part028_left_piece_image_01.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part028_left_piece_image_02.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part028_left_piece_image_03.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part028_left_piece_image_04.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part028_left_piece_image_05.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part028_left_piece_image_06.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part028_left_piece_image_07.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part028_left_piece_image_08.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part028_left_piece_image_09.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part028_left_piece_image_10.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>   
+				</div>	
+			</div>
+			
+			
+			<script>
+
+				var mySwiper15= new Swiper('.swiper-container15', {	 
+					spaceBetween: 20,
+					effect: 'slide',
+					speed: 300,
+					autoplay: false,
+					loop:false,
+					pagination: {
+                        el: ".part09_center .swiper-pagination",
+                        clickable: true,
+                    },
+
+				})
+
+			</script>
+			
+			<div class="part010">
+				<div class="part010_center">
+					<div class="part010_top">
+						<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/aboutYugongMobile/part06_top_icon.png" alt="">
+						<h3>
+							企业文化
+						</h3>
+					</div>
+					<div class="part010_bottom">
+						<p>
+							郑州豫工工程机械以“品质过硬·服务完善·精诚合作·互惠共赢”的服务宗旨，
+                            · 以“优厂优品、优质优价”为经营目标；
+                            · 以“分享、担当、自信、坚韧、感恩”为企业文化；
+                            · 以“客户第一 诚信第一 共赢成长”为合作理念；
+						</p>
+						<p>
+							致力于“让世界爱上河南造”的企业使命，持续提升产品品质与服务质量，为客
+                            户提供贴心的一站式服务，打造豫工核心竞争力！豫工人始终不忘初心，潜心耕
+                            耘，热忱期待与广大客户朋友精诚合作、互惠共赢!
+						</p>
+					</div>
+				</div>	
+			</div>
+			
+			
+			<div class="part011">
+				<div class="part011_center">
+				    <div class="swiper-container16" id="swiper_container16">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part029_left_piece_image_01.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part029_left_piece_image_02.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part029_left_piece_image_03.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part029_left_piece_image_04.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part029_left_piece_image_05.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>       
+				</div>	
+			</div>
+			
+			
+			<script>
+
+				var mySwiper16= new Swiper('.swiper-container16', {	 
+					spaceBetween: 20,
+					effect: 'slide',
+					speed: 300,
+					autoplay: false,
+					loop:false,
+                    pagination: {
+                        el: ".part011_center .swiper-pagination",
+                        clickable: true,
+                    },
+
+				})
+
+			</script>
+			
+			
+			<div class="part012">
+				<div class="part012_center">
+					<div class="part012_top">
+						<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/aboutYugongMobile/part06_top_icon.png" alt="">
+						<h3>
+							员工风采
+						</h3>
+					</div>
+					<div class="part012_bottom">
+						<p>
+							郑州豫工工程机械把先进的技术、高科技的人才、先进的理念融合到企业的发展进程中，造就了一批高素质专业人才
+						</p>
+						<p>
+							目前在职员工1000多人，其中公司总部运营中心200多人，工厂职工800余人。
+						</p>
+					</div>
+				</div>	
+			</div>
+			
+			
+			
+			<div class="part013">
+				<div class="part013_center">
+				    <div class="swiper-container17" id="swiper_container17">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part030_left_piece_image_01.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part030_left_piece_image_02.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part030_left_piece_image_03.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part030_left_piece_image_04.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part030_left_piece_image_05.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part030_left_piece_image_06.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part030_left_piece_image_07.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part030_left_piece_image_08.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part030_left_piece_image_09.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part030_left_piece_image_10.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part030_left_piece_image_11.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part030_left_piece_image_12.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part030_left_piece_image_13.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part030_left_piece_image_14.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part030_left_piece_image_15.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part030_left_piece_image_16.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesAboutYugong/part030_left_piece_image_17.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div> 
+				</div>	
+			</div>
+			
+		    <script>
+
+				var mySwiper17= new Swiper('.swiper-container17', {	 
+					spaceBetween: 20,
+					effect: 'slide',
+					speed: 300,
+					autoplay: false,
+					loop:false,
+                    pagination: {
+                        el: ".part013_center .swiper-pagination",
+                        clickable: true,
+                    },
+
+				})
+
+			</script>
+			
+			
+		</div>	
+		<div class="footer">
+			<h2>
+				咨询电话：
+				<a href="tel:18937135091" style="text-decoration:none;">
+				    189-3713-5091
+				</a>    
+			</h2>
+			<h3>
+				版权所有：郑州豫工工程机械有限公司
+			</h3>
+			<h4>
+				豫ICP备2023028284号-1
+			</h4>
+		</div>
+
+         {template footer.html}
+
+		<div style="height: 0.68rem;">
+
+		</div>
+	</body>
+</html>
+
+

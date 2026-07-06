@@ -1,0 +1,178 @@
+<div class="index_part025 company">
+    <div class="part025_center">
+        <div class="part025_block">
+            <div class="part025_middle">
+                <ul id="content_list_01">
+
+                    {template "news_list_company_data.html"}
+
+                </ul>
+            </div>
+            <div class="part025_bottom">
+                <div class="part025_bottom_left">
+                    <div class="part025_bottom_left_font">
+                        <h5>
+                            公司新闻总计
+                        </h5>
+                    </div>
+                    <div class="part025_bottom_left_num part025_bottom_left_num_01">
+                        <h6>
+                            <b>1</b>/<span>{count action=module module=xinwenzhongxin catid=9}</span>
+                        </h6>
+                    </div>
+                </div>
+                <div class="part025_bottom_right part025_bottom_right_01" style="cursor: pointer;">
+                    <div class="part025_bottom_right_lump part025_bottom_right_lump_01 more_01">
+                        <div class="part025_bottom_right_piece">
+                            <div class="part025_bottom_right_piece_h3">
+                                <h3>
+                                    查看更多
+                                </h3>
+                            </div>
+                            <div class="part025_bottom_right_piece_icon">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesNewsList/part025_bottom_right_piece_icon.png" alt="">
+                            </div>
+                        </div>
+                        <div class="part025_bottom_right_arrow part025_bottom_right_arrow_01">
+                            <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesNewsList/part025_bottom_right_arrow.png" alt="">
+                        </div>
+                    </div>
+                    <div class="part025_bottom_right_chunk part025_bottom_right_chunk_01">
+                        <h6>
+                            我也是有底线的...
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+
+
+        $(function(){
+
+            $(".part025_bottom_right_01").hover(function(){
+
+                $(".part025_bottom_right_arrow_01").css("right","4.38rem");
+
+            },function(){
+
+                $(".part025_bottom_right_arrow_01").css("right","0.4rem");
+
+            })
+
+
+        })
+
+
+
+
+
+</script>
+
+
+<script>
+
+    $(function(){       
+
+        var newNum =  $("#content_list_01").find("li").length;
+
+        $(".part025_bottom_left_num_01 h6 b").text(newNum);
+        
+        
+        
+        // 在 AJAX 请求完成后获取最新的当前页码和总页数
+        var currentPage = parseInt($(".part025_bottom_left_num_01 h6 b").text());
+        var totalPages = parseInt($(".part025_bottom_left_num_01 h6 span").text());
+        
+        if(currentPage === totalPages){
+            //layer.msg("已经显示完了",{time:500});
+            $(".part025_bottom_right_lump_01").css("display","none");
+            $(".part025_bottom_right_chunk_01").css("display","block");
+        }else{
+            //layer.msg("继续加载中",{time:500});
+        }
+
+
+    })
+
+</script>
+
+
+<script>
+
+
+    var Mpage_01=1;
+
+    //滚动显示更多
+    var scroll_get_01 = true;  //做个标志,不要反反复复的加载
+    
+    $(function(){
+
+
+        $(".more_01").click(function(){
+            //layer.msg('内容加截中,请稍候',{time:1000});
+            dr_ajax_load_more_01();
+        })
+
+        
+    });
+
+    function dr_ajax_load_more_01(){
+
+        Mpage_01++;
+
+        $.get('/index.php?s=api&c=api&m=template&name=news_list_company_data.html&module={MOD_DIR}&catid=9&format=json&page='+Mpage_01+'&'+Math.random(),function(res){
+
+
+            if(res.code==1){
+                if(res.msg.trim()==''){
+
+                    // layer.msg("已经显示完了",{time:500});
+
+                    // $(".part025_bottom_right_lump_01").css("display","none");
+
+                    // $(".part025_bottom_right_chunk_01").css("display","block");
+
+                    //console.log(123);
+
+                }else{
+
+                    $('#content_list_01').append(res.msg);
+                    scroll_get_01 = true;
+                    //console.log(res);
+                }
+            }else{
+                layer.msg(res.msg,{time:2500});
+            }
+
+            var newNum =  $("#content_list_01").find("li").length;
+
+            $(".part025_bottom_left_num_01 h6 b").text(newNum);
+            
+            
+            // 在 AJAX 请求完成后获取最新的当前页码和总页数
+            var currentPage = parseInt($(".part025_bottom_left_num_01 h6 b").text());
+            var totalPages = parseInt($(".part025_bottom_left_num_01 h6 span").text());
+            
+            if(currentPage === totalPages){
+                layer.msg("已经显示完了",{time:500});
+                $(".part025_bottom_right_lump_01").css("display","none");
+                $(".part025_bottom_right_chunk_01").css("display","block");
+            }else{
+                layer.msg("继续加载中",{time:500});
+            }
+
+
+
+        }, 'json');
+    }
+    
+    
+    
+</script>

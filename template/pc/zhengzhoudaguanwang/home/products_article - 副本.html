@@ -1,0 +1,939 @@
+
+    
+
+{template "header_products_article.html"}
+
+
+
+{template "nav.html"}    
+
+
+<script>
+    
+    $(function(){
+        
+        $(".part01_right ul li").removeClass("part01_right_li_bg_active");
+        
+        $(".part01_right ul li:nth-child(4)").addClass("part01_right_li_bg_active");
+        
+    })
+    
+    
+</script>
+
+
+
+
+
+			<div class="index_part02">
+                <div class="part02_center">
+					<div class="part02_block">
+                        <h3 class="wow animate__animated animate__fadeInUp">
+                            <b>19年</b>工程机械厂家&nbsp;&nbsp;&nbsp;畅销全球100多个国家和地区！
+                        </h3>
+                        <h6 class="wow animate__animated animate__fadeInUp">
+                            19 Years Construction Machinery Manufacturer Best-selling in more than 100 countries and regions around the world!
+                        </h6>
+                    </div>
+                </div>
+			</div>
+
+
+
+            
+			<div class="index_part011">
+				<div class="part011_center">
+                    <div class="part011_block">
+                        <div class="part011_top">
+                            <div class="part011_top_icon">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/product_article/part011_top_icon.png" alt="">
+                            </div>
+                            <div class="part011_top_h3">
+                                <h3>
+                                    您当前的位置：
+                                </h3>
+                            </div>
+                            <div class="part011_top_h6">
+                                <h6>
+                                    <a href="/" style="text-decoration: none;">
+                                        网站首页
+                                    </a>    
+                                    /
+                                    <a href="{dr_share_cat_value(4, 'url')}" style="text-decoration: none;">
+                                        产品中心
+                                    </a>
+                                    /
+                                    {$title}
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="part011_bottom">
+                            <hr>
+                        </div>
+                    </div>
+				</div>
+			</div>
+
+
+
+            
+            <div class="index_part027 wow animate__animated animate__fadeInUp" style="margin-top: 0.35rem;margin-bottom: 0.55rem;">
+				<div class="part027_center">
+					<div class="part027_block">
+                        <div class="part027_top">
+                            <div class="part027_top_piece">
+                               <div class="part027_top_piece_left">
+                                   <div class="part027_top_piece_left_chunk">
+                                    <div class="swiper-container12" id="swiper_container12">
+                                        <div class="swiper-wrapper">
+                                            {if $cpxqydblbtsp != false}
+
+                                                <div class="swiper-slide">
+                                                    <video src="{dr_get_file($cpxqydblbtsp)}" controls="controls" poster="{dr_thumb($cpxqydblbtspfm, 641, 516)}"></video>
+                                                </div>
+    
+    
+                                            <?php $cpxqydblbt = dr_arraycut($cpxqydblbt, '1,4');?>
+    
+                                            <?php if ($cpxqydblbt) { $key=0;foreach ($cpxqydblbt as $c) { ?>
+    
+                                                <div class="swiper-slide">
+                                                    <img src="{dr_thumb($c, 641, 516)}" alt="">
+                                                </div>
+        
+                                            <?php $key++;} } ?>
+
+
+
+
+                                            {else}
+
+
+                                                    <?php if ($cpxqydblbt) { $key=0;foreach ($cpxqydblbt as $c) { ?>
+
+                                                        <div class="swiper-slide">
+                                                            <img src="{dr_thumb($c, 641, 516)}" alt="">
+                                                        </div>
+            
+                                                    <?php $key++;} } ?>
+
+                                            {/if}
+
+                                        </div>
+                                    </div>
+                                   </div>
+                               </div>
+                               <div class="part027_top_piece_right">
+                                   <div class="part027_top_piece_right_top">
+                                       <div class="part027_top_piece_right_top_chunk">
+                                            <div class="part027_top_piece_right_top_chunk_top">
+                                                <div class="part027_top_piece_right_top_chunk_top_title">
+                                                    <div class="part027_top_piece_right_top_chunk_top_title_lump">
+                                                        <h3>
+                                                            {dr_strcut($title, 6, '')} 
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                                <div class="part027_top_piece_right_top_chunk_top_tel">
+                                                    <div class="part027_tel">
+                                                        <div class="part027_tel_piece">
+                                                            <div class="part027_tel_piece_icon">
+                                                                <div class="part027_tel_piece_icon_lump">
+                                                                    <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/product_article/part027_tel_piece_icon_lump_image.png" alt="">   
+                                                                </div>
+                                                            </div>
+                                                            <div class="part027_tel_piece_font">
+                                                                <h6>
+                                                                    24小时工厂热线
+                                                                </h6>
+                                                                <h3>
+                                                                    138-3710-3643
+                                                                </h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="part027_top_piece_right_top_chunk_middle">
+                                                <div class="part027_top_piece_right_top_chunk_middle_lump">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="part027_top_piece_right_top_chunk_middle_lump_li_icon">
+                                                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/product_article/part027_top_piece_right_top_chunk_middle_lump_li_icon.png" alt="">
+                                                            </div>
+                                                            <div class="part027_top_piece_right_top_chunk_middle_lump_li_font">
+                                                                <div class="part027_top_piece_right_top_chunk_middle_lump_li_font_title">
+                                                                    <h3>
+                                                                        {dr_strcut($cpxqydbcs1, 100, '')} 
+                                                                    </h3>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="part027_top_piece_right_top_chunk_middle_lump_li_icon">
+                                                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/product_article/part027_top_piece_right_top_chunk_middle_lump_li_icon.png" alt="">
+                                                            </div>
+                                                            <div class="part027_top_piece_right_top_chunk_middle_lump_li_font">
+                                                                <div class="part027_top_piece_right_top_chunk_middle_lump_li_font_title">
+                                                                    <h3>
+                                                                        {dr_strcut($cpxqydbcs2, 100, '')} 
+                                                                    </h3>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="part027_top_piece_right_top_chunk_middle_lump_li_icon">
+                                                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/product_article/part027_top_piece_right_top_chunk_middle_lump_li_icon.png" alt="">
+                                                            </div>
+                                                            <div class="part027_top_piece_right_top_chunk_middle_lump_li_font">
+                                                                <div class="part027_top_piece_right_top_chunk_middle_lump_li_font_title">
+                                                                    <h3>
+                                                                        {dr_strcut($cpxqydbcs3, 100, '')} 
+                                                                    </h3>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="part027_top_piece_right_top_chunk_bottom">
+                                                <div class="part027_top_piece_right_top_chunk_bottom_lump">
+                                                    <div class="part027_top_piece_right_top_chunk_bottom_lump_font">
+                                                        <h3>
+                                                            新人<br/>
+                                                            福利
+                                                        </h3>
+                                                    </div>
+                                                    <div class="part027_top_piece_right_top_chunk_bottom_lump_Slab">
+                                                        <div class="part027_top_piece_right_top_chunk_bottom_lump_Slab_Square">
+                                                            <div class="part027_top_piece_right_top_chunk_bottom_lump_Slab_Square_money">
+                                                                <div class="part027_top_piece_right_top_chunk_bottom_lump_Slab_Square_money_icon">
+                                                                    <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/product_article/part027_top_piece_right_top_chunk_bottom_lump_Slab_Square_money_icon.png" alt="">
+                                                                </div>
+                                                                <div class="part027_top_piece_right_top_chunk_bottom_lump_Slab_Square_money_h3">
+                                                                    <h3>
+                                                                        {$cpxqydbxjskq} 
+                                                                    </h3>
+                                                                </div>
+                                                                <div class="part027_top_piece_right_top_chunk_bottom_lump_Slab_Square_money_h6">
+                                                                    <h6>
+                                                                        现金抵扣券
+                                                                    </h6>
+                                                                </div>
+                                                            </div>
+                                                            <div class="part027_top_piece_right_top_chunk_bottom_lump_Slab_Square_link">
+                                                                <div class="part027_top_piece_right_top_chunk_bottom_lump_Slab_Square_link_tablet">
+                                                                    <div class="part027_top_piece_right_top_chunk_bottom_lump_Slab_Square_link_tablet_plank">
+                                                                        <a href="https://affim.baidu.com/unique_52605121/chat?siteId=20180242&userId=52605121&siteToken=1477cbe4beb08b8aee40baefeb131573" style="display: block;text-decoration: none;" target="_blank">
+                                                                            <button class="button--nina">
+                                                                                <span>立</span>
+                                                                                <span>即</span>
+                                                                                <span>领</span>
+                                                                                <span>取</span>
+                                                                                <span><img class="animate__animated animate__pulse" src="{THEME_PATH}assets/zhengzhoudaguanwang/images/product_article/part027_top_piece_right_top_chunk_bottom_lump_Slab_Square_link_tablet_icon.png" alt="" style="position: relative;"></span>
+                                                                                <div class="button--nina-before">立即领取<img class="animate__animated animate__pulse" src="{THEME_PATH}assets/zhengzhoudaguanwang/images/product_article/part027_top_piece_right_top_chunk_bottom_lump_Slab_Square_link_tablet_icon.png" alt=""></div>
+                                                                            </button>
+                                                                        </a> 
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                       </div>     
+                                   </div>
+                                   <div class="part027_top_piece_right_bottom">
+                                       <div class="part027_top_piece_right_bottom_link">
+                                           <div class="part027_top_piece_right_bottom_link_chunk">
+                                                <a href="https://affim.baidu.com/unique_52605121/chat?siteId=20180242&userId=52605121&siteToken=1477cbe4beb08b8aee40baefeb131573" style="display: block;text-decoration: none;" target="_blank">
+                                                    <button class="button--nina">
+                                                        <span><img class="animate__animated animate__pulse" src="{THEME_PATH}assets/zhengzhoudaguanwang/images/product_article/part027_top_piece_right_bottom_link_chunk_icon.png" alt="" style="position: relative;"></span>
+                                                        <span>立</span>
+                                                        <span>即</span>
+                                                        <span>咨</span>
+                                                        <span>询</span>
+                                                        <div class="button--nina-before"><img class="animate__animated animate__pulse" src="{THEME_PATH}assets/zhengzhoudaguanwang/images/product_article/part027_top_piece_right_bottom_link_chunk_icon.png" alt="">在线咨询</div>
+                                                    </button>
+                                                </a> 
+                                           </div>
+                                       </div>
+                                       <div class="part027_top_piece_right_bottom_buy">
+                                           <a href="https://affim.baidu.com/unique_52605121/chat?siteId=20180242&userId=52605121&siteToken=1477cbe4beb08b8aee40baefeb131573" style="text-decoration: none;" target="_blank">
+                                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/product_article/part027_top_piece_right_bottom_buy_icon.png" alt="">
+                                                <h3>
+                                                    立即购买
+                                                </h3>
+                                           </a>
+                                       </div>           
+                                   </div>     
+                               </div>
+                            </div>
+                        </div>
+                        <div class="part027_bottom">
+                            <div class="part027_bottom_piece">
+                                <ul>
+                                    {if $cpxqydblbtsp != false}
+
+                                        <li>
+                                            <img src="{dr_thumb($cpxqydblbtspfm, 270, 216)}" alt="">
+                                        </li>
+
+
+                                    <?php $cpxqydblbt = dr_arraycut($cpxqydblbt, '0,4');?>
+
+                                    <?php if ($cpxqydblbt) { $key=0;foreach ($cpxqydblbt as $c) { ?>
+
+                                        <li>
+                                            <img src="{dr_thumb($c, 270, 216)}" alt="">
+                                        </li>
+
+                                    <?php $key++;} } ?>
+
+
+                                    
+
+
+                                    {else}
+
+                                        
+
+                                        <?php if ($cpxqydblbt) { $key=0;foreach ($cpxqydblbt as $c) { ?>
+
+                                            <li>
+                                                <img src="{dr_thumb($c, 270, 216)}" alt="">
+                                            </li>
+
+                                        <?php $key++;} } ?>
+
+                                        
+
+
+                                    {/if}
+
+                                </ul>
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+
+
+            <script>
+
+                var mySwiper12= new Swiper('.swiper-container12', {
+					slidesPerView : 1,  
+					spaceBetween: 20,
+					effect: 'slide',
+					speed: 300,
+					autoplay: false,
+					loop:false,
+					on: {
+        				slideChangeTransitionStart: function(){
+    					    let i = this.activeIndex;
+    					    $('.part027_bottom_piece').find('li').eq(i).addClass('part027_bottom_piece_li_active').siblings('li').removeClass('part027_bottom_piece_li_active');
+    					},
+    				}
+				})
+				
+    			$('.part027_bottom_piece li').mouseover(function(){
+    				var index = $(this).index();
+    				$(this).addClass('part027_bottom_piece_li_active').siblings('li').removeClass('part027_bottom_piece_li_active');
+    				mySwiper12.slideTo(index);
+    			})
+
+            </script>
+
+
+
+
+
+            
+            
+
+            <div class="index_part023">
+                <div class="part023_center">
+                    <div class="part023_block main-title">
+                        <ul>
+                            <li class="part023_block_li_active">
+                                <h3>
+                                    设备简介
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    适用范围
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    结构优势
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    设备参数
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    部分用户现场
+                                </h3>
+                            </li>
+                        </ul>   
+                    </div>
+                </div>
+            </div>
+
+            
+
+
+            
+            <div class="index_part025 wow animate__animated animate__fadeInUp">
+				<div class="part025_center">
+                    <div class="part025_block main-content"> 
+                        <div class="part025_block_intro sooll">
+                            <div class="part025_block_intro_piece">
+                                <div class="part025_block_intro_piece_title">
+                                    <h3>
+                                        {$title}简介 
+                                    </h3>
+                                </div>
+                                <div class="part025_block_intro_piece_hr">
+                                    <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/product_article/part025_block_intro_piece_hr_image.png" alt="">
+                                </div>
+                                <div class="part025_block_intro_piece_content">
+                                    <p>
+                                        {$content}                                       
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="part025_block_range sooll">
+                            <div class="part025_block_range_piece">
+                                <div class="part025_block_range_piece_title">
+                                    <h3>
+                                        {$title}适用范围
+                                    </h3>
+                                </div>
+                                <div class="part025_block_range_piece_hr">
+                                    <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/product_article/part025_block_range_piece_hr_image.png" alt="">
+                                </div>
+                                <div class="part025_block_range_piece_content">
+                                    <p>
+                                        {$cpxqyzbsyfw}     
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="part025_block_advantage sooll">
+                            <div class="part025_block_advantage_piece">
+                                <div class="part025_block_advantage_piece_title">
+                                    <h3>
+                                        {$title}结构优势
+                                    </h3>
+                                </div>
+                                <div class="part025_block_advantage_piece_hr">
+                                    <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/product_article/part025_block_advantage_piece_hr_image.png" alt="">
+                                </div>
+                                <div class="part025_block_advantage_piece_content">
+                                    <p>
+                                        {$cpxqyzbjgys}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="part025_block_param sooll">
+                            <div class="part025_block_param_piece_title">
+                                <h3>
+                                    {$title}参数
+                                </h3>
+                            </div>
+                            <div class="part025_block_param_piece_hr">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/product_article/part025_block_param_piece_hr_image.png" alt="">
+                            </div>
+                            <div class="part025_block_param_piece_content">
+                                <p>
+                                    {$cpxqyzbsbcs}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="part025_block_scene sooll">
+                            <div class="part025_block_scene_piece">
+                                <div class="part025_block_scene_piece_title">
+                                    <h3>
+                                        {$title}部分用户现场
+                                    </h3>
+                                </div>
+                                <div class="part025_block_scene_piece_hr">
+                                    <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/product_article/part025_block_scene_piece_hr_image.png" alt="">
+                                </div>
+                                <div class="part025_block_scene_piece_content">
+                                    <ul>
+
+                                        <?php if ($cpxqyzbbfyhxc) { $key=0; foreach ($cpxqyzbbfyhxc as $c) { ?>
+
+
+                                            <li>
+                                                <img src="{dr_thumb($c, 358, 273)}" alt="">
+                                            </li>
+
+                                        <?php $key++;} } ?>
+                                        
+                                        
+                                        <!--<?php if (false) { $key=0; foreach ($cpxqyzbbfyhxc as $c) { ?>-->
+
+
+                                        <!--    <li>-->
+                                        <!--        <img src="{dr_thumb($c, 358, 273)}" alt="">-->
+                                        <!--    </li>-->
+
+                                        <!--<?php $key++;} } ?>-->
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+
+
+
+	        <script>
+	            
+	            $(function(){
+	                
+	                /*第一个js*/
+	                
+                    // 获取所有具有类名为part025_block_intro_piece_content的<div>元素
+                    var divElements = document.querySelectorAll('.part025_block_intro_piece_content');
+                    
+                    // 遍历每个<div>元素
+                    divElements.forEach(function(divElement) {
+                      // 获取<div>元素下的所有<p>标签元素
+                      var pElements = divElement.querySelectorAll('p');
+                      
+                      // 标记<div>元素是否含有非空内容
+                      var hasContent = false;
+                      
+                      // 遍历每个<p>标签元素
+                      pElements.forEach(function(pElement) {
+                        // 获取<p>标签的内容并去除空格
+                        var content = pElement.textContent.trim();
+                        
+                        // 如果存在非空内容,设置标记为true
+                        if (content !== '') {
+                          hasContent = true;
+                        }
+                      });
+                      
+                      // 获取.part025_block_intro元素
+                      var introElement = divElement.closest('.part025_block_intro');
+                      
+                      // 根据标记决定是否隐藏.part025_block_intro元素
+                      if (hasContent) {
+                        // 存在非空内容,显示.part025_block_intro元素
+                        introElement.style.display = 'block';
+                      } else {
+                        // 不存在非空内容,隐藏.part025_block_intro元素
+                        introElement.style.display = 'none';
+                      }
+                    });
+                    
+                    
+                    
+                    /*第二个js*/
+	                
+                    // 获取所有具有类名为part025_block_intro_piece_content的<div>元素
+                    var divElements = document.querySelectorAll('.part025_block_range_piece_content');
+                    
+                    // 遍历每个<div>元素
+                    divElements.forEach(function(divElement) {
+                      // 获取<div>元素下的所有<p>标签元素
+                      var pElements = divElement.querySelectorAll('p');
+                      
+                      // 标记<div>元素是否含有非空内容
+                      var hasContent = false;
+                      
+                      // 遍历每个<p>标签元素
+                      pElements.forEach(function(pElement) {
+                        // 获取<p>标签的内容并去除空格
+                        var content = pElement.textContent.trim();
+                        
+                        // 如果存在非空内容,设置标记为true
+                        if (content !== '') {
+                          hasContent = true;
+                        }
+                      });
+                      
+                      // 获取.part025_block_intro元素
+                      var introElement = divElement.closest('.part025_block_range');
+                      
+                      // 根据标记决定是否隐藏.part025_block_intro元素
+                      if (hasContent) {
+                        // 存在非空内容,显示.part025_block_intro元素
+                        introElement.style.display = 'block';
+                      } else {
+                        // 不存在非空内容,隐藏.part025_block_intro元素
+                        introElement.style.display = 'none';
+                      }
+                    });
+                    
+                    
+                    /*第三个js*/
+	                
+                    // 获取所有具有类名为part025_block_intro_piece_content的<div>元素
+                    var divElements = document.querySelectorAll('.part025_block_advantage_piece_content');
+                    
+                    // 遍历每个<div>元素
+                    divElements.forEach(function(divElement) {
+                      // 获取<div>元素下的所有<p>标签元素
+                      var pElements = divElement.querySelectorAll('p');
+                      
+                      // 标记<div>元素是否含有非空内容
+                      var hasContent = false;
+                      
+                      // 遍历每个<p>标签元素
+                      pElements.forEach(function(pElement) {
+                        // 获取<p>标签的内容并去除空格
+                        var content = pElement.textContent.trim();
+                        
+                        // 如果存在非空内容,设置标记为true
+                        if (content !== '') {
+                          hasContent = true;
+                        }
+                      });
+                      
+                      // 获取.part025_block_intro元素
+                      var introElement = divElement.closest('.part025_block_advantage');
+                      
+                      // 根据标记决定是否隐藏.part025_block_intro元素
+                      if (hasContent) {
+                        // 存在非空内容,显示.part025_block_intro元素
+                        introElement.style.display = 'block';
+                      } else {
+                        // 不存在非空内容,隐藏.part025_block_intro元素
+                        introElement.style.display = 'none';
+                      }
+                    });
+                    
+                    
+                    /*第四个js*/
+	                
+                    // 获取所有具有类名为part025_block_intro_piece_content的<div>元素
+                    var divElements = document.querySelectorAll('.part025_block_param_piece_content');
+                    
+                    // 遍历每个<div>元素
+                    divElements.forEach(function(divElement) {
+                      // 获取<div>元素下的所有<p>标签元素
+                      var pElements = divElement.querySelectorAll('p');
+                      
+                      // 标记<div>元素是否含有非空内容
+                      var hasContent = false;
+                      
+                      // 遍历每个<p>标签元素
+                      pElements.forEach(function(pElement) {
+                        // 获取<p>标签的内容并去除空格
+                        var content = pElement.textContent.trim();
+                        
+                        // 如果存在非空内容,设置标记为true
+                        if (content !== '') {
+                          hasContent = true;
+                        }
+                      });
+                      
+                      // 获取.part025_block_intro元素
+                      var introElement = divElement.closest('.part025_block_param');
+                      
+                      // 根据标记决定是否隐藏.part025_block_intro元素
+                      if (hasContent) {
+                        // 存在非空内容,显示.part025_block_intro元素
+                        introElement.style.display = 'block';
+                      } else {
+                        // 不存在非空内容,隐藏.part025_block_intro元素
+                        introElement.style.display = 'none';
+                      }
+                    });
+                    
+                    
+                    
+                    /*第五个js*/
+                    
+                    // 获取所有具有类名为part025_block_scene_piece_content的<div>元素
+                    var divElements = document.querySelectorAll('.part025_block_scene_piece_content');
+                    
+                    // 遍历每个<div>元素
+                    divElements.forEach(function(divElement) {
+                      // 获取<div>元素下的<ul>标签元素
+                      var ulElement = divElement.querySelector('ul');
+                      
+                      // 获取<ul>标签内的<li>元素数量
+                      var liCount = ulElement.querySelectorAll('li').length;
+                      
+                      
+                                            // 获取.part025_block_intro元素
+                      var introElement = divElement.closest('.part025_block_scene');
+                      
+                      // 根据<li>元素数量决定是否隐藏<div>元素
+                      if (liCount === 0) {
+                        // 没有<li>元素,隐藏<div>元素
+                        introElement.style.display = 'none';
+                      } else {
+                        // 有<li>元素,显示<div>元素
+                        introElement.style.display = 'block';
+                      }
+                    });
+	                
+
+	                
+	            })
+	            
+	        </script>
+	        
+	        
+	        <script>
+	            
+	            $(function(){
+	                
+	                
+	                // 获取相关元素
+                    const introBlock = document.querySelector('.part025_block_intro');
+                    const rangeBlock = document.querySelector('.part025_block_range');
+                    const advantageBlock = document.querySelector('.part025_block_advantage');
+                    const paramBlock = document.querySelector('.part025_block_param');
+                    const sceneBlock = document.querySelector('.part025_block_scene');
+                    
+                    const liElements = document.querySelectorAll('.part023_block ul li');
+                    
+                    //console.log(sceneBlock);
+                    
+                    // 检查 introBlock 的显示状态并相应地显示或隐藏第一个 li 元素
+                    if (window.getComputedStyle(introBlock).display === 'none') {
+                      liElements[0].style.display = 'none';
+                      liElements[0].setAttribute('data-num', '2');
+                    } else {
+                      liElements[0].style.display = 'block';
+                      liElements[0].setAttribute('data-num', '1');
+                    }
+                    
+                    // 检查 rangeBlock 的显示状态并相应地显示或隐藏第二个 li 元素
+                    if (window.getComputedStyle(rangeBlock).display === 'none') {
+                      liElements[1].style.display = 'none';
+                      liElements[1].setAttribute('data-num', '2');
+                    } else {
+                      liElements[1].style.display = 'block';
+                      liElements[1].setAttribute('data-num', '1');
+                    }
+                    
+                    // 检查 advantageBlock 的显示状态并相应地显示或隐藏第三个 li 元素
+                    if (window.getComputedStyle(advantageBlock).display === 'none') {
+                      liElements[2].style.display = 'none';
+                      liElements[2].setAttribute('data-num', '2');
+                    } else {
+                      liElements[2].style.display = 'block';
+                      liElements[2].setAttribute('data-num', '1');
+                    }
+                    
+                    // 检查 paramBlock 的显示状态并相应地显示或隐藏第四个 li 元素
+                    if (window.getComputedStyle(paramBlock).display === 'none') {
+                      liElements[3].style.display = 'none';
+                      liElements[3].setAttribute('data-num', '2');
+                    } else {
+                      liElements[3].style.display = 'block';
+                      liElements[3].setAttribute('data-num', '1');
+                    }
+                    
+                    // 检查 sceneBlock 的显示状态并相应地显示或隐藏第五个 li 元素
+                    if (window.getComputedStyle(sceneBlock).display === 'none') {
+                      liElements[4].style.display = 'none';
+                      liElements[4].setAttribute('data-num', '2');
+                    } else {
+                      liElements[4].style.display = 'block';
+                      liElements[4].setAttribute('data-num', '1');
+                    }
+	                
+	                
+	            })
+	            
+	        </script>
+	        
+	        
+            
+	        <!-- 表格部分电梯导航 -->
+            <script>
+                $(function () {
+
+                    var asideNavTop = $(".main-title").offset().top;
+
+
+                    toggleTool();
+                    // 切换侧边导航的状态
+                    function toggleTool() {
+                        if ($(document).scrollTop() >= asideNavTop) {
+
+                            $(".main-title").css({
+                                "position": "fixed",
+                                "left": "2.1rem",
+                                "top": "0",
+                                "z-index": "900",
+                            });
+
+                        } else {
+
+                            $(".main-title").css({
+                                "position": "absolute",
+                                "left": "0",
+                                "top": "0",
+                                "z-index": "",
+                            });
+
+                        };
+                    }
+                        
+                    // 页面滚动事件 $(window).scroll()
+                    $(window).scroll(function () {
+                        toggleTool();
+                    
+                        var scrollTop = $(window).scrollTop();
+                        
+                        var scrollTop = scrollTop + 106;
+                    
+                        $(".main-content .sooll").each(function (index) {
+                            var currentLocation = $(this).offset().top - $(".main-title").outerHeight();
+                            var sectionHeight = $(this).outerHeight();
+                    
+                            if (scrollTop >= currentLocation && scrollTop < currentLocation + sectionHeight) {
+                                $(".main-title ul li").eq(index).addClass("part023_block_li_active").siblings().removeClass("part023_block_li_active");
+                                return false; // 找到匹配的区域后，提前结束遍历
+                            }
+                        });
+                    });
+
+                    // 2. 点击li页面跳转到对应的区域
+                    $(".main-title ul li").on("click", function () {
+                        // 获取当前被点击的li的索引号
+                        let index = $(this).index();
+                        
+                        $(".part023_block ul li").eq(index).addClass("part023_block_li_active").siblings().removeClass("part023_block_li_active");                                
+
+                        var currentLocation = $(".main-content .sooll").eq(index).offset().top - 86;
+                        // 页面跳转的比较生硬，可以采取动画来做跳转
+                        // $("html,body").scrollTop(currentLocation);
+                        // (1)要记住：只有元素才有动画
+
+                        $("html,body").stop().animate({
+                            scrollTop: currentLocation
+                        })
+
+                    })
+                })
+            </script>
+
+
+
+
+            <div class="index_part026 wow animate__animated animate__fadeInUp">
+				<div class="part026_center">
+                    <div class="part026_block">
+                        <div class="part026_top">
+                            <h3>
+                                相关<span>设备</span>
+                            </h3>
+                            <h6 style="display:none;">
+                                {$id}
+                            </h6>
+                        </div>
+                        <div class="part026_bottom">
+                            <ul>
+                                
+                                <!--  {module module=chanpinzhongxin catid=4 num=4}-->
+
+                                <!--        <li>-->
+                                <!--            <div class="part026_bottom_li_image">-->
+                                <!--                <div class="part026_bottom_li_image_piece">-->
+                                <!--                    <img src="{dr_thumb($t['thumb'], 308, 213, 0, 'crop')}" alt="">-->
+                                <!--                </div>-->
+                                <!--            </div>-->
+                                <!--            <div class="part026_bottom_li_font">-->
+                                <!--                <div class="part026_bottom_li_font_original">-->
+                                <!--                    <h3>-->
+                                <!--                        {dr_strcut($t['title'], 6, '')}-->
+                                <!--                    </h3>-->
+                                <!--                </div>-->
+                                <!--                <div class="part026_bottom_li_font_cover">-->
+                                <!--                    <div class="part026_bottom_li_font_cover_title">-->
+                                <!--                        <h3>-->
+                                <!--                            {dr_strcut($t['title'], 6, '')}-->
+                                <!--                        </h3>-->
+                                <!--                    </div>-->
+                                <!--                    <div class="part026_bottom_li_font_cover_link">-->
+                                <!--                        <div class="part026_bottom_li_font_cover_link_piece">-->
+                                <!--                            <a href="{$t['url']}" style="display: block;text-decoration: none;" target="_blank">-->
+                                <!--                                <button class="button--nina">-->
+                                <!--                                    <span>了</span>-->
+                                <!--                                    <span>解</span>-->
+                                <!--                                    <span>详</span>-->
+                                <!--                                    <span>情</span>-->
+                                <!--                                    <span><img class="animate__animated animate__pulse" src="{THEME_PATH}assets/zhengzhoudaguanwang/images/product_article/part026_bottom_li_font_cover_link_piece_icon.png" alt="" style="position: relative;"></span>-->
+                                <!--                                    <div class="button--nina-before">了解详情<img class="animate__animated animate__pulse" src="{THEME_PATH}assets/zhengzhoudaguanwang/images/product_article/part026_bottom_li_font_cover_link_piece_icon.png" alt=""></div>-->
+                                <!--                                </button>-->
+                                <!--                            </a> -->
+                                <!--                        </div>-->
+                                <!--                    </div>-->
+                                <!--                </div>-->
+                                <!--            </div>-->
+                                <!--        </li>-->
+
+                                <!--{/module}-->
+
+
+                            </ul>
+                        </div>
+                    </div>
+				</div>
+			</div>
+
+
+            <script>
+            
+            
+                $(function(){
+                    
+			            
+			            var newId = $(this).find(".part026_top h6").text();
+			            
+		                $.ajax({
+		                    
+                            type: 'POST',
+                            url: 'https://www.zzyugong.cn/index.php?s=httpapi&id=3&appid=1&appsecret=PHPCMF3F31E38DB9E65', 
+                            data: {selectedId:newId},
+                            dataType: 'text',
+                            success: function(response) {
+
+                                //console.log(response);
+                                
+                                $(".part026_bottom ul").html(response);
+                                
+                                
+                                
+                            }
+                        
+                         });
+			            
+
+			        
+                    
+                })
+            
+            
+            </script>
+
+
+
+
+
+
+{template "footer.html"}
+
+

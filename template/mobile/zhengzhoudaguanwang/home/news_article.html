@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	    <title>{$meta_title}</title>
+        <meta name="keywords" content="{$meta_keywords}"/>
+        <meta name="description" content="{$meta_description}" />
+		<link rel="stylesheet" href="{THEME_PATH}assets/zhengzhoudaguanwangmobile/css/common.css">		
+		<link rel="stylesheet" href="{THEME_PATH}assets/zhengzhoudaguanwangmobile/css/swiper.min.css">
+		<link rel="stylesheet" href="{THEME_PATH}assets/zhengzhoudaguanwangmobile/css/newsArticle.css">
+		<script type="text/javascript" src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/js/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript" src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/js/swiper.min.js"></script>
+		<script type='text/javascript' src='{THEME_PATH}assets/zhengzhoudaguanwangmobile/layer/layer.js'></script>
+		<script type="text/javascript">
+			(function (doc, win) {
+				var docEl = doc.documentElement,
+						resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+						recalc = function () {
+							var clientWidth = docEl.clientWidth;
+							if (!clientWidth) return;
+							if(clientWidth>=750){
+								docEl.style.fontSize = '100px';
+							}else{
+								docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+							}
+						};
+
+				if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<style>
+		    
+		    .layui-layer-content{color: #fff !important;}
+		    
+		    .layui-layer-padding{color: #333 !important}
+		    
+		    span{
+		        font-size: 0.28rem;
+		        color: #333333;
+		    }
+		    
+		</style>
+	</head>
+	<body style="position: relative;">
+
+
+        {template "header.html"}
+		
+        {template "nav.html"}    
+        
+
+		<div class="container">
+			<div class="part01">
+				<div class="part01_center">
+					<div class="part01_center_h3">
+						<h3>
+                            新 / 闻 / 中 / 心
+                        </h3>
+					</div>
+					<div class="part01_center_h6">
+						<h6>
+							为您提供多方面的产品知识详解，让您随时了解公司动态、产品市场
+							价格、产品性能亮点、产品维护保养等各种产品资讯！
+                        </h6>
+					</div>
+				</div>
+			</div>
+
+
+			
+			<div class="part05">
+				<div class="part05_center">
+					<div class="part05_top">
+						<div class="part05_top_title">
+							<h3>
+								{$title}
+							</h3>
+						</div>
+						<div class="part05_top_date">
+							<h6>
+								{$inputtime}
+							</h6>
+						</div>
+					</div>
+					<div class="part05_middle">
+						{$content}  
+					</div>
+					
+					<script>
+                        $(document).ready(function() {
+                            // 获取 .part05_middle 内的所有 img 元素
+                            var $span = $(".part05_middle span");
+                    
+                            // 遍历所有找到的 img 元素
+                            $span.each(function() {
+                                // 移除 style 属性
+                                $(this).removeAttr('style');
+                            });
+                    
+                            
+                        });
+                    </script>
+					
+					<script>
+                        $(document).ready(function() {
+                            // 获取 .part05_middle 内的所有 img 元素
+                            var $images = $(".part05_middle img");
+                    
+                            // 遍历所有找到的 img 元素
+                            $images.each(function() {
+                                // 移除 style 属性
+                                $(this).removeAttr('style');
+                            });
+                    
+                            console.log('已移除 .part05_middle 内所有 img 标签的 style 属性');
+                        });
+                    </script>
+					
+        			<script type="text/javascript">
+        			
+        			    $(function(){
+                          $(".part05_middle img").each(function(i){
+                            var img = $(this);
+                            var newImg = $("<img/>");
+                            newImg.attr("src", img.attr("src")).on('load', function() {
+                              var realWidth = this.width;
+                              var realHeight = this.height;
+                              var needHeight = (realHeight * 7.05 / realWidth) + 'rem';
+                              img.css({"width": '7.05rem', "height": needHeight});
+                            });
+                          });
+                        });
+        			
+
+        			</script>
+					<div class="part05_bottom">
+						<ul>
+							<li class="part05_bottom_li1">
+								<div class="part05_bottom_li_h3">
+									<h3>
+										上一页:
+									</h3>
+								</div>
+								<div class="part05_bottom_li_h6">
+									<h6>
+										{if $prev_page}<a href="{$prev_page.url}">{$prev_page.title}</a>{else}没有了{/if}      
+									</h6>
+								</div>
+							</li>
+							<li class="part05_bottom_li2">
+								<div class="part05_bottom_li_h3">
+									<h3>
+										下一页:
+									</h3>
+								</div>
+								<div class="part05_bottom_li_h6">
+									<h6>
+										{if $next_page}<a href="{$next_page.url}">{$next_page.title}</a>{else}没有了{/if}
+									</h6>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>	
+			</div>
+
+
+			<div class="part03">
+				<div class="part03_top">
+				    <a href="https://tb.53kf.com/code/client/94ed3a1a92adb3360088b64c2da46c228/1" style="text-decoration: none;">
+					    <img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part03_top_image.png" alt="">
+					</a>
+				</div>
+				<div class="part03_center">
+					<div class="part03_center_top">
+						<h3>
+							算一算 购买一套设备需要多少钱?
+						</h3>
+						<h6>
+							一台也是批发价 快留下信息锁定工厂优惠报价吧
+						</h6>
+					</div>
+					<div class="part03_center_form">
+						<form>
+							<input class="part03_center_form_name" id="name6" type="text" placeholder="请输入姓名">
+							<input class="part03_center_form_tel" id="tel6" type="text" placeholder="请输入手机号">
+							<input type="text" id="cp6" style="display:none" value="郑州大官网手机端新闻内容页中间">
+							<button class="part03_center_form_button" type="button" id="fenge_zixun5">
+								<h3>
+									免费获取工厂活动价
+								</h3>
+							</button>
+						</form>
+					</div>
+				</div>	
+			</div>
+			
+			
+			
+			<script>
+                   
+                    $(function(){
+                        
+                        $('#fenge_zixun5').click(function(){
+                            
+                            
+                            
+                            
+                            var newTitle = document.getElementById("cp6").value;
+                            
+                            var newAuthor = document.getElementById("name6").value;
+                            
+                            var newDianhua = document.getElementById("tel6").value;
+                            
+                            var newWangzhi = window.location.href;
+                            
+                            //var newLiuyan = document.getElementById("ly").value;
+                            
+                            var newLiuyan = "";
+                            
+                            var newData = "is_ajax=1&data[title]="+newTitle+"&data[author]="+newAuthor+"&data[dianhua]="+newDianhua+"&data[wangzhi]="+newWangzhi+"&data[liuyan]="+newLiuyan+"";
+                            
+                            
+                            //console.log(newTitle);
+                            
+                            //console.log(newAuthor);
+                            
+                            //console.log(newWangzhi);
+                        
+                            //console.log(newLiuyan);
+                            
+                            
+                            if(newDianhua){
+                                
+                                
+                                
+                            
+                                newDianhua = Number(newDianhua);
+                                
+                                newDianhua = String(newDianhua);
+                                
+                            
+                                //console.log(newDianhua.length);
+                                
+                                
+                                //console.log(typeof(newDianhua));
+                                
+                                
+                                //console.log(newDianhua);
+                                
+                                
+                                //console.log(typeof(newDianhua) == "string");
+                                
+                                
+                                //console.log(newDianhua.length == 11);
+                                
+                            
+                                if((typeof(newDianhua) == "string")&&(newDianhua.length == 11)){
+                                    
+                                    
+                                    $.ajax({
+                                         type: "post",
+                                         url: "https://kuayu2.hnyugong.com/index.php?v=1&appid=1&appsecret=PHPCMF32C04A005323F&s=form&c=biaodan12&m=post",
+                                         data: newData,
+                                         header: {
+                                                'Content-Type': 'application/x-www-form-urlencoded',
+                                         },
+                                         //dataType: "json",
+                                         success: function(data){
+                                             
+                                            console.log(data.code);
+                                            console.log(data.msg);
+                                            
+                                            if(data.code == 0){
+                                                
+                                                //layer.alert('见到你真的很高兴', {icon: 6});
+                                                
+                                            }else if(data.code > 0){
+                                                
+                                                //layer.alert('见到你真的很高兴', {icon: 6});
+                                                
+                                                layer.alert('恭喜报名成功！稍后产品经理会与您联系',{icon: 1});
+                                                
+                                                
+                                                
+                                                document.getElementById("name6").value = "";
+                                                
+                                                document.getElementById("tel6").value = "";
+                                                
+                                                //document.getElementById("ly").value = "";
+                                                
+                                            }else{
+                                                
+                                                
+                                            }
+                                                     
+                                         },
+                                         error:function(XMLHttpRequest, textstatus,errorThrown){
+                                            //debugger
+                                            // 状态码
+                                            console.log(XMLHttpRequest.status);
+                                            // 状态
+                                            console.log(XMLHttpRequest.readyState);
+                                            // 错误信息
+                                            console.log(textstatus);
+                                            ___hideLoading();
+                                            if(XMLHttpRequest.readyState==0){
+                                                // 对应登录超时问题，直接酷到登录页面
+                                                location.href='../Login.action';
+                                            }else{
+                                                 $.messager.alert("提示'，系统内部错误，请联系管理员处理!",'info');
+                                            }
+                                        }
+                                     });
+                                     
+                                    
+                                }else{
+                                    
+                                    
+                                    layer.msg('电话号码不是11位');
+                                    
+                                    //console.log(123);
+                                    
+                                    
+                                }
+                                
+                                
+                                
+                                
+                            
+                                
+                                
+                            }else{
+                                
+                                layer.msg('电话不能为空');
+                                
+                                
+                            }
+                            
+                
+                            
+                            
+                            
+                            
+                             
+                             
+                        });
+                    });
+                            
+            </script> 
+			
+			
+
+
+
+			
+		</div>	
+		<div class="footer">
+			<h2>
+				咨询电话：
+				<a href="tel:189-3713-5091" style="text-decoration:none;">
+				    189-3713-5091
+				</a>    
+			</h2>
+			<h3>
+				版权所有：郑州豫工工程机械有限公司
+			</h3>
+			<h4>
+				豫ICP备2023028284号-1
+			</h4>
+		</div>
+
+        {template footer.html}    
+        
+
+		<div style="height: 0.68rem;">
+
+		</div>
+	</body>
+</html>
+
+

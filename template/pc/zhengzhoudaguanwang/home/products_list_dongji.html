@@ -1,0 +1,235 @@
+
+
+
+<div class="part011_block_li_left">
+    <div class="part011_block_li_left_title">
+        <h3>
+            应急热卖设备
+        </h3>
+        <h6>
+            Emergency hot selling equipment
+        </h6>
+    </div>
+    <div class="part011_block_li_left_content">
+        <ul id="content_list_left_01">
+
+
+            {template "products_list_dongji_left_data.html"}
+
+
+        </ul>
+    </div>
+    <div style="height: 0.4rem;">
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="part011_block_li_right">
+    <div class="part011_block_li_right_top">
+        <ul id="content_list_right_01" class="part011_block_li_right_top_ul">
+
+
+            {template "products_list_dongji_right_data.html"}
+
+
+        </ul>
+    </div>
+    <div class="part011_block_li_right_bottom">
+        <div class="part011_block_li_right_bottom_page">
+            <div class="part011_block_li_right_bottom_page_font">
+                <h3>
+                    产品展示
+                </h3>
+            </div>
+            <div class="part011_block_li_right_bottom_page_num part011_block_li_right_bottom_page_num_01">
+                <h5>
+                    <b>1</b>/<span>{count action=module module=chanpinzhongxin catid=19}</span>
+                </h5>
+            </div>
+        </div>
+        <div class="part011_block_li_right_bottom_link part011_block_li_right_bottom_link_01">
+            <div class="part011_block_li_right_bottom_link_lump part011_block_li_right_bottom_link_lump_01 more_01">
+                <div class="part011_block_li_right_bottom_link_piece">
+                    <h3>
+                        查看更多
+                    </h3>
+                    <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesProductsList/part011_block_li_right_bottom_link_piece_icon.png" alt="">
+                </div>
+                <div class="part011_block_li_right_bottom_link_arrow part011_block_li_right_bottom_link_arrow_01">
+                    <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesProductsList/part011_block_li_right_bottom_link_arrow.png" alt="">
+                </div>
+            </div>
+            <div class="part011_block_li_right_bottom_link_chunk part011_block_li_right_bottom_link_chunk_01">
+                <h6>
+                    我也是有底线的...
+                </h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script>
+
+    $(function(){
+
+        $(".part011_block_li_right_bottom_link_01").hover(function(){
+
+            $(".part011_block_li_right_bottom_link_arrow_01").css("right","3.88rem");
+
+        },function(){
+
+            $(".part011_block_li_right_bottom_link_arrow_01").css("right","0.4rem");
+
+
+
+        })
+
+
+    })
+
+
+</script>
+
+
+
+<script>
+
+    $(function(){
+
+        var newNum =  $("#content_list_right_01").find("li").length;
+
+        $(".part011_block_li_right_bottom_page_num_01 h5 b").text(newNum);
+        
+        
+        // 在 AJAX 请求完成后获取最新的当前页码和总页数
+        var currentPage = parseInt($(".part011_block_li_right_bottom_page_num_01 h5 b").text());
+        var totalPages = parseInt($(".part011_block_li_right_bottom_page_num_01 h5 span").text());
+        
+        if(currentPage === totalPages){
+            //layer.msg("已经显示完了",{time:500});
+            $(".part011_block_li_right_bottom_link_lump_01").css("display","none");
+            $(".part011_block_li_right_bottom_link_chunk_01").css("display","block");
+        }else{
+            //layer.msg("继续加载中",{time:500});
+        }
+
+    })
+
+</script>
+
+<script>
+
+    var Mpage_01=1;
+
+    //滚动显示更多
+    var scroll_get_01 = true;  //做个标志,不要反反复复的加载
+
+    $(document).ready(function () {
+
+        $(".more_01").click(function(){
+            //layer.msg('内容加截中,请稍候',{time:1000});
+            dr_ajax_load_more();
+        })
+
+        
+    });
+
+    function dr_ajax_load_more(){
+        Mpage_01++;
+        $.get('/index.php?s=api&c=api&m=template&name=products_list_dongji_right_data.html&module={MOD_DIR}&catid=19&format=json&page='+Mpage_01+'&'+Math.random(),function(res){
+
+            console.log(res);
+
+            if(res.code==1){
+                if(res.msg.trim()==''){
+                    
+                    // layer.msg("已经显示完了",{time:500});
+
+                    // $(".part011_block_li_right_bottom_link_lump_01").css("display","none");
+
+                    // $(".part011_block_li_right_bottom_link_chunk_01").css("display","block");
+
+                    //console.log(123);
+                }else{
+
+                    $('#content_list_right_01').append(res.msg);
+                    scroll_get_01 = true;
+                    //console.log(res);
+                }
+            }else{
+                layer.msg(res.msg,{time:2500});
+            }
+
+            var newNum =  $("#content_list_right_01").find("li").length;
+
+            $(".part011_block_li_right_bottom_page_num_01 h5 b").text(newNum);
+            
+            
+            // 在 AJAX 请求完成后获取最新的当前页码和总页数
+            var currentPage = parseInt($(".part011_block_li_right_bottom_page_num_01 h5 b").text());
+            var totalPages = parseInt($(".part011_block_li_right_bottom_page_num_01 h5 span").text());
+            
+            if(currentPage === totalPages){
+                layer.msg("已经显示完了",{time:500});
+                $(".part011_block_li_right_bottom_link_lump_01").css("display","none");
+                $(".part011_block_li_right_bottom_link_chunk_01").css("display","block");
+            }else{
+                layer.msg("继续加载中",{time:500});
+            }
+            
+            
+
+
+        }, 'json');
+
+
+
+        $.get('/index.php?s=api&c=api&m=template&name=products_list_dongji_left_data.html&module={MOD_DIR}&catid=19&format=json&page='+Mpage_01+'&'+Math.random(),function(res){
+
+            console.log(res);
+
+            if(res.code==1){
+                if(res.msg.trim()==''){
+
+                    //layer.msg("已经显示完了",{time:500});
+
+                    //$(".part011_block_li_right_bottom_link_lump_01").css("display","none");
+
+                    //$(".part011_block_li_right_bottom_link_chunk_01").css("display","block");
+
+
+                }else{
+
+                    $('#content_list_left_01').append(res.msg);
+                    scroll_get_01 = true;
+                    //console.log(res);
+                }
+            }else{
+                layer.msg(res.msg,{time:2500});
+            }
+
+        }, 'json');
+
+
+    }
+    
+    
+    
+</script>
+
+
+
+
+
+
+

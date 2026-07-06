@@ -1,0 +1,1824 @@
+
+{template "header_contact_us.html"}
+
+
+
+{template "nav.html"}
+
+
+<script>
+
+
+    $(function(){
+        
+        $(".part01_right ul li").removeClass("part01_right_li_bg_active");
+        
+        $(".part01_right ul li:nth-child(7)").addClass("part01_right_li_bg_active");
+        
+    })
+    
+    
+</script>
+
+                
+            
+            
+ 
+            
+    
+            <script>
+            
+                
+                $(document).ready(function() {
+                  // 监听窗口的滚动事件
+                  $(window).on('scroll', function() {
+                      
+                    // 获取当前滚动的距离
+                    var scrollTop = $(this).scrollTop();
+                
+                    // 根据scrollTop判断是否在顶部
+                    if (scrollTop === 0) {
+                          
+                      // 在顶部时，让导航背景变成透明
+                      $('.nav_top').css('background-color', 'rgba(255,255,255,1)');
+                      
+                      $(".nav_top_block_piece_logo_mian ul li a h3").css("color","#252F36");
+
+                      //导航滑过
+                      $(".nav_top").hover(function(){
+                            
+                            $('.nav_top').css('background-color', '#fff');
+                            
+                            $(".nav_top_block_piece_logo_mian ul li a h3").css("color","#252F36");
+
+                             
+                            
+                      },function(){
+                            
+                            $('.nav_top').css('background-color', 'rgba(255,255,255,1)');
+      
+                            $(".nav_top_block_piece_logo_mian ul li a h3").css("color","#252F36");
+                              
+                    
+                        
+                       })      
+                       
+                       //鼠标离开
+                       
+                        $(".nav_block").on("mouseleave", function() {
+                            // 鼠标离开 .nav_block 时，将 nav_top 的背景色设置为透明
+                            $(".nav_top").css("background-color", "rgba(255,255,255,1)");
+                        
+                            // 同时修改文本颜色
+                            $(".nav_top_block_piece_logo_mian ul li a h3").css("color", "#252F36");
+
+                        });
+                          
+                          
+                          
+                          // =============== 第 1、2、6、7个 li ===============
+                          // 索引分别是 0、1、5、6
+                          const specialIndices = [0, 1, 5, 6];
+                          $(".nav_top_block_piece_logo_mian ul li").each(function (index) {
+                            if (specialIndices.includes(index)) {
+                              $(this).hover(
+                                function () {
+                                  // 鼠标进入
+                                  if (!$(this).hasClass("nav_top_block_piece_logo_mian_active")) {
+                                    $(this).addClass("nav_top_block_piece_logo_mian_active");
+                                  };
+                                  
+                                    $('.nav_top').css('background-color', '#fff');
+                            
+                                    $(".nav_top_block_piece_logo_mian ul li a h3").css("color","#252F36");
+                                  
+                                    $(".nav_top_block_piece_logo_tel_font h6").css("color","#252F36");
+                                  
+                                    $(".nav_top_block_piece_logo_tel_font h3").css("color","#252F36");
+                                  
+                                },
+                                function () {
+                                  // 鼠标离开
+                                  if ($(this).hasClass("nav_top_block_piece_logo_mian_active")) {
+                                    $(this).removeClass("nav_top_block_piece_logo_mian_active");
+                                  };
+                                  
+                                    $('.nav_top').css('background-color', 'rgba(255,255,255,0)');
+              
+                                    $(".nav_top_block_piece_logo_mian ul li a h3").css("color","#fff");
+                                      
+                                    $(".nav_top_block_piece_logo_tel_font h6").css("color","#fff");
+                                      
+                                    $(".nav_top_block_piece_logo_tel_font h3").css("color","#fff");
+                                  
+                                }
+                              );
+                            }
+                          });
+                        
+                          // =============== 第 2 个 li + .nav_bottom_block_li ===============
+                          // li.eq(1) => 第二个 li
+                          $(".nav_top_block_piece_logo_mian ul li").eq(3).add(".nav_bottom_block_li").hover(
+                            function () {
+                              // 鼠标进入 li 的第 2 个 或者进入 .nav_bottom_block_li
+                              // 1. 给第 2 个 li 加上 nav_top_block_piece_logo_mian_active
+                              if (!$(".nav_top_block_piece_logo_mian ul li").eq(3).hasClass("nav_top_block_piece_logo_mian_active")) {
+                                $(".nav_top_block_piece_logo_mian ul li").eq(3).addClass("nav_top_block_piece_logo_mian_active");
+                              };
+                              // 2. 显示 .nav_bottom_block_li 和 .nav_hr_one
+                              $(".nav_bottom_block_li, .nav_hr_one").show();
+                              // 3. 隐藏 .nav_bottom_piece_li, .nav_hr_two, .nav_bottom_lump_li, .nav_hr_three
+                              $(".nav_bottom_piece_li, .nav_hr_two, .nav_bottom_lump_li, .nav_hr_three").hide();
+                              
+                                $('.nav_top').css('background-color', '#fff');
+                        
+                                $(".nav_top_block_piece_logo_mian ul li a h3").css("color","#252F36");
+                              
+                                $(".nav_top_block_piece_logo_tel_font h6").css("color","#252F36");
+                              
+                                $(".nav_top_block_piece_logo_tel_font h3").css("color","#252F36");
+                              
+                            },
+                            function () {
+                              // 鼠标同时离开 li 的第 2 个 和 .nav_bottom_block_li（从这两个区域都移开）
+                              // 1. 移除第 2 个 li 上的 nav_top_block_piece_logo_mian_active
+                              if ($(".nav_top_block_piece_logo_mian ul li").eq(3).hasClass("nav_top_block_piece_logo_mian_active")) {
+                                $(".nav_top_block_piece_logo_mian ul li").eq(3).removeClass("nav_top_block_piece_logo_mian_active");
+                              }
+                              // 2. 隐藏 .nav_bottom_block_li 和 .nav_hr_one
+                              $(".nav_bottom_block_li, .nav_hr_one").hide();
+                              
+                                $('.nav_top').css('background-color', 'rgba(255,255,255,0)');
+          
+                                $(".nav_top_block_piece_logo_mian ul li a h3").css("color","#fff");
+                                  
+                                $(".nav_top_block_piece_logo_tel_font h6").css("color","#fff");
+                                  
+                                $(".nav_top_block_piece_logo_tel_font h3").css("color","#fff");
+                              
+                            }
+                          );
+                        
+                          // =============== 第 4 个 li + .nav_bottom_piece_li ===============
+                          // li.eq(3) => 第四个 li
+                          $(".nav_top_block_piece_logo_mian ul li").eq(2).add(".nav_bottom_piece_li").hover(
+                            function () {
+                              // 鼠标进入 li 的第 4 个 或者进入 .nav_bottom_piece_li
+                              // 1. 给第 4 个 li 加上 nav_top_block_piece_logo_mian_active
+                              if (!$(".nav_top_block_piece_logo_mian ul li").eq(2).hasClass("nav_top_block_piece_logo_mian_active")) {
+                                $(".nav_top_block_piece_logo_mian ul li").eq(2).addClass("nav_top_block_piece_logo_mian_active");
+                              }
+                              // 2. 显示 .nav_bottom_piece_li 和 .nav_hr_two
+                              $(".nav_bottom_piece_li, .nav_hr_two").show();
+                              // 3. 隐藏 .nav_bottom_block_li, .nav_hr_one, .nav_bottom_lump_li, .nav_hr_three
+                              $(".nav_bottom_block_li, .nav_hr_one, .nav_bottom_lump_li, .nav_hr_three").hide();
+                              
+                                $('.nav_top').css('background-color', '#fff');
+                        
+                                $(".nav_top_block_piece_logo_mian ul li a h3").css("color","#252F36");
+                              
+                                $(".nav_top_block_piece_logo_tel_font h6").css("color","#252F36");
+                              
+                                $(".nav_top_block_piece_logo_tel_font h3").css("color","#252F36");
+                            },
+                            function () {
+                              // 鼠标同时离开 li 的第 4 个 和 .nav_bottom_piece_li
+                              if ($(".nav_top_block_piece_logo_mian ul li").eq(2).hasClass("nav_top_block_piece_logo_mian_active")) {
+                                $(".nav_top_block_piece_logo_mian ul li").eq(2).removeClass("nav_top_block_piece_logo_mian_active");
+                              }
+                              $(".nav_bottom_piece_li, .nav_hr_two").hide();
+                              
+                                $('.nav_top').css('background-color', 'rgba(255,255,255,0)');
+          
+                                $(".nav_top_block_piece_logo_mian ul li a h3").css("color","#fff");
+                                  
+                                $(".nav_top_block_piece_logo_tel_font h6").css("color","#fff");
+                                  
+                                $(".nav_top_block_piece_logo_tel_font h3").css("color","#fff");
+                              
+                            }
+                          );
+                        
+                          // =============== 第 6 个 li + .nav_bottom_lump_li ===============
+                          // li.eq(5) => 第六个 li
+                          $(".nav_top_block_piece_logo_mian ul li").eq(4).add(".nav_bottom_lump_li").hover(
+                            function () {
+                              // 鼠标进入 li 的第 6 个 或者进入 .nav_bottom_lump_li
+                              // 1. 给第 6 个 li 加上 nav_top_block_piece_logo_mian_active
+                              if (!$(".nav_top_block_piece_logo_mian ul li").eq(4).hasClass("nav_top_block_piece_logo_mian_active")) {
+                                $(".nav_top_block_piece_logo_mian ul li").eq(4).addClass("nav_top_block_piece_logo_mian_active");
+                              }
+                              // 2. 显示 .nav_bottom_lump_li 和 .nav_hr_three
+                              $(".nav_bottom_lump_li, .nav_hr_three").show();
+                              // 3. 隐藏 .nav_bottom_piece_li, .nav_hr_one, .nav_bottom_block_li, .nav_hr_two
+                              $(".nav_bottom_piece_li, .nav_hr_one, .nav_bottom_block_li, .nav_hr_two").hide();
+                              
+                                $('.nav_top').css('background-color', '#fff');
+                        
+                                $(".nav_top_block_piece_logo_mian ul li a h3").css("color","#252F36");
+                              
+                                $(".nav_top_block_piece_logo_tel_font h6").css("color","#252F36");
+                              
+                                $(".nav_top_block_piece_logo_tel_font h3").css("color","#252F36");
+                              
+                              
+                            },
+                            function () {
+                              // 鼠标同时离开 li 的第 6 个 和 .nav_bottom_lump_li
+                              if ($(".nav_top_block_piece_logo_mian ul li").eq(4).hasClass("nav_top_block_piece_logo_mian_active")) {
+                                $(".nav_top_block_piece_logo_mian ul li").eq(4).removeClass("nav_top_block_piece_logo_mian_active");
+                              }
+                              $(".nav_bottom_lump_li, .nav_hr_three").hide();
+                              
+                                $('.nav_top').css('background-color', 'rgba(255,255,255,0)');
+          
+                                $(".nav_top_block_piece_logo_mian ul li a h3").css("color","#fff");
+                                  
+                                $(".nav_top_block_piece_logo_tel_font h6").css("color","#fff");
+                                  
+                                $(".nav_top_block_piece_logo_tel_font h3").css("color","#fff");
+                              
+                            }
+                          );  
+                      
+                      
+                      
+                      
+                      
+                    } else {
+                        
+                        
+                      // 离开顶部时，让导航背景变成白色
+                      $('.nav_top').css('background-color', '#fff');
+                      
+                      $(".nav_top_block_piece_logo_mian ul li a h3").css("color","#252F36");
+                      
+                      $(".nav_top_block_piece_logo_tel_font h6").css("color","#252F36");
+                      
+                      $(".nav_top_block_piece_logo_tel_font h3").css("color","#252F36");
+                      
+                      //导航滑过
+                      $(".nav_top").hover(function(){
+                            
+                            $('.nav_top').css('background-color', '#fff');
+                            
+                            $(".nav_top_block_piece_logo_mian ul li a h3").css("color","#252F36");
+                          
+                            $(".nav_top_block_piece_logo_tel_font h6").css("color","#252F36");
+                          
+                            $(".nav_top_block_piece_logo_tel_font h3").css("color","#252F36");
+                             
+                            
+                      },function(){
+                            
+                            $('.nav_top').css('background-color', '#fff');
+                            
+                            $(".nav_top_block_piece_logo_mian ul li a h3").css("color","#252F36");
+                          
+                            $(".nav_top_block_piece_logo_tel_font h6").css("color","#252F36");
+                          
+                            $(".nav_top_block_piece_logo_tel_font h3").css("color","#252F36");
+                            
+                            
+                            
+                       })
+                       
+                       
+                        //鼠标离开
+                       
+                        $(".nav_block").on("mouseleave", function() {
+                            // 鼠标离开 .nav_block 时，将 nav_top 的背景色设置为透明
+                            $(".nav_top").css("background-color", "#fff");
+                        
+                            // 同时修改文本颜色
+                            $(".nav_top_block_piece_logo_mian ul li a h3").css("color", "#252F36");
+                            $(".nav_top_block_piece_logo_tel_font h6").css("color", "#252F36");
+                            $(".nav_top_block_piece_logo_tel_font h3").css("color", "#252F36");
+                            
+                        });
+                      
+                      
+                          // =============== 第 1、2、6、7个 li ===============
+                          // 索引分别是 0、1、5、6
+                          const specialIndices = [0, 1, 5, 6];
+                          $(".nav_top_block_piece_logo_mian ul li").each(function (index) {
+                            if (specialIndices.includes(index)) {
+                              $(this).hover(
+                                function () {
+                                  // 鼠标进入
+                                  if (!$(this).hasClass("nav_top_block_piece_logo_mian_active")) {
+                                    $(this).addClass("nav_top_block_piece_logo_mian_active");
+                                  }
+                                },
+                                function () {
+                                  // 鼠标离开
+                                  if ($(this).hasClass("nav_top_block_piece_logo_mian_active")) {
+                                    $(this).removeClass("nav_top_block_piece_logo_mian_active");
+                                  }
+                                }
+                              );
+                            }
+                          });
+                               
+                          // =============== 第 2 个 li + .nav_bottom_block_li ===============
+                          // li.eq(1) => 第二个 li
+                          $(".nav_top_block_piece_logo_mian ul li").eq(3).add(".nav_bottom_block_li").hover(
+                            function () {
+                              // 鼠标进入 li 的第 2 个 或者进入 .nav_bottom_block_li
+                              // 1. 给第 2 个 li 加上 nav_top_block_piece_logo_mian_active
+                              if (!$(".nav_top_block_piece_logo_mian ul li").eq(3).hasClass("nav_top_block_piece_logo_mian_active")) {
+                                $(".nav_top_block_piece_logo_mian ul li").eq(3).addClass("nav_top_block_piece_logo_mian_active");
+                              }
+                              // 2. 显示 .nav_bottom_block_li 和 .nav_hr_one
+                              $(".nav_bottom_block_li, .nav_hr_one").show();
+                              // 3. 隐藏 .nav_bottom_piece_li, .nav_hr_two, .nav_bottom_lump_li, .nav_hr_three
+                              $(".nav_bottom_piece_li, .nav_hr_two, .nav_bottom_lump_li, .nav_hr_three").hide();
+                            },
+                            function () {
+                              // 鼠标同时离开 li 的第 2 个 和 .nav_bottom_block_li（从这两个区域都移开）
+                              // 1. 移除第 2 个 li 上的 nav_top_block_piece_logo_mian_active
+                              if ($(".nav_top_block_piece_logo_mian ul li").eq(3).hasClass("nav_top_block_piece_logo_mian_active")) {
+                                $(".nav_top_block_piece_logo_mian ul li").eq(3).removeClass("nav_top_block_piece_logo_mian_active");
+                              }
+                              // 2. 隐藏 .nav_bottom_block_li 和 .nav_hr_one
+                              $(".nav_bottom_block_li, .nav_hr_one").hide();
+                            }
+                          );
+                        
+                          // =============== 第 4 个 li + .nav_bottom_piece_li ===============
+                          // li.eq(3) => 第四个 li
+                          $(".nav_top_block_piece_logo_mian ul li").eq(2).add(".nav_bottom_piece_li").hover(
+                            function () {
+                              // 鼠标进入 li 的第 4 个 或者进入 .nav_bottom_piece_li
+                              // 1. 给第 4 个 li 加上 nav_top_block_piece_logo_mian_active
+                              if (!$(".nav_top_block_piece_logo_mian ul li").eq(2).hasClass("nav_top_block_piece_logo_mian_active")) {
+                                $(".nav_top_block_piece_logo_mian ul li").eq(2).addClass("nav_top_block_piece_logo_mian_active");
+                              }
+                              // 2. 显示 .nav_bottom_piece_li 和 .nav_hr_two
+                              $(".nav_bottom_piece_li, .nav_hr_two").show();
+                              // 3. 隐藏 .nav_bottom_block_li, .nav_hr_one, .nav_bottom_lump_li, .nav_hr_three
+                              $(".nav_bottom_block_li, .nav_hr_one, .nav_bottom_lump_li, .nav_hr_three").hide();
+                            },
+                            function () {
+                              // 鼠标同时离开 li 的第 4 个 和 .nav_bottom_piece_li
+                              if ($(".nav_top_block_piece_logo_mian ul li").eq(2).hasClass("nav_top_block_piece_logo_mian_active")) {
+                                $(".nav_top_block_piece_logo_mian ul li").eq(2).removeClass("nav_top_block_piece_logo_mian_active");
+                              }
+                              $(".nav_bottom_piece_li, .nav_hr_two").hide();
+                            }
+                          );
+                        
+                          // =============== 第 6 个 li + .nav_bottom_lump_li ===============
+                          // li.eq(5) => 第六个 li
+                          $(".nav_top_block_piece_logo_mian ul li").eq(4).add(".nav_bottom_lump_li").hover(
+                            function () {
+                              // 鼠标进入 li 的第 6 个 或者进入 .nav_bottom_lump_li
+                              // 1. 给第 6 个 li 加上 nav_top_block_piece_logo_mian_active
+                              if (!$(".nav_top_block_piece_logo_mian ul li").eq(4).hasClass("nav_top_block_piece_logo_mian_active")) {
+                                $(".nav_top_block_piece_logo_mian ul li").eq(4).addClass("nav_top_block_piece_logo_mian_active");
+                              }
+                              // 2. 显示 .nav_bottom_lump_li 和 .nav_hr_three
+                              $(".nav_bottom_lump_li, .nav_hr_three").show();
+                              // 3. 隐藏 .nav_bottom_piece_li, .nav_hr_one, .nav_bottom_block_li, .nav_hr_two
+                              $(".nav_bottom_piece_li, .nav_hr_one, .nav_bottom_block_li, .nav_hr_two").hide();
+                            },
+                            function () {
+                              // 鼠标同时离开 li 的第 6 个 和 .nav_bottom_lump_li
+                              if ($(".nav_top_block_piece_logo_mian ul li").eq(4).hasClass("nav_top_block_piece_logo_mian_active")) {
+                                $(".nav_top_block_piece_logo_mian ul li").eq(4).removeClass("nav_top_block_piece_logo_mian_active");
+                              }
+                              $(".nav_bottom_lump_li, .nav_hr_three").hide();
+                            }
+                          );
+                          
+                      
+                      
+                      
+                    }
+                    
+                    
+                  });
+                  
+                  // 页面加载完毕后，手动执行一次 scroll 事件里的逻辑
+                  $(window).trigger('scroll');
+                  
+                });
+                
+                
+    
+                
+                
+                
+            </script>
+            
+            
+    
+            
+            
+            <script>
+                
+                $(function(){
+                    
+                    $(".nav_bottom_piece_left_content_link ul li").hover(function(){
+                        
+                        
+                        $(this).css("background-color","#59B976");
+                        
+                        $(this).find(".nav_bottom_piece_left_content_link_li_a_line img").fadeOut(0);
+                        
+                        $(this).find("h3").css("color","#fff");
+                        
+                        $(this).find("h3").css("left","0.2rem");
+                        
+                        $(this).find(".nav_bottom_piece_left_content_link_li_a_chunk_icon").css("right","0.2rem");
+                        
+                        $(this).find(".nav_bottom_piece_left_content_link_li_a_chunk_icon img:nth-of-type(1)").fadeOut(0);
+                        
+                        $(this).find(".nav_bottom_piece_left_content_link_li_a_chunk_icon img:nth-of-type(2)").fadeIn();
+                        
+                        
+                    },function(){
+                        
+                        
+                        $(this).css("background-color","transparent");
+                        
+                        $(this).find(".nav_bottom_piece_left_content_link_li_a_line img").fadeIn();
+                        
+                        $(this).find("h3").css("color","#252F36");
+                        
+                        $(this).find("h3").css("left","0rem");
+                        
+                        $(this).find(".nav_bottom_piece_left_content_link_li_a_chunk_icon").css("right","0rem");
+                        
+                        $(this).find(".nav_bottom_piece_left_content_link_li_a_chunk_icon img:nth-of-type(1)").fadeIn();
+                        
+                        $(this).find(".nav_bottom_piece_left_content_link_li_a_chunk_icon img:nth-of-type(2)").fadeOut(0);
+                         
+                        
+                    })
+                    
+                    
+                })
+                
+                
+
+                            
+                
+            </script>
+            
+    
+            
+            
+            <script>
+                
+                $(function(){
+                    
+                    
+                    $(".nav_bottom_block_left>ul>li").hover(function(){
+                        
+                        $(this).addClass("nav_bottom_block_left_li_one_active").siblings("li").removeClass("nav_bottom_block_left_li_one_active");
+                        
+                        
+                        $(this).find(".nav_bottom_block_left_next_two").css("display","block");
+                        
+                        
+                        $(this).siblings("li").find(".nav_bottom_block_left_next_two").css("display","none");
+                        
+                        
+                        
+                        // 检查当前二级菜单项是否有三级菜单项
+                        if ($(this).find('.nav_bottom_block_left_next_two_next_three ul li').length === 0) {
+                            
+                            
+                            //没有三级菜单项
+                            
+                            var imgId = $(this).find("li").data('img');
+                        
+                            $(".nav_bottom_block_middle ul li").hide();
+                            
+                            $("#" + imgId).show();
+                            
+    
+                            
+                            
+                        }else{
+                            
+                            // 如果有三级菜单项，不做处理，交由三级菜单项的悬停事件处理
+                            
+                            var imgId = $(this).find("li").data('img');
+                            
+                            var imgId = "img01";
+                        
+                            $(".nav_bottom_block_middle ul li").hide();
+                            
+                            $("#" + imgId).show();
+                            
+                            
+                            
+                        }
+                        
+                        
+    
+                        
+                        
+                    },function(){
+                        
+                        
+                        
+                    })
+                    
+                    
+                    
+                    $(".nav_bottom_block_left_next_two>ul>li").hover(function(){
+                        
+                        
+                        
+                        
+                            // 检查当前二级菜单项是否有三级菜单项
+                            if ($(this).find('.nav_bottom_block_left_next_two_next_three ul li').length === 0) {
+                                
+                                
+                                //没有三级菜单项
+                                
+                                $(this).addClass("nav_bottom_block_left_li_two_active").siblings("li").removeClass("nav_bottom_block_left_li_two_active");
+                                
+    
+                                
+                                
+                            }else{
+                                
+                                // 如果有三级菜单项，不做处理，交由三级菜单项的悬停事件处理
+                                
+                                $(this).addClass("nav_bottom_block_left_li_two_active").siblings("li").removeClass("nav_bottom_block_left_li_two_active");
+    
+    
+                                $(this).find(".nav_bottom_block_left_next_two_next_three").css("display","block");
+    
+    
+                                $(this).siblings("li").find(".nav_bottom_block_left_next_two_next_three").css("display","none");
+                                
+                                var imgId = $(this).find("li").data('img');
+                                
+                                //console.log(imgId);
+                                
+                                $(".nav_bottom_block_middle ul li").hide();
+                            
+                                $("#" + imgId).show();
+                                
+                                
+                                
+                            }
+                            
+                            
+                        
+    
+                        
+                        
+                    },function(){
+                        
+                        
+                        
+                            // 检查当前二级菜单项是否有三级菜单项
+                            if ($(this).find('.nav_bottom_block_left_next_two_next_three ul li').length === 0) {
+                                
+                                
+                                //没有三级菜单项
+                                
+                                $(this).removeClass("nav_bottom_block_left_li_two_active");
+                                
+                                
+                                
+                                
+                                
+                            }else{
+                                
+                                // 如果有三级菜单项，不做处理，交由三级菜单项的悬停事件处理
+                                
+                                
+                                $(this).addClass("nav_bottom_block_left_li_two_active").siblings("li").removeClass("nav_bottom_block_left_li_two_active");
+                                
+                                
+                                $(this).removeClass("nav_bottom_block_left_li_two_active");
+                                
+                                
+                                var imgId = $(this).find("li").data('img');
+                            
+                                var imgId = "img01";
+                        
+                                $(".nav_bottom_block_middle ul li").hide();
+                            
+                                $("#" + imgId).show();
+    
+    
+                                //$(this).find(".nav_bottom_block_left_next_two_next_three").css("display","block");
+    
+    
+                                //$(this).siblings("li").find(".nav_bottom_block_left_next_two_next_three").css("display","none");
+                                
+                                
+                            }
+                            
+                        
+                        
+                        
+                    })
+                    
+                    
+                    
+                    $(".nav_bottom_block_left_next_two_next_three>ul>li").hover(function(){
+                        
+                        $(this).addClass("nav_bottom_block_left_li_three_active").siblings("li").removeClass("nav_bottom_block_left_li_three_active");
+                        
+                    },function(){
+                        
+                        $(this).removeClass("nav_bottom_block_left_li_three_active");
+                        
+                    })
+                    
+                    
+                    
+                    
+                    
+                    $(".nav_bottom_block_left_next_two").hover(function(){
+                        
+                        
+                        
+                        
+                        
+                             // 检查当前二级菜单项是否有三级菜单项
+                            if ($(this).find('.nav_bottom_block_left_next_two_next_three ul li').length === 0) {
+                                
+                                
+                                //没有三级菜单项
+                                
+                                $(".nav_bottom_block_left_next_two").css({"width":"11.24rem","height":"4.91rem"});
+                        
+                        
+                                $(".nav_bottom_block_left_next_two>ul").css({"width":"11.24rem","height":"4.91rem"});    
+                                
+                                
+                                
+                            }else{
+                                
+                                // 如果有三级菜单项，不做处理，交由三级菜单项的悬停事件处理
+                                
+    
+                                
+                                
+                            }
+                            
+                        
+                        
+                        
+                        
+                                
+    
+                        
+                        
+                        
+                    },function(){
+                        
+                        
+                        
+                        
+                            // 检查当前二级菜单项是否有三级菜单项
+                            if ($(this).find('.nav_bottom_block_left_next_two_next_three ul li').length === 0) {
+                                
+                                
+                                //没有三级菜单项
+                                
+                                $(".nav_bottom_block_left_next_two").css({"width":"11.24rem","height":"4.91rem"});
+                        
+                        
+                                $(".nav_bottom_block_left_next_two>ul").css({"width":"11.24rem","height":"4.91rem"});
+                                
+                                                    
+                                //$(this).css("display","none");
+                                
+                                
+                                var imgId = $(this).find("li").data('img');
+                                
+                                $(".nav_bottom_block_middle ul li").hide();
+                                
+                                $("#" + imgId).show();
+                                
+                                
+                                
+                                
+                            }else{
+                                
+                                // 如果有三级菜单项，不做处理，交由三级菜单项的悬停事件处理
+                                
+    
+                                
+                                
+                            }
+                            
+                        
+                        
+                        
+    
+                    
+                        
+                        
+                        
+                    });
+                    
+                    
+                    
+                    
+                    
+                    $(".nav_bottom_block_left_next_two_next_three").hover(function(){
+                        
+                        
+                        //console.log(123);
+                        
+                        
+                        $(".nav_bottom_block_left_next_two_next_three").css({"width":"9.4rem"});
+                        
+                        
+                        
+                    },function(){
+                        
+                        
+                        
+                        $(".nav_bottom_block_left_next_two_next_three").css({"width":"9.4rem"});
+                        
+                                                    
+                        //$(this).css("display","none");
+                        
+                        var imgId = $(this).find("li").data('img');
+                        
+                        //console.log(imgId);
+                        
+                        var imgId = "img01";
+                        
+                        $(".nav_bottom_block_middle ul li").hide();
+                        
+                        $("#" + imgId).show();
+                        
+                                
+                                
+    
+                            
+                        
+                    });
+                    
+                    
+                    
+                    
+                })
+                
+                
+            </script>
+            
+            
+            <script>
+                
+                               
+                $(function(){
+                    
+                    
+                    $(".nav_bottom_lump_left>ul>li").hover(function(){
+                        
+                        $(this).addClass("nav_bottom_lump_left_li_one_active").siblings("li").removeClass("nav_bottom_lump_left_li_one_active");
+                        
+                        
+                        $(this).find(".nav_bottom_lump_left_next_two").css("display","block");
+                        
+                        
+                        $(this).siblings("li").find(".nav_bottom_lump_left_next_two").css("display","none");
+                        
+                        
+                        
+                        // 检查当前二级菜单项是否有三级菜单项
+                        if ($(this).find('.nav_bottom_lump_left_next_two_next_three ul li').length === 0) {
+                            
+                            
+                            //没有三级菜单项
+                            
+                            var imgId = $(this).find("li").data('img');
+                        
+                            $(".nav_bottom_lump_middle ul li").hide();
+                            
+                            $("#" + imgId).show();
+                            
+    
+                            
+                            
+                        }else{
+                            
+                            // 如果有三级菜单项，不做处理，交由三级菜单项的悬停事件处理
+                            
+                            var imgId = $(this).find("li").data('img');
+                            
+                            var imgId = "img01";
+                        
+                            $(".nav_bottom_lump_middle ul li").hide();
+                            
+                            $("#" + imgId).show();
+                            
+                            
+                            
+                        }
+                        
+                        
+    
+                        
+                        
+                    },function(){
+                        
+                        
+                        
+                    })
+                    
+                    
+                    
+                    $(".nav_bottom_lump_left_next_two>ul>li").hover(function(){
+                        
+                        
+                        
+                        
+                            // 检查当前二级菜单项是否有三级菜单项
+                            if ($(this).find('.nav_bottom_lump_left_next_two_next_three ul li').length === 0) {
+                                
+                                
+                                //没有三级菜单项
+                                
+                                $(this).addClass("nav_bottom_lump_left_li_two_active").siblings("li").removeClass("nav_bottom_lump_left_li_two_active");
+                                
+    
+                                
+                                
+                            }else{
+                                
+                                // 如果有三级菜单项，不做处理，交由三级菜单项的悬停事件处理
+                                
+                                $(this).addClass("nav_bottom_lump_left_li_two_active").siblings("li").removeClass("nav_bottom_lump_left_li_two_active");
+    
+    
+                                $(this).find(".nav_bottom_lump_left_next_two_next_three").css("display","block");
+    
+    
+                                $(this).siblings("li").find(".nav_bottom_lump_left_next_two_next_three").css("display","none");
+                                
+                                var imgId = $(this).find("li").data('img');
+                                
+                                //console.log(imgId);
+                                
+                                $(".nav_bottom_lump_middle ul li").hide();
+                            
+                                $("#" + imgId).show();
+                                
+                                
+                                
+                            }
+                            
+                            
+                        
+    
+                        
+                        
+                    },function(){
+                        
+                        
+                        
+                            // 检查当前二级菜单项是否有三级菜单项
+                            if ($(this).find('.nav_bottom_lump_left_next_two_next_three ul li').length === 0) {
+                                
+                                
+                                //没有三级菜单项
+                                
+                                $(this).removeClass("nav_bottom_lump_left_li_two_active");
+                                
+                                
+                                
+                                
+                                
+                            }else{
+                                
+                                // 如果有三级菜单项，不做处理，交由三级菜单项的悬停事件处理
+                                
+                                
+                                $(this).addClass("nav_bottom_lump_left_li_two_active").siblings("li").removeClass("nav_bottom_lump_left_li_two_active");
+                                
+                                
+                                $(this).removeClass("nav_bottom_lump_left_li_two_active");
+                                
+                                
+                                var imgId = $(this).find("li").data('img');
+                            
+                                var imgId = "img01";
+                        
+                                $(".nav_bottom_lump_middle ul li").hide();
+                            
+                                $("#" + imgId).show();
+    
+    
+                                //$(this).find(".nav_bottom_lump_left_next_two_next_three").css("display","block");
+    
+    
+                                //$(this).siblings("li").find(".nav_bottom_lump_left_next_two_next_three").css("display","none");
+                                
+                                
+                            }
+                            
+                        
+                        
+                        
+                    })
+                    
+                    
+                    
+                    $(".nav_bottom_lump_left_next_two_next_three>ul>li").hover(function(){
+                        
+                        $(this).addClass("nav_bottom_lump_left_li_three_active").siblings("li").removeClass("nav_bottom_lump_left_li_three_active");
+                        
+                    },function(){
+                        
+                        $(this).removeClass("nav_bottom_lump_left_li_three_active");
+                        
+                    })
+                    
+                    
+                    
+                    
+                    
+                    $(".nav_bottom_lump_left_next_two").hover(function(){
+                        
+                        
+                        
+                        
+                        
+                             // 检查当前二级菜单项是否有三级菜单项
+                            if ($(this).find('.nav_bottom_lump_left_next_two_next_three ul li').length === 0) {
+                                
+                                
+                                //没有三级菜单项
+                                
+                                $(".nav_bottom_lump_left_next_two").css({"width":"11.24rem","height":"4.91rem"});
+                        
+                        
+                                $(".nav_bottom_lump_left_next_two>ul").css({"width":"11.24rem","height":"4.91rem"});    
+                                
+                                
+                                
+                            }else{
+                                
+                                // 如果有三级菜单项，不做处理，交由三级菜单项的悬停事件处理
+                                
+    
+                                
+                                
+                            }
+                            
+                        
+                        
+                        
+                        
+                                
+    
+                        
+                        
+                        
+                    },function(){
+                        
+                        
+                        
+                        
+                            // 检查当前二级菜单项是否有三级菜单项
+                            if ($(this).find('.nav_bottom_lump_left_next_two_next_three ul li').length === 0) {
+                                
+                                
+                                //没有三级菜单项
+                                
+                                $(".nav_bottom_lump_left_next_two").css({"width":"11.24rem","height":"4.91rem"});
+                        
+                        
+                                $(".nav_bottom_lump_left_next_two>ul").css({"width":"11.24rem","height":"4.91rem"});
+                                
+                                                    
+                                //$(this).css("display","none");
+                                
+                                
+                                var imgId = $(this).find("li").data('img');
+                                
+                                $(".nav_bottom_lump_middle ul li").hide();
+                                
+                                $("#" + imgId).show();
+                                
+                                
+                                
+                                
+                            }else{
+                                
+                                // 如果有三级菜单项，不做处理，交由三级菜单项的悬停事件处理
+                                
+    
+                                
+                                
+                            }
+                            
+                        
+                        
+                        
+    
+                    
+                        
+                        
+                        
+                    });
+                    
+                    
+                    
+                    
+                    
+                    $(".nav_bottom_lump_left_next_two_next_three").hover(function(){
+                        
+                        
+                        //console.log(123);
+                        
+                        
+                        $(".nav_bottom_lump_left_next_two_next_three").css({"width":"9.4rem"});
+                        
+                        
+                        
+                    },function(){
+                        
+                        
+                        
+                        $(".nav_bottom_lump_left_next_two_next_three").css({"width":"9.4rem"});
+                        
+                                                    
+                        //$(this).css("display","none");
+                        
+                        var imgId = $(this).find("li").data('img');
+                        
+                        //console.log(imgId);
+                        
+                        var imgId = "img01";
+                        
+                        $(".nav_bottom_lump_middle ul li").hide();
+                        
+                        $("#" + imgId).show();
+                        
+                                
+                                
+    
+                            
+                        
+                    });
+                    
+                    
+                    
+                    
+                })
+                
+                
+                
+                
+            </script>
+            
+    
+            
+            
+            <script>
+                
+                
+                $(function() {
+                    // 初始时隐藏所有图片
+                    $(".nav_bottom_block_middle ul li:not(:first-child)").hide();
+                    
+                    // 处理三级菜单项的悬停事件
+                    $(".nav_bottom_block_left_next_two_next_three ul li").hover(
+                        function() {
+                            // 鼠标进入三级菜单项：显示对应的图片
+                            var imgId = $(this).data('img');
+                            $(".nav_bottom_block_middle ul li").hide();
+                            $("#" + imgId).show();
+                        },
+                        function() {
+                            // 鼠标离开三级菜单项：可选处理
+                        }
+                    );
+                    
+                    // 处理二级菜单项的悬停事件
+                    $(".nav_bottom_block_left_next_two ul li").hover(
+                        function() {
+                            // 检查当前二级菜单项是否有三级菜单项
+                            if ($(this).find('.nav_bottom_block_left_next_two_next_three ul li').length === 0) {
+                                // 没有三级菜单项，执行图片切换
+                                var imgId = $(this).data('img');
+                                $(".nav_bottom_block_middle ul li").hide();
+                                $("#" + imgId).show();
+                            }
+                            // 如果有三级菜单项，不做处理，交由三级菜单项的悬停事件处理
+                        },
+                        function() {
+                            // 鼠标离开二级菜单项：可选处理
+                        }
+                    );
+                });
+                
+                
+                
+                
+                
+                
+                
+                
+            </script>
+            
+            
+            <script>
+                
+                
+                $(function() {
+                    // 初始时隐藏所有图片
+                    $(".nav_bottom_lump_middle ul li:not(:first-child)").hide();
+                    
+                    // 处理三级菜单项的悬停事件
+                    $(".nav_bottom_lump_left_next_two_next_three ul li").hover(
+                        function() {
+                            // 鼠标进入三级菜单项：显示对应的图片
+                            var imgId = $(this).data('img');
+                            $(".nav_bottom_lump_middle ul li").hide();
+                            $("#" + imgId).show();
+                        },
+                        function() {
+                            // 鼠标离开三级菜单项：可选处理
+                        }
+                    );
+                    
+                    // 处理二级菜单项的悬停事件
+                    $(".nav_bottom_lump_left_next_two ul li").hover(
+                        function() {
+                            // 检查当前二级菜单项是否有三级菜单项
+                            if ($(this).find('.nav_bottom_lump_left_next_two_next_three ul li').length === 0) {
+                                // 没有三级菜单项，执行图片切换
+                                var imgId = $(this).data('img');
+                                $(".nav_bottom_lump_middle ul li").hide();
+                                $("#" + imgId).show();
+                            }
+                            // 如果有三级菜单项，不做处理，交由三级菜单项的悬停事件处理
+                        },
+                        function() {
+                            // 鼠标离开二级菜单项：可选处理
+                        }
+                    );
+                });
+                
+                
+                
+            </script>
+                
+
+
+			<div class="index_part02">
+			    <div class="part02_img">
+                    <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesContactUs/index_part02_bg.jpg" alt="">    
+                </div>
+                <div class="part02_center">
+					<div class="part02_block">
+                        <div class="part02_block_h3 animate__animated animate__fadeInUp">
+                            <h3 >
+                                郑州豫工工程机械有限公司
+                            </h3>
+                        </div>
+                        <div class="part02_block_h6 animate__animated animate__fadeInUp">
+                            <h6>
+                                热忱欢迎社会各界与我们联系，我们全天恭候您的垂询！
+                            </h6>
+                        </div>
+                        <div class="part02_block_contact animate__animated animate__fadeInUp">
+                            <div class="part02_block_contact_tel">
+                                <h6>
+                                    ·&nbsp;&nbsp;全国24小时销售热线&nbsp;&nbsp;·
+                                </h6>
+                                <h3>
+                                    189-3713-5091
+                                </h3>
+                            </div>
+                            <div class="part02__blockcontact_link">
+                                <div class="part02_block_contact_link_piece btn">
+                                    <h3>
+                                        现在立即咨询
+                                    </h3>
+                                    <img class="animate__animated animate__headShake" src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesContactUs/part02_block_contact_link_piece_icon.png" alt="">                      
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+			
+			
+			
+			<script>
+
+				$(function(){
+					$(".part02_img img").css("transform","scale(1)");
+				})
+				
+			</script>
+
+
+
+
+
+			
+
+						
+
+
+
+
+                        
+	
+	
+            
+            
+
+
+
+
+
+			<div class="index_part011 wow animate__animated animate__fadeInUp">
+				<div class="part011_center">
+                    <div class="part011_block">
+                        <h3>
+                            ·即可获得工厂&nbsp;<b>优惠补贴</b>
+                        </h3>    
+                    </div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+            <div class="index_part023 wow animate__animated animate__fadeInUp">
+				<div class="part023_center">
+                    <div class="part023_block">
+                        <ul>
+                            <li>
+                                <a href="https://tb.53kf.com/code/client/94ed3a1a92adb3360088b64c2da46c228/1" style="text-decoration: none;" target="_blank">
+                                    <div class="part023_block_li_address">
+                                        <div class="part023_block_li_address_font">
+                                            <h3>
+                                                总部地址
+                                            </h3>
+                                            <h6>
+                                                郑州市二七区京广南路8号京莎广场B座26/27F
+                                            </h6>
+                                        </div>
+                                        <div class="part023_block_li_address_icon">
+                                            <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesContactUs/part023_block_li_address_icon.png" alt="">
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://tb.53kf.com/code/client/94ed3a1a92adb3360088b64c2da46c228/1" style="text-decoration: none;" target="_blank">
+                                    <div class="part023_block_li_factory">
+                                        <div class="part023_block_li_factory_font">
+                                            <h3>
+                                                免费预约来厂
+                                            </h3>
+                                            <h6>
+                                                豫工就近<b>考察工地</b>
+                                            </h6>
+                                        </div>
+                                        <div class="part023_block_li_factory_icon">
+                                            <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesContactUs/part023_block_li_factory_icon.png" alt="">
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://tb.53kf.com/code/client/94ed3a1a92adb3360088b64c2da46c228/1" style="text-decoration: none;" target="_blank">
+                                    <div class="part023_block_li_gift">
+                                        <div class="part023_block_li_gift_font">
+                                            <h3>
+                                                优惠补贴大放送
+                                            </h3>
+                                            <h6>
+                                                <b>豪气大礼</b>拿不停
+                                            </h6>
+                                        </div>
+                                        <div class="part023_block_li_gift_icon">
+                                            <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesContactUs/part023_block_li_gift_icon.png" alt="">
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>   
+                    </div>
+				</div>
+			</div>
+
+
+
+
+
+
+            
+            
+
+
+
+			<div class="index_part025 wow animate__animated animate__fadeInUp">
+				<div class="part025_center">
+					<div class="part025_block">
+                        <div class="part025_left">
+                            <h3>
+                                ·&nbsp;有问题找我们
+                            </h3>
+                            <h6>
+                                我们高级产品经理24小时在线，很高兴为您解决疑惑问题，帮助您选择合适的工程设备。
+                            </h6>
+                        </div>
+                        <div class="part025_right">
+                            <div class="part025_right_piece">
+                                <div class="part025_right_piece_tel">  
+                                    <h6>
+                                        全国24小时---------销售热线
+                                    </h6>
+                                    <h3>
+                                        189-3713-5091
+                                    </h3>
+                                </div>
+                                <div class="part025_right_piece_link">
+                                    <a href="https://tb.53kf.com/code/client/94ed3a1a92adb3360088b64c2da46c228/1" style="display: block;text-decoration: none;" target="_blank">
+                                        <div class="part025_right_piece_link_lump">
+                                            <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesContactUs/part025_right_piece_link_lump_icon.png" alt="">
+                                            <h3>
+                                                咨询客服
+                                            </h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>       
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+            
+
+            <div class="index_part022 wow animate__animated animate__fadeInUp">
+                <div class="part022_center">
+                    <div class="part022_block">
+                        <div class="part022_left">
+                            <ul>
+                                <li class="part022_left_li_active">
+                                    <div class="part022_left_li_icon">
+                                        <div class="part022_left_li_icon_block">
+
+                                        </div>
+                                    </div>
+                                    <div class="part022_left_li_font">
+                                        <div class="part022_left_li_font_h3">
+                                            <h3>
+                                                售后有保障吗？
+                                            </h3>
+                                        </div>
+                                        <div class="part022_left_li_font_p">
+                                            <p>
+                                                整机质保一年，终身维护，专业售后团队随时待命，3分钟内给予技术答复，24小时内完成工程师派遣。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="part022_left_li_icon">
+                                        <div class="part022_left_li_icon_block">
+
+                                        </div>
+                                    </div>
+                                    <div class="part022_left_li_font">
+                                        <div class="part022_left_li_font_h3">
+                                            <h3>
+                                                质量达标吗？
+                                            </h3>
+                                        </div>
+                                        <div class="part022_left_li_font_p">
+                                            <p>
+                                                近19年生产研发经验，精工品质，远销全球100多个国家和地区。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="part022_left_li_icon">
+                                        <div class="part022_left_li_icon_block">
+
+                                        </div>
+                                    </div>
+                                    <div class="part022_left_li_font">
+                                        <div class="part022_left_li_font_h3">
+                                            <h3>
+                                                有自己的工厂吗？
+                                            </h3>
+                                        </div>
+                                        <div class="part022_left_li_font_p">
+                                            <p>
+                                                严谨的生产流程、自动化的生产设备、厂家直销的方式，让郑州豫工工程机械质量好，价格低，成为千万客户选择豫工的原因。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>                      
+                        </div>
+                        <div class="part022_right">
+                            <div class="part022_right_piece">
+                                <div class="swiper-container14" id="swiper_container14">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesContactUs/part022_right_piece_image_01.png" alt="">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesContactUs/part022_right_piece_image_02.png" alt="">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesContactUs/part022_right_piece_image_03.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                         
+                        </div>                      
+                    </div>
+                </div>
+            </div>
+
+
+
+            <script>
+
+				var mySwiper14= new Swiper('.swiper-container14', {	 
+					spaceBetween: 30,
+					effect: 'slide',
+					speed: 300,
+					autoplay: false,
+					loop:false,
+                    on: {
+                        slideChangeTransitionStart: function(){
+                        let i = this.activeIndex;
+                        $('.part022_left ul').find('li').eq(i).addClass('part022_left_li_active ').siblings('li').removeClass('part022_left_li_active ');
+                        },
+                    }
+				})
+
+
+
+                $('.part022_left ul li').mouseover(function(){
+                    var index = $(this).index();
+                    $(this).addClass('part022_left_li_active ').siblings('li').removeClass('part022_left_li_active ');
+                    mySwiper14.slideTo(index);
+                })
+                
+
+			</script>
+
+
+
+            <div class="index_part026 wow animate__animated animate__fadeInUp">
+                <div class="part026_center">
+                    <div class="part026_block">
+                        <div class="part026_right">
+                            <div class="part026_right_block">
+                                <div class="part026_right_block_title">
+                                    <div class="part026_right_block_title_font">
+                                        <h3>
+                                            在线留言
+                                        </h3>
+                                        <h6>
+                                            请留下您的需求+电话  即可获得<b>优惠报价和工厂购机补贴</b>
+                                        </h6>
+                                    </div>
+                                    <div class="part026_right_block_title_icon">
+                                        <a href="https://tb.53kf.com/code/client/94ed3a1a92adb3360088b64c2da46c228/1" style="text-decoration: none;" target="_blank">
+                                            <img class="animate__animated animate__headShake" src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesContactUs/part026_right_block_title_icon.png" alt="">
+                                        </a>
+                                    </div>
+                                </div>	
+                                <div class="part026_right_block_content">
+                                    <form action="">
+                                        <input type="text" class="part026_right_block_content_name" id="name3" placeholder="方便我们与您取得联系">
+                                        <input type="text" class="part026_right_block_content_tel" id="tel3"  placeholder="我们会尽快与您取得联系哟">
+                                        <input type="text" class="part032_right_form_cp" name="cp" id="cp3" style="display:none" class="intxt" value="郑州大官网联系我们中间">
+                                        <textarea class="part026_right_block_content_ly" id="ly3" placeholder="选填 你可以写下您对设备的需求，产品经理5分钟内，为您解答"></textarea>
+                                        <button class="part026_right_block_content_button" type="button" id="fenge_zixun2" style="cursor:pointer;">
+                                            <h3>
+                                                即可获得工厂<b>报价</b>和优惠<b>补贴</b>
+                                            </h3>
+                                        </button>
+                                        <div class="part026_right_block_content_form_icon_one">
+                                            <h3>
+                                                <b>*</b>&nbsp;请留下您的姓名： 
+                                            </h3>
+                                        </div>
+                                        <div class="part026_right_block_content_form_icon_two">
+                                            <h3>
+                                                <b>*</b>&nbsp;请留下您的电话： 
+                                            </h3>
+                                        </div>
+                                        <div class="part026_right_block_content_form_icon_three">
+                                            <h3 id="ly3">
+                                                设备需求：  
+                                            </h3>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            
+            <script>
+            
+            
+               
+                    $(function(){
+                        
+                        $('#fenge_zixun2').click(function(){
+                            
+                            
+                            
+                            
+                            var newTitle = document.getElementById("cp3").value;
+                            
+                            var newAuthor = document.getElementById("name3").value;
+                            
+                            var newDianhua = document.getElementById("tel3").value;
+                            
+                            var newWangzhi = window.location.href;
+                            
+                            var newLiuyan = document.getElementById("ly3").value;
+                            
+                            //var newLiuyan = "";
+                            
+                            var newData = "is_ajax=1&data[title]="+newTitle+"&data[author]="+newAuthor+"&data[dianhua]="+newDianhua+"&data[wangzhi]="+newWangzhi+"&data[liuyan]="+newLiuyan+"";
+                            
+                            
+                            //console.log(newTitle);
+                            
+                            //console.log(newAuthor);
+                            
+                            //console.log(newWangzhi);
+                        
+                            //console.log(newLiuyan);
+                            
+                            
+                            if(newDianhua){
+                                
+                                
+                                
+                            
+                                newDianhua = Number(newDianhua);
+                                
+                                newDianhua = String(newDianhua);
+                                
+                            
+                                //console.log(newDianhua.length);
+                                
+                                
+                                //console.log(typeof(newDianhua));
+                                
+                                
+                                //console.log(newDianhua);
+                                
+                                
+                                //console.log(typeof(newDianhua) == "string");
+                                
+                                
+                                //console.log(newDianhua.length == 11);
+                                
+                            
+                                if((typeof(newDianhua) == "string")&&(newDianhua.length == 11)){
+                                    
+                                    
+                                    $.ajax({
+                                         type: "post",
+                                         url: "https://kuayu2.hnyugong.com/index.php?v=1&appid=1&appsecret=PHPCMF32C04A005323F&s=form&c=biaodan12&m=post",
+                                         data: newData,
+                                         header: {
+                                                'Content-Type': 'application/x-www-form-urlencoded',
+                                         },
+                                         //dataType: "json",
+                                         success: function(data){
+                                             
+                                            console.log(data.code);
+                                            console.log(data.msg);
+                                            
+                                            if(data.code == 0){
+                                                
+                                                //layer.alert('见到你真的很高兴', {icon: 6});
+                                                
+                                            }else if(data.code > 0){
+                                                
+                                                //layer.alert('见到你真的很高兴', {icon: 6});
+                                                
+                                                layer.alert('恭喜报名成功！稍后产品经理会与您联系',{icon: 1});
+                                                
+                                                
+                                                
+                                                document.getElementById("name3").value = "";
+                                                
+                                                document.getElementById("tel3").value = "";
+                                                
+                                                document.getElementById("ly3").value = "";
+                                                
+                                            }else{
+                                                
+                                                
+                                            }
+                                                     
+                                         },
+                                         error:function(XMLHttpRequest, textstatus,errorThrown){
+                                            debugger
+                                            // 状态码
+                                            console.log(XMLHttpRequest.status);
+                                            // 状态
+                                            console.log(XMLHttpRequest.readyState);
+                                            // 错误信息
+                                            console.log(textstatus);
+                                            ___hideLoading();
+                                            if(XMLHttpRequest.readyState==0){
+                                                // 对应登录超时问题，直接酷到登录页面
+                                                location.href='../Login.action';
+                                            }else{
+                                                 $.messager.alert("提示'，系统内部错误，请联系管理员处理!",'info');
+                                            }
+                                        }
+                                     });
+                                     
+                                    
+                                }else{
+                                    
+                                    
+                                    layer.msg('电话号码不是11位');
+                                    
+                                    //console.log(123);
+                                    
+                                    
+                                }
+                                
+                                
+                                
+                                
+                            
+                                
+                                
+                            }else{
+                                
+                                layer.msg('电话不能为空');
+                                
+                                
+                            }
+                            
+                
+                            
+                            
+                            
+                            
+                             
+                             
+                        });
+                    });
+                            
+                    
+            </script>
+            
+
+
+
+
+
+            <div class="index_part028 wow animate__animated animate__fadeInUp">
+                <div class="part028_center">
+                    <div class="part028_block">
+                        <div class="part028_left">
+                            <div class="part028_left_h3">
+                                <h3>
+                                    我们的位置
+                                </h3>
+                            </div>
+                            <div class="part028_left_h6">
+                                <h6>
+                                    郑州豫工工程机械有限公司欢迎社会各界来厂参观
+                                    
+                                </h6>
+                                <h6>
+                                    我们全天恭候您的到来
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="part028_right">
+                            <ul>
+                                <li>
+                                    <div class="part028_right_li_experience">
+                                        <div class="part028_right_li_experience_num">
+                                            <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesContactUs/part028_right_li_experience_num.png" alt="">
+                                        </div>
+                                        <div class="part028_right_li_experience_block">
+                                            <h3>
+                                                20年行业经验保障 • 放心选购 
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="part028_right_li_people">
+                                        <div class="part028_right_li_people_num">
+                                            <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesContactUs/part028_right_li_people_num.png" alt="">
+                                        </div>
+                                        <div class="part028_right_li_people_block">
+                                            <h3>
+                                                200+专业技术人员
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>                      
+                        </div>                
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <!-- 豫工实力开始 -->
+            <div class="district-3">
+                <div class="district-3-bottom">
+                    <div id="container" style="height: 100%;width: 100%;"></div>
+                         <script type="text/javascript">
+                          // 1. 创建地图
+                          var map = new AMap.Map('container', {
+                            zoom: 15,
+                            center: [113.656494, 34.717621], // 高德坐标（lng, lat）
+                            resizeEnable: true
+                          });
+                        
+                          // 2. 添加缩放 / 比例尺控件
+                          //   map.addControl(new AMap.Scale());
+                          //   map.addControl(new AMap.ToolBar());
+                        
+                          // 3. 创建标记点
+                          var marker = new AMap.Marker({
+                            position: [113.656494, 34.717621],
+                            title: '河南豫工机械设备有限公司'
+                          });
+                          map.add(marker);
+                        
+                          // 4. 信息窗口
+                          var infoWindow = new AMap.InfoWindow({
+                            content: `
+                              <div style="line-height:22px;">
+                                <strong>河南豫工机械设备有限公司</strong><br>
+                                地址：河南省郑州市二七区京莎广场B座2706
+                              </div>
+                            `,
+                            offset: new AMap.Pixel(0, -30)
+                          });
+                        
+                          // 默认打开信息窗口
+                          infoWindow.open(map, marker.getPosition());
+                        
+                          // 点击 marker 再次打开
+                          marker.on('click', function () {
+                            infoWindow.open(map, marker.getPosition());
+                          });
+                        </script>
+                </div>
+            </div>
+            <!-- 豫工实力结束 -->
+
+
+
+
+{template "footer.html"}
+

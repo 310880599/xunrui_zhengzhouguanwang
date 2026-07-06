@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<title>{$meta_title}</title>
+        <meta name="keywords" content="{$meta_keywords}"/>
+        <meta name="description" content="{$meta_description}" />
+		<link rel="stylesheet" href="{THEME_PATH}assets/zhengzhoudaguanwangmobile/css/common.css">		
+		<link rel="stylesheet" href="{THEME_PATH}assets/zhengzhoudaguanwangmobile/css/swiper.min.css">
+		<link rel="stylesheet" href="{THEME_PATH}assets/zhengzhoudaguanwangmobile/css/productsList.css">
+		<script type="text/javascript" src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/js/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript" src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/js/swiper.min.js"></script>
+		<script type='text/javascript' src='{THEME_PATH}assets/zhengzhoudaguanwangmobile/layer/layer.js'></script>
+		<script type='text/javascript' src='{THEME_PATH}assets/zhengzhoudaguanwangmobile/layer/layer.js'></script>
+		<script type="text/javascript">
+			(function (doc, win) {
+				var docEl = doc.documentElement,
+						resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+						recalc = function () {
+							var clientWidth = docEl.clientWidth;
+							if (!clientWidth) return;
+							if(clientWidth>=750){
+								docEl.style.fontSize = '100px';
+							}else{
+								docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+							}
+						};
+
+				if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<style>
+		    
+		    .layui-layer-content{color: #fff !important;}
+		    
+		    .layui-layer-padding{color: #333 !important}
+		    
+		</style>
+	</head>
+	<body style="position: relative;">
+
+        
+        {template "header.html"}
+		
+        {template "nav.html"}
+
+
+		<div class="container">
+			<div class="part01">
+				<div class="part01_center">
+					<div class="part01_center_h3">
+						<h3>
+                            产 / 品 / 中 / 心
+                        </h3>
+					</div>
+					<div class="part01_center_h6">
+						<h6>
+                    		豫工机械20年专业机械生成厂家，畅销全球几十个国家。
+                        </h6>
+					</div>
+				</div>
+			</div>
+
+
+			
+			<div class="part05">
+				<div class="part05_center">
+					<div class="part05_top">
+						<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/aboutYugongMobile/part05_top_icon.png" alt="">
+						<h3>
+							应急设备产品中心
+						</h3>
+					</div>
+					<div class="part05_bottom part05_bottom_01" id="content_list_01">
+						<ul>
+						    
+                            {template "product_list_yingji_data.html"}
+							
+						</ul>	
+					</div>
+					<div class="part05_button">
+					    <div class="part05_button_num part05_button_num_01">
+                            <h6>
+                                <b>2</b>/<span>{count action=module module=chanpinzhongxin catid=19}</span>
+                            </h6> 					        
+					    </div>
+						<div class="part05_button_left part05_button_left_01 more_01">
+							<h3>
+								查看更多
+							</h3>
+						</div>
+						<div class="part05_button_right part05_button_right_01">
+							<h3>
+								收起
+							</h3>
+						</div>
+					</div>
+				</div>	
+			</div>
+			
+			
+			<script>
+			
+			    //产品列表第一个ajax
+
+
+                var Mpage_01=1;
+            
+                //滚动显示更多
+                var scroll_get_01 = true;  //做个标志,不要反反复复的加载
+                
+                $(function(){
+            
+            
+                    $(".more_01").click(function(){
+                        //layer.msg('内容加截中,请稍候',{time:1000});
+                        dr_ajax_load_more_01();
+                    })
+            
+                    
+                });
+            
+                function dr_ajax_load_more_01(){
+            
+                    Mpage_01++;
+            
+                    $.get('/index.php?s=api&c=api&m=template&name=product_list_yingji_data.html&module={MOD_DIR}&catid=19&format=json&page='+Mpage_01+'&'+Math.random(),function(res){
+            
+            
+                        if(res.code==1){
+                            if(res.msg.trim()==''){
+            
+                                // layer.msg("已经显示完了",{time:500});
+            
+                                // $(".part025_bottom_right_lump_01").css("display","none");
+            
+                                // $(".part025_bottom_right_chunk_01").css("display","block");
+            
+                                //console.log(123);
+            
+                            }else{
+            
+                                $('#content_list_01 ul').append(res.msg);
+                                scroll_get_01 = true;
+                                //console.log(res);
+                            }
+                        }else{
+                            layer.msg(res.msg,{time:2500});
+                        }
+            
+                        var newNum =  $("#content_list_01").find("li").length;
+            
+                        $(".part05_button_num_01 h6 b").text(newNum);
+                        
+                        
+                        // 在 AJAX 请求完成后获取最新的当前页码和总页数
+                        var currentPage = parseInt($(".part05_button_num_01 h6 b").text());
+                        var totalPages = parseInt($(".part05_button_num_01 h6 span").text());
+                        
+                        if(currentPage === totalPages){
+                            layer.msg("已经显示完了",{time:500});
+
+                            $(".part05_button_left_01").text("已经显示完了");
+
+                        }else{
+                            layer.msg("继续加载中",{time:500});
+                        }
+            
+            
+            
+                    }, 'json');
+                }
+                
+                
+                
+            </script>
+            
+            
+            
+            
+            <script>
+            
+                document.addEventListener('DOMContentLoaded', function() {
+                  // 获取按钮元素
+                  var button = document.querySelector('.part05_button_right_01');
+                  
+                  // 为按钮添加点击事件监听器
+                  button.addEventListener('click', function() {
+                    // 获取包含所有li的ul元素
+                    var ul = document.querySelector('#content_list_01 ul');
+                    
+                    // 获取所有的li元素
+                    var lis = ul.querySelectorAll('li');
+                    
+                    // 从第三个li开始遍历（索引为2）
+                    for (var i = lis.length - 1; i >= 2; i--) {
+                      // 移除当前li
+                      ul.removeChild(lis[i]);
+                    }
+                    
+                    // 更新显示的数量
+                    updateDisplayCount();
+                  });
+                  
+                  // 更新显示的数量的函数
+                  function updateDisplayCount() {
+                      
+                    var numDisplay = document.querySelector('.part05_button_num_01 b');
+                    
+                    var remainingLis = document.querySelectorAll('#content_list_01 ul li').length;
+                    
+                    numDisplay.textContent = remainingLis;
+                    
+                     
+                    //页码
+                    Mpage_01=1;
+                    
+                    $(".part05_button_left_01").text("查看更多");
+                    
+                    
+                  }
+                });
+                
+            </script>
+            
+
+
+
+			<div class="part06">
+				<div class="part06_center">
+					<div class="part06_top">
+						<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/aboutYugongMobile/part05_top_icon.png" alt="">
+						<h3>
+							环保设备产品中心 
+						</h3>
+					</div>
+					<div class="part06_bottom part06_bottom_02"  id="content_list_02">
+						<ul>
+							
+							
+							 {template "product_list_huanbao_data.html"}
+							
+					
+						</ul>	
+					</div>
+					<div class="part06_button">
+                    	<div class="part06_button_num part06_button_num_02">
+                    		<h6>
+                    			<b>2</b>/<span>{count action=module module=chanpinzhongxin catid=20}</span>
+                    		</h6> 					        
+                    	</div>
+                    	<div class="part06_button_left part06_button_left_02 more_02">
+                    		<h3>
+                    			查看更多
+                    		</h3>
+                    	</div>
+                    	<div class="part06_button_right part06_button_right_02">
+                    		<h3>
+                    			收起
+                    		</h3>
+                    	</div>
+                    </div>
+				</div>	
+			</div>
+			
+			
+			
+			<script>
+			
+			    //产品列表第二个ajax
+
+
+                var Mpage_02=1;
+            
+                //滚动显示更多
+                var scroll_get_02 = true;  //做个标志,不要反反复复的加载
+                
+                $(function(){
+            
+            
+                    $(".more_02").click(function(){
+                        //layer.msg('内容加截中,请稍候',{time:1000});
+                        dr_ajax_load_more_02();
+                    })
+            
+                    
+                });
+            
+                function dr_ajax_load_more_02(){
+            
+                    Mpage_02++;
+            
+                    $.get('/index.php?s=api&c=api&m=template&name=product_list_huanbao_data.html&module={MOD_DIR}&catid=20&format=json&page='+Mpage_02+'&'+Math.random(),function(res){
+            
+            
+                        if(res.code==1){
+                            if(res.msg.trim()==''){
+            
+                                // layer.msg("已经显示完了",{time:500});
+            
+                                // $(".part025_bottom_right_lump_01").css("display","none");
+            
+                                // $(".part025_bottom_right_chunk_01").css("display","block");
+            
+                                //console.log(123);
+            
+                            }else{
+            
+                                $('#content_list_02 ul').append(res.msg);
+                                scroll_get_02 = true;
+                                //console.log(res);
+                            }
+                        }else{
+                            layer.msg(res.msg,{time:2500});
+                        }
+            
+                        var newNum =  $("#content_list_02").find("li").length;
+            
+                        $(".part06_button_num_02 h6 b").text(newNum);
+                        
+                        
+                        // 在 AJAX 请求完成后获取最新的当前页码和总页数
+                        var currentPage = parseInt($(".part06_button_num_02 h6 b").text());
+                        var totalPages = parseInt($(".part06_button_num_02 h6 span").text());
+                        
+                        if(currentPage === totalPages){
+                            layer.msg("已经显示完了",{time:500});
+
+                            $(".part06_button_left_02").text("已经显示完了");
+
+                        }else{
+                            layer.msg("继续加载中",{time:500});
+                        }
+            
+            
+            
+                    }, 'json');
+                }
+                
+                
+                
+            </script>
+            
+            
+            
+            
+            <script>
+            
+                document.addEventListener('DOMContentLoaded', function() {
+                  // 获取按钮元素
+                  var button = document.querySelector('.part06_button_right_02');
+                  
+                  // 为按钮添加点击事件监听器
+                  button.addEventListener('click', function() {
+                    // 获取包含所有li的ul元素
+                    var ul = document.querySelector('#content_list_02 ul');
+                    
+                    // 获取所有的li元素
+                    var lis = ul.querySelectorAll('li');
+                    
+                    // 从第三个li开始遍历（索引为2）
+                    for (var i = lis.length - 1; i >= 2; i--) {
+                      // 移除当前li
+                      ul.removeChild(lis[i]);
+                    }
+                    
+                    // 更新显示的数量
+                    updateDisplayCount();
+                  });
+                  
+                  // 更新显示的数量的函数
+                  function updateDisplayCount() {
+                      
+                    var numDisplay = document.querySelector('.part06_button_num_02 b');
+                    
+                    var remainingLis = document.querySelectorAll('#content_list_02 ul li').length;
+                    
+                    numDisplay.textContent = remainingLis;
+                    
+                    
+                    //页码
+                    Mpage_02=1;
+                    
+                    $(".part06_button_left_02").text("查看更多");
+                    
+                    
+                  }
+                });
+                
+            </script>
+
+
+			
+			<div class="part07">
+				<div class="part07_center">
+					<div class="part07_top">
+						<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/aboutYugongMobile/part05_top_icon.png" alt="">
+						<h3>
+							路面设备产品中心 
+						</h3>
+					</div>
+					<div class="part07_bottom part07_bottom_03" id="content_list_03">
+						<ul>
+							
+							{template "product_list_lumian_data.html"}
+							
+						</ul>	
+					</div>
+					<div class="part07_button">
+                    	<div class="part07_button_num part07_button_num_03">
+                    		<h6>
+                    			<b>2</b>/<span>{count action=module module=chanpinzhongxin catid=21}</span>
+                    		</h6> 					        
+                    	</div>
+                    	<div class="part07_button_left part07_button_left_03 more_03">
+                    		<h3>
+                    			查看更多
+                    		</h3>
+                    	</div>
+                    	<div class="part07_button_right part07_button_right_03">
+                    		<h3>
+                    			收起
+                    		</h3>
+                    	</div>
+                    </div>
+				</div>	
+			</div>
+			
+			
+			
+			<script>
+			
+			    //产品列表第三个ajax
+
+
+                var Mpage_03=1;
+            
+                //滚动显示更多
+                var scroll_get_03 = true;  //做个标志,不要反反复复的加载
+                
+                $(function(){
+            
+            
+                    $(".more_03").click(function(){
+                        //layer.msg('内容加截中,请稍候',{time:1000});
+                        dr_ajax_load_more_03();
+                    })
+            
+                    
+                });
+            
+                function dr_ajax_load_more_03(){
+            
+                    Mpage_03++;
+            
+                    $.get('/index.php?s=api&c=api&m=template&name=product_list_lumian_data.html&module={MOD_DIR}&catid=21&format=json&page='+Mpage_03+'&'+Math.random(),function(res){
+            
+            
+                        if(res.code==1){
+                            if(res.msg.trim()==''){
+            
+                                // layer.msg("已经显示完了",{time:500});
+            
+                                // $(".part025_bottom_right_lump_01").css("display","none");
+            
+                                // $(".part025_bottom_right_chunk_01").css("display","block");
+            
+                                //console.log(123);
+            
+                            }else{
+            
+                                $('#content_list_03 ul').append(res.msg);
+                                scroll_get_03 = true;
+                                //console.log(res);
+                            }
+                        }else{
+                            layer.msg(res.msg,{time:2500});
+                        }
+            
+                        var newNum =  $("#content_list_03").find("li").length;
+            
+                        $(".part07_button_num_03 h6 b").text(newNum);
+                        
+                        
+                        // 在 AJAX 请求完成后获取最新的当前页码和总页数
+                        var currentPage = parseInt($(".part07_button_num_03 h6 b").text());
+                        var totalPages = parseInt($(".part07_button_num_03 h6 span").text());
+                        
+                        if(currentPage === totalPages){
+                            layer.msg("已经显示完了",{time:500});
+
+                            $(".part07_button_left_03").text("已经显示完了");
+
+                        }else{
+                            layer.msg("继续加载中",{time:500});
+                        }
+            
+            
+            
+                    }, 'json');
+                }
+                
+                
+                
+            </script>
+            
+            
+            
+            
+            <script>
+            
+                document.addEventListener('DOMContentLoaded', function() {
+                  // 获取按钮元素
+                  var button = document.querySelector('.part07_button_right_03');
+                  
+                  // 为按钮添加点击事件监听器
+                  button.addEventListener('click', function() {
+                    // 获取包含所有li的ul元素
+                    var ul = document.querySelector('#content_list_03 ul');
+                    
+                    // 获取所有的li元素
+                    var lis = ul.querySelectorAll('li');
+                    
+                    // 从第三个li开始遍历（索引为2）
+                    for (var i = lis.length - 1; i >= 2; i--) {
+                      // 移除当前li
+                      ul.removeChild(lis[i]);
+                    }
+                    
+                    // 更新显示的数量
+                    updateDisplayCount();
+                  });
+                  
+                  // 更新显示的数量的函数
+                  function updateDisplayCount() {
+                      
+                    var numDisplay = document.querySelector('.part07_button_num_03 b');
+                    
+                    var remainingLis = document.querySelectorAll('#content_list_03 ul li').length;
+                    
+                    numDisplay.textContent = remainingLis;
+                    
+                    
+                    //页码
+                    Mpage_03=1;
+                    
+                    $(".part07_button_left_03").text("查看更多");
+                    
+                    
+                  }
+                });
+                
+            </script>
+
+
+
+			
+			<div class="part08">
+				<div class="part08_center">
+					<div class="part08_top">
+						<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/aboutYugongMobile/part05_top_icon.png" alt="">
+						<h3>
+							桥梁设备产品中心
+						</h3>
+					</div>
+					<div class="part08_bottom part08_bottom_04" id="content_list_04">
+						<ul>
+							
+							{template "product_list_qiaoliang_data.html"}
+							
+						</ul>	
+					</div>
+					<div class="part08_button">
+                    	<div class="part08_button_num part08_button_num_04">
+                    		<h6>
+                    			<b>2</b>/<span>{count action=module module=chanpinzhongxin catid=22}</span>
+                    		</h6> 					        
+                    	</div>
+                    	<div class="part08_button_left part08_button_left_04 more_04">
+                    		<h3>
+                    			查看更多
+                    		</h3>
+                    	</div>
+                    	<div class="part08_button_right part08_button_right_04">
+                    		<h3>
+                    			收起
+                    		</h3>
+                    	</div>
+                    </div>
+				</div>	
+			</div>
+			
+			
+			
+			<script>
+			
+			    //产品列表第四个ajax
+
+                var Mpage_04=1;
+            
+                //滚动显示更多
+                var scroll_get_04 = true;  //做个标志,不要反反复复的加载
+                
+                $(function(){
+            
+            
+                    $(".more_04").click(function(){
+                        //layer.msg('内容加截中,请稍候',{time:1000});
+                        dr_ajax_load_more_04();
+                    })
+            
+                    
+                });
+            
+                function dr_ajax_load_more_04(){
+            
+                    Mpage_04++;
+            
+                    $.get('/index.php?s=api&c=api&m=template&name=product_list_qiaoliang_data.html&module={MOD_DIR}&catid=22&format=json&page='+Mpage_04+'&'+Math.random(),function(res){
+            
+            
+                        if(res.code==1){
+                            if(res.msg.trim()==''){
+            
+                                // layer.msg("已经显示完了",{time:500});
+            
+                                // $(".part025_bottom_right_lump_01").css("display","none");
+            
+                                // $(".part025_bottom_right_chunk_01").css("display","block");
+            
+                                //console.log(123);
+            
+                            }else{
+            
+                                $('#content_list_04 ul').append(res.msg);
+                                scroll_get_04 = true;
+                                //console.log(res);
+                            }
+                        }else{
+                            layer.msg(res.msg,{time:2500});
+                        }
+            
+                        var newNum =  $("#content_list_04").find("li").length;
+            
+                        $(".part08_button_num_04 h6 b").text(newNum);
+                        
+                        
+                        // 在 AJAX 请求完成后获取最新的当前页码和总页数
+                        var currentPage = parseInt($(".part08_button_num_04 h6 b").text());
+                        var totalPages = parseInt($(".part08_button_num_04 h6 span").text());
+                        
+                        if(currentPage === totalPages){
+                            layer.msg("已经显示完了",{time:500});
+
+                            $(".part08_button_left_04").text("已经显示完了");
+
+                        }else{
+                            layer.msg("继续加载中",{time:500});
+                        }
+            
+            
+            
+                    }, 'json');
+                }
+                
+                
+                
+            </script>
+            
+            
+            
+            
+            <script>
+            
+                document.addEventListener('DOMContentLoaded', function() {
+                  // 获取按钮元素
+                  var button = document.querySelector('.part08_button_right_04');
+                  
+                  // 为按钮添加点击事件监听器
+                  button.addEventListener('click', function() {
+                    // 获取包含所有li的ul元素
+                    var ul = document.querySelector('#content_list_04 ul');
+                    
+                    // 获取所有的li元素
+                    var lis = ul.querySelectorAll('li');
+                    
+                    // 从第三个li开始遍历（索引为2）
+                    for (var i = lis.length - 1; i >= 2; i--) {
+                      // 移除当前li
+                      ul.removeChild(lis[i]);
+                    }
+                    
+                    // 更新显示的数量
+                    updateDisplayCount();
+                  });
+                  
+                  // 更新显示的数量的函数
+                  function updateDisplayCount() {
+                      
+                    var numDisplay = document.querySelector('.part08_button_num_04 b');
+                    
+                    var remainingLis = document.querySelectorAll('#content_list_04 ul li').length;
+                    
+                    numDisplay.textContent = remainingLis;
+                    
+                    
+                    //页码
+                    Mpage_04=1;
+                    
+                    $(".part08_button_left_04").text("查看更多");
+                    
+                    
+                  }
+                });
+                
+            </script>
+			
+			
+			
+
+			
+			
+			<div class="part09">
+				<div class="part09_center">
+					<div class="part09_top">
+						<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/aboutYugongMobile/part05_top_icon.png" alt="">
+						<h3>
+							隧道设备产品中心
+						</h3>
+					</div>
+					<div class="part09_bottom part09_bottom_05" id="content_list_05">
+						<ul>
+							
+							
+							{template "product_list_suidao_data.html"}
+							
+							
+						</ul>	
+					</div>
+					<div class="part09_button">
+                    	<div class="part09_button_num part09_button_num_05">
+                    		<h6>
+                    			<b>2</b>/<span>{count action=module module=chanpinzhongxin catid=23}</span>
+                    		</h6> 					        
+                    	</div>
+                    	<div class="part09_button_left part09_button_left_05 more_05">
+                    		<h3>
+                    			查看更多
+                    		</h3>
+                    	</div>
+                    	<div class="part09_button_right part09_button_right_05">
+                    		<h3>
+                    			收起
+                    		</h3>
+                    	</div>
+                    </div>
+				</div>	
+			</div>
+			
+			
+			
+			<script>
+			
+			    //产品列表第五个ajax
+
+                var Mpage_05=1;
+            
+                //滚动显示更多
+                var scroll_get_05 = true;  //做个标志,不要反反复复的加载
+                
+                $(function(){
+            
+            
+                    $(".more_05").click(function(){
+                        //layer.msg('内容加截中,请稍候',{time:1000});
+                        dr_ajax_load_more_05();
+                    })
+            
+                    
+                });
+            
+                function dr_ajax_load_more_05(){
+            
+                    Mpage_05++;
+            
+                    $.get('/index.php?s=api&c=api&m=template&name=product_list_suidao_data.html&module={MOD_DIR}&catid=22&format=json&page='+Mpage_05+'&'+Math.random(),function(res){
+            
+            
+                        if(res.code==1){
+                            if(res.msg.trim()==''){
+            
+                                // layer.msg("已经显示完了",{time:500});
+            
+                                // $(".part025_bottom_right_lump_01").css("display","none");
+            
+                                // $(".part025_bottom_right_chunk_01").css("display","block");
+            
+                                //console.log(123);
+            
+                            }else{
+            
+                                $('#content_list_05 ul').append(res.msg);
+                                scroll_get_05 = true;
+                                //console.log(res);
+                            }
+                        }else{
+                            layer.msg(res.msg,{time:2500});
+                        }
+            
+                        var newNum =  $("#content_list_05").find("li").length;
+            
+                        $(".part09_button_num_05 h6 b").text(newNum);
+                        
+                        
+                        // 在 AJAX 请求完成后获取最新的当前页码和总页数
+                        var currentPage = parseInt($(".part09_button_num_05 h6 b").text());
+                        var totalPages = parseInt($(".part09_button_num_05 h6 span").text());
+                        
+                        if(currentPage === totalPages){
+                            layer.msg("已经显示完了",{time:500});
+
+                            $(".part09_button_left_05").text("已经显示完了");
+
+                        }else{
+                            layer.msg("继续加载中",{time:500});
+                        }
+            
+            
+            
+                    }, 'json');
+                }
+                
+                
+                
+            </script>
+            
+            
+            
+            
+            <script>
+            
+                document.addEventListener('DOMContentLoaded', function() {
+                  // 获取按钮元素
+                  var button = document.querySelector('.part09_button_right_05');
+                  
+                  // 为按钮添加点击事件监听器
+                  button.addEventListener('click', function() {
+                    // 获取包含所有li的ul元素
+                    var ul = document.querySelector('#content_list_05 ul');
+                    
+                    // 获取所有的li元素
+                    var lis = ul.querySelectorAll('li');
+                    
+                    // 从第三个li开始遍历（索引为2）
+                    for (var i = lis.length - 1; i >= 2; i--) {
+                      // 移除当前li
+                      ul.removeChild(lis[i]);
+                    }
+                    
+                    // 更新显示的数量
+                    updateDisplayCount();
+                  });
+                  
+                  // 更新显示的数量的函数
+                  function updateDisplayCount() {
+                      
+                    var numDisplay = document.querySelector('.part09_button_num_05 b');
+                    
+                    var remainingLis = document.querySelectorAll('#content_list_05 ul li').length;
+                    
+                    numDisplay.textContent = remainingLis;
+                    
+                    
+                    //页码
+                    Mpage_05=1;
+                    
+                    $(".part09_button_left_05").text("查看更多");
+                    
+                    
+                  }
+                });
+                
+            </script>
+			
+
+
+			
+			<div class="part010">
+				<div class="part010_center">
+					<div class="part010_top">
+						<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/aboutYugongMobile/part05_top_icon.png" alt="">
+						<h3>
+							注浆设备产品中心 
+						</h3>
+					</div>
+					<div class="part010_bottom part010_bottom_06" id="content_list_06">
+						<ul>
+							
+							
+							{template "product_list_zhujiang_data.html"}
+							
+							
+						</ul>	
+					</div>
+					<div class="part010_button">
+                    	<div class="part010_button_num part010_button_num_06">
+                    		<h6>
+                    			<b>2</b>/<span>{count action=module module=chanpinzhongxin catid=24}</span>
+                    		</h6> 					        
+                    	</div>
+                    	<div class="part010_button_left part010_button_left_06 more_06">
+                    		<h3>
+                    			查看更多
+                    		</h3>
+                    	</div>
+                    	<div class="part010_button_right part010_button_right_06">
+                    		<h3>
+                    			收起
+                    		</h3>
+                    	</div>
+                    </div>
+				</div>	
+			</div>
+			
+			
+            <script>
+			
+			    //产品列表第六个ajax
+
+                var Mpage_06=1;
+            
+                //滚动显示更多
+                var scroll_get_06 = true;  //做个标志,不要反反复复的加载
+                
+                $(function(){
+            
+            
+                    $(".more_06").click(function(){
+                        //layer.msg('内容加截中,请稍候',{time:1000});
+                        dr_ajax_load_more_06();
+                    })
+            
+                    
+                });
+            
+                function dr_ajax_load_more_06(){
+            
+                    Mpage_06++;
+            
+                    $.get('/index.php?s=api&c=api&m=template&name=product_list_zhujiang_data.html&module={MOD_DIR}&catid=22&format=json&page='+Mpage_06+'&'+Math.random(),function(res){
+            
+            
+                        if(res.code==1){
+                            if(res.msg.trim()==''){
+            
+                                // layer.msg("已经显示完了",{time:500});
+            
+                                // $(".part025_bottom_right_lump_01").css("display","none");
+            
+                                // $(".part025_bottom_right_chunk_01").css("display","block");
+            
+                                //console.log(123);
+            
+                            }else{
+            
+                                $('#content_list_06 ul').append(res.msg);
+                                scroll_get_06 = true;
+                                //console.log(res);
+                            }
+                        }else{
+                            layer.msg(res.msg,{time:2500});
+                        }
+            
+                        var newNum =  $("#content_list_06").find("li").length;
+            
+                        $(".part010_button_num_06 h6 b").text(newNum);
+                        
+                        
+                        // 在 AJAX 请求完成后获取最新的当前页码和总页数
+                        var currentPage = parseInt($(".part010_button_num_06 h6 b").text());
+                        var totalPages = parseInt($(".part010_button_num_06 h6 span").text());
+                        
+                        if(currentPage === totalPages){
+                            layer.msg("已经显示完了",{time:500});
+
+                            $(".part010_button_left_06").text("已经显示完了");
+
+                        }else{
+                            layer.msg("继续加载中",{time:500});
+                        }
+            
+            
+            
+                    }, 'json');
+                }
+                
+                
+                
+            </script>
+            
+            
+            
+            
+            <script>
+            
+                document.addEventListener('DOMContentLoaded', function() {
+                  // 获取按钮元素
+                  var button = document.querySelector('.part010_button_right_06');
+                  
+                  // 为按钮添加点击事件监听器
+                  button.addEventListener('click', function() {
+                    // 获取包含所有li的ul元素
+                    var ul = document.querySelector('#content_list_06 ul');
+                    
+                    // 获取所有的li元素
+                    var lis = ul.querySelectorAll('li');
+                    
+                    // 从第三个li开始遍历（索引为2）
+                    for (var i = lis.length - 1; i >= 2; i--) {
+                      // 移除当前li
+                      ul.removeChild(lis[i]);
+                    }
+                    
+                    // 更新显示的数量
+                    updateDisplayCount();
+                  });
+                  
+                  // 更新显示的数量的函数
+                  function updateDisplayCount() {
+                      
+                    var numDisplay = document.querySelector('.part010_button_num_06 b');
+                    
+                    var remainingLis = document.querySelectorAll('#content_list_06 ul li').length;
+                    
+                    numDisplay.textContent = remainingLis;
+                    
+                    
+                    //页码
+                    Mpage_06=1;
+                    
+                    $(".part010_button_left_06").text("查看更多");
+                    
+                    
+                  }
+                });
+                
+            </script>
+			
+			
+
+
+			<div class="part011">
+				<div class="part011_center">
+					<div class="part011_top">
+						<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/aboutYugongMobile/part05_top_icon.png" alt="">
+						<h3>
+							切割设备产品中心 
+						</h3>
+					</div>
+					<div class="part011_bottom part011_bottom_07" id="content_list_07">
+						<ul>
+							
+							
+							{template "product_list_qiege_data.html"}
+							
+							
+						</ul>	
+					</div>
+					<div class="part011_button">
+                    	<div class="part011_button_num part011_button_num_07">
+                    		<h6>
+                    			<b>2</b>/<span>{count action=module module=chanpinzhongxin catid=25}</span>
+                    		</h6> 					        
+                    	</div>
+                    	<div class="part011_button_left part011_button_left_07 more_07">
+                    		<h3>
+                    			查看更多
+                    		</h3>
+                    	</div>
+                    	<div class="part011_button_right part011_button_right_07">
+                    		<h3>
+                    			收起
+                    		</h3>
+                    	</div>
+                    </div>
+				</div>	
+			</div>
+			
+			
+			<script>
+			
+			    //产品列表第七个ajax
+
+                var Mpage_07=1;
+            
+                //滚动显示更多
+                var scroll_get_07 = true;  //做个标志,不要反反复复的加载
+                
+                $(function(){
+            
+            
+                    $(".more_07").click(function(){
+                        //layer.msg('内容加截中,请稍候',{time:1000});
+                        dr_ajax_load_more_07();
+                    })
+            
+                    
+                });
+            
+                function dr_ajax_load_more_07(){
+            
+                    Mpage_07++;
+            
+                    $.get('/index.php?s=api&c=api&m=template&name=product_list_qiege_data.html&module={MOD_DIR}&catid=22&format=json&page='+Mpage_07+'&'+Math.random(),function(res){
+            
+            
+                        if(res.code==1){
+                            if(res.msg.trim()==''){
+            
+                                // layer.msg("已经显示完了",{time:500});
+            
+                                // $(".part025_bottom_right_lump_01").css("display","none");
+            
+                                // $(".part025_bottom_right_chunk_01").css("display","block");
+            
+                                //console.log(123);
+            
+                            }else{
+            
+                                $('#content_list_07 ul').append(res.msg);
+                                scroll_get_07 = true;
+                                //console.log(res);
+                            }
+                        }else{
+                            layer.msg(res.msg,{time:2500});
+                        }
+            
+                        var newNum =  $("#content_list_07").find("li").length;
+            
+                        $(".part011_button_num_07 h6 b").text(newNum);
+                        
+                        
+                        // 在 AJAX 请求完成后获取最新的当前页码和总页数
+                        var currentPage = parseInt($(".part011_button_num_07 h6 b").text());
+                        var totalPages = parseInt($(".part011_button_num_07 h6 span").text());
+                        
+                        if(currentPage === totalPages){
+                            layer.msg("已经显示完了",{time:500});
+
+                            $(".part011_button_left_07").text("已经显示完了");
+
+                        }else{
+                            layer.msg("继续加载中",{time:500});
+                        }
+            
+            
+            
+                    }, 'json');
+                }
+                
+                
+                
+            </script>
+            
+            
+            
+            
+            <script>
+            
+                document.addEventListener('DOMContentLoaded', function() {
+                  // 获取按钮元素
+                  var button = document.querySelector('.part011_button_right_07');
+                  
+                  // 为按钮添加点击事件监听器
+                  button.addEventListener('click', function() {
+                    // 获取包含所有li的ul元素
+                    var ul = document.querySelector('#content_list_07 ul');
+                    
+                    // 获取所有的li元素
+                    var lis = ul.querySelectorAll('li');
+                    
+                    // 从第三个li开始遍历（索引为2）
+                    for (var i = lis.length - 1; i >= 2; i--) {
+                      // 移除当前li
+                      ul.removeChild(lis[i]);
+                    }
+                    
+                    // 更新显示的数量
+                    updateDisplayCount();
+                  });
+                  
+                  // 更新显示的数量的函数
+                  function updateDisplayCount() {
+                      
+                    var numDisplay = document.querySelector('.part011_button_num_07 b');
+                    
+                    var remainingLis = document.querySelectorAll('#content_list_07 ul li').length;
+                    
+                    numDisplay.textContent = remainingLis;
+                    
+                    
+                    //页码
+                    Mpage_07=1;
+                    
+                    $(".part011_button_left_07").text("查看更多");
+                    
+                    
+                  }
+                });
+                
+            </script>
+			
+			
+			
+
+			
+			<div class="part012">
+				<div class="part012_center">
+					<div class="part012_top">
+						<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/aboutYugongMobile/part05_top_icon.png" alt="">
+						<h3>
+							工程钻机设备产品中心
+						</h3>
+					</div>
+					<div class="part012_bottom part012_bottom_08" id="content_list_08">
+						<ul>
+							
+							
+							{template "product_list_zuanji_data.html"}
+							
+							
+						</ul>	
+					</div>
+                    <div class="part012_button">
+                    	<div class="part012_button_num part012_button_num_08">
+                    		<h6>
+                    			<b>2</b>/<span>{count action=module module=chanpinzhongxin catid=26}</span>
+                    		</h6> 					        
+                    	</div>
+                    	<div class="part012_button_left part012_button_left_08 more_08">
+                    		<h3>
+                    			查看更多
+                    		</h3>
+                    	</div>
+                    	<div class="part012_button_right part012_button_right_08">
+                    		<h3>
+                    			收起
+                    		</h3>
+                    	</div>
+                    </div>
+					<div class="footer">
+            			<h2>
+            				咨询电话：
+            				<a href="tel:18937135091" style="text-decoration:none;">
+            				    189-3713-5091
+            				</a>    
+            			</h2>
+						<h3>
+							版权所有：郑州豫工工程机械有限公司
+						</h3>
+						<h4>
+							豫ICP备2023028284号-1
+						</h4>
+					</div>
+				</div>	
+			</div>
+			
+			
+			
+			<script>
+			
+			    //产品列表第八个ajax
+
+                var Mpage_08=1;
+            
+                //滚动显示更多
+                var scroll_get_08 = true;  //做个标志,不要反反复复的加载
+                
+                $(function(){
+            
+            
+                    $(".more_08").click(function(){
+                        //layer.msg('内容加截中,请稍候',{time:1000});
+                        dr_ajax_load_more_08();
+                    })
+            
+                    
+                });
+            
+                function dr_ajax_load_more_08(){
+            
+                    Mpage_08++;
+            
+                    $.get('/index.php?s=api&c=api&m=template&name=product_list_zuanji_data.html&module={MOD_DIR}&catid=22&format=json&page='+Mpage_08+'&'+Math.random(),function(res){
+            
+            
+                        if(res.code==1){
+                            if(res.msg.trim()==''){
+            
+                                // layer.msg("已经显示完了",{time:500});
+            
+                                // $(".part025_bottom_right_lump_01").css("display","none");
+            
+                                // $(".part025_bottom_right_chunk_01").css("display","block");
+            
+                                //console.log(123);
+            
+                            }else{
+            
+                                $('#content_list_08 ul').append(res.msg);
+                                scroll_get_08 = true;
+                                //console.log(res);
+                            }
+                        }else{
+                            layer.msg(res.msg,{time:2500});
+                        }
+            
+                        var newNum =  $("#content_list_08").find("li").length;
+            
+                        $(".part012_button_num_08 h6 b").text(newNum);
+                        
+                        
+                        // 在 AJAX 请求完成后获取最新的当前页码和总页数
+                        var currentPage = parseInt($(".part012_button_num_08 h6 b").text());
+                        var totalPages = parseInt($(".part012_button_num_08 h6 span").text());
+                        
+                        if(currentPage === totalPages){
+                            layer.msg("已经显示完了",{time:500});
+
+                            $(".part012_button_left_08").text("已经显示完了");
+
+                        }else{
+                            layer.msg("继续加载中",{time:500});
+                        }
+            
+            
+            
+                    }, 'json');
+                }
+                
+                
+                
+            </script>
+            
+            
+            
+            
+            <script>
+            
+                document.addEventListener('DOMContentLoaded', function() {
+                  // 获取按钮元素
+                  var button = document.querySelector('.part012_button_right_08');
+                  
+                  // 为按钮添加点击事件监听器
+                  button.addEventListener('click', function() {
+                    // 获取包含所有li的ul元素
+                    var ul = document.querySelector('#content_list_08 ul');
+                    
+                    // 获取所有的li元素
+                    var lis = ul.querySelectorAll('li');
+                    
+                    // 从第三个li开始遍历（索引为2）
+                    for (var i = lis.length - 1; i >= 2; i--) {
+                      // 移除当前li
+                      ul.removeChild(lis[i]);
+                    }
+                    
+                    // 更新显示的数量
+                    updateDisplayCount();
+                  });
+                  
+                  // 更新显示的数量的函数
+                  function updateDisplayCount() {
+                      
+                    var numDisplay = document.querySelector('.part012_button_num_08 b');
+                    
+                    var remainingLis = document.querySelectorAll('#content_list_08 ul li').length;
+                    
+                    numDisplay.textContent = remainingLis;
+                    
+                    
+                    //页码
+                    Mpage_08=1;
+                    
+                    $(".part012_button_left_08").text("查看更多");
+                    
+                    
+                  }
+                });
+                
+            </script>
+			
+			
+
+
+			
+		</div>
+
+        
+        {template footer.html}
+        
+
+		<div style="height: 0.68rem;">
+
+		</div>
+	</body>
+</html>
+
+

@@ -1,0 +1,685 @@
+{template "header.html"}
+
+
+
+{template "nav.html"}
+
+
+
+<div class="index_part02">
+    <div class="part02_center">
+        <div class="part02_block">
+            <div class="part02_block_piece">
+                <div class="swiper-button-next">
+                    <div class="part02_block_piece_next_li">
+                        <img alt="" class="part02_block_piece_next_li_right_arrow animate__animated animate__headShake"
+                            src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part02_block_piece_next_li_right_arrow.png" />
+                        <img alt="" class="part02_block_piece_next_li_right_circle"
+                            src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part02_block_piece_next_li_right_circle.png" />
+                    </div>
+                </div>
+                <div class="part02_block_piece_lump">
+                    <div class="swiper swiper-container12" id="swiper_container12">
+                        <div class="swiper-wrapper">
+
+                            {module module=sylbtgl catid=1 order=displayorder_asc,inputtime}
+
+
+
+                            <div class="swiper-slide part02_block_piece_lump_big_img" data-boolean="{$t['lbtzt']}">
+                                <div class="part02_block_piece_lump_image">
+                                    <a href="{$t['description']}" style="text-decoration:none;" target="_blank">
+                                        <img alt="" data-src="{dr_get_file($t['thumb'])}" class="lazy"/>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            {/module}
+
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-prev">
+                    <div class="part02_block_piece_prev_li">
+                        <img alt="" class="part02_block_piece_prev_li_left_arrow animate__animated animate__headShake"
+                            src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part02_block_piece_prev_li_left_arrow.png" />
+                        <img alt="" class="part02_block_piece_prev_li_left_circle"
+                            src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part02_block_piece_prev_li_left_circle.png" />
+                    </div>
+                </div>
+            </div>
+            <div class="part02_block_button">
+                <ul>
+
+
+                    {module module=sylbtgl catid=1 order=displayorder_asc,inputtime}
+
+                    <li class="" data-boolean="{$t['lbtzt']}">
+                        <div class="part02_block_button_li_piece">
+                            <img alt="" src="{dr_get_file($t['lbandt'])}" />
+                        </div>
+                    </li>
+
+                    {/module}
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="index_part011">
+    <div class="part011_center">
+        <div class="part011_block">
+            <div class="part011_left wow animate__animated animate__fadeInUp">
+                <div class="part011_left_title">
+                    <h3>
+                        大家都在搜
+                    </h3>
+                </div>
+                <div class="part011_left_content">
+                    <ul>
+
+                        {module module=chanpinzhongxin catid=4 order=updatetime num=6}
+
+                        <li>
+                            <a href="{$t['url']}" style="display:block;text-decoration:none;" target="_blank">
+                                <h6>
+                                    {dr_strcut($t['title'], 10, '')}
+                                </h6>
+                            </a>
+                        </li>
+
+                        {/module}
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="part011_right wow animate__animated animate__fadeInUp">
+                <div class="part011_right_piece">
+                    <form action="/index.php" class="search-form" method="get" target="_blank">
+                        <input class="part011_right_piece_word" id="" name="keyword" placeholder="请输入产品名"
+                            style="color: #000;border-radius: 1rem;background: transparent;" type="text" />
+                        <input name="s" type="hidden" value="so" />
+                        <button class="part011_right_piece_button" type="submit">
+                            <img alt=""
+                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part011_right_piece_button_icon.png" />
+                            <h3>
+                                搜索
+                            </h3>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="index_part042">
+    <div class="part042_center wow animate__animated animate__fadeInUp">
+        <div class="part042_block">
+            <img alt="" src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part042_block_image.png" />
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="index_part023">
+    <div class="part023_center">
+        <div class="part023_block">
+            <div class="part023_top wow animate__animated animate__fadeInUp">
+                <div class="part023_top_left">
+                    <h3>
+                        热卖产品
+                    </h3>
+                    <h6>
+                        豫工机械主要生产各类工程机械，8大系列，100多个品种的机械产品
+                    </h6>
+                </div>
+                <div class="part023_top_right">
+                    <a href="{dr_share_cat_value(4, 'url')}" style="display: block;text-decoration: none;"
+                        target="_blank">
+                        <div class="part023_top_right_block">
+                            <h6 class="part023_top_right_block_h6">
+                                更多新品
+                            </h6>
+                            <img alt="" class="part023_top_right_block_icon_circle"
+                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part023_top_right_block_icon_circle.png" />
+                            <img alt="" class="part023_top_right_block_icon_arrow"
+                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part023_top_right_block_icon_arrow.png" />
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="part023_bottom wow animate__animated animate__fadeInUp">
+                <ul>
+
+                    {module module=chanpinzhongxin catid=4 order=updatetime}
+
+
+                    <li data-boolean="{$t['syrmcpjhm']}">
+                        <a href="{$t['url']}" style="display: block;text-decoration: none;" target="_blank">
+                            <div class="part023_bottom_li_block">
+                                <div class="part023_bottom_li_block_left">
+                                    <div class="part023_bottom_li_block_left_title">
+                                        <h3>
+                                            {dr_strcut($t['title'], 6, '')}
+                                        </h3>
+                                        <h6>
+                                            {dr_strcut($t['description'], 8, '')}
+                                        </h6>
+                                    </div>
+                                    <div class="part023_bottom_li_block_left_link">
+                                        <h3>
+                                            查看详情
+                                        </h3>
+                                        <img alt=""
+                                            src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part023_bottom_li_block_left_link_icon.png" />
+                                    </div>
+                                </div>
+                                <div class="part023_bottom_li_block_right">
+                                    <img alt="" class="lazy" data-src="{dr_thumb($t['thumb'],199,199)}" />
+                                </div>
+                            </div>
+                            <div class="part023_bottom_li_fire">
+                                <img alt="" class="animate__animated animate__pulse"
+                                    src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part023_bottom_li_fire.png" />
+                            </div>
+                        </a>
+                    </li>
+
+
+                    {/module}
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="index_part025">
+    <div class="part025_center">
+        <div class="part025_block">
+            <div class="part025_top wow animate__animated animate__fadeInUp">
+                <div class="part025_top_left">
+                    <h3>
+                        100000+工程案例展示
+                    </h3>
+                    <h6>
+                        工厂发货 设备安装调试现场
+                    </h6>
+                </div>
+                <div class="part025_top_right">
+                    <a href="{dr_share_cat_value(5, 'url')}" style="display:block;text-decoration:none;"
+                        target="_blank">
+                        <div class="part025_top_right_block">
+                            <h6 class="part025_top_right_block_h6">
+                                更多详情
+                            </h6>
+                            <img alt="" class="part025_top_right_block_icon_circle"
+                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part025_top_right_block_icon_circle.png" />
+                            <img alt="" class="part025_top_right_block_icon_arrow"
+                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part025_top_right_block_icon_arrow.png" />
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="part025_list">
+                <ul>
+
+
+                    {module module=anlizhongxin catid=5 order=updatetime num=4 flag=1}
+
+
+                    <li>
+                        <a href="{$t['url']}" style="display:block;text-decoration:none;" target="_blank">
+                            <div class="part025_list_li">
+                                <div class="part025_list_li_top">
+                                    <img alt="" class="lazy" data-src="{dr_thumb($t['thumb'], 363, 223 ,0, 'crop')}" />
+                                </div>
+                                <div class="part025_list_li_bottom">
+                                    <div class="part025_list_li_bottom_font">
+                                        <h3>
+                                            {dr_strcut(dr_clearhtml($t['title']), 13, '')}
+                                        </h3>
+                                    </div>
+                                    <div class="part025_list_li_bottom_link">
+                                        <img alt="" class="part025_list_li_bottom_link_icon_circle"
+                                            src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part025_list_li_bottom_link_icon_circle.png" />
+                                        <img alt="" class="part025_list_li_bottom_link_icon_arrow"
+                                            src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part025_list_li_bottom_link_icon_arrow.png" />
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+
+                    {/module}
+
+
+                </ul>
+            </div>
+            <div class="part025_intro">
+                <div class="part025_intro_block">
+                    <ul>
+                        <li>
+                            <h3>
+                                2005年
+                            </h3>
+                            <h6>
+                                开始工程机械研发生产
+                            </h6>
+                        </li>
+                        <li>
+                            <h3>
+                                19年
+                            </h3>
+                            <h6>
+                                生产制造经验
+                            </h6>
+                        </li>
+                        <li>
+                            <h3>
+                                8大
+                            </h3>
+                            <h6>
+                                8大产品系列，100多款产品
+                            </h6>
+                        </li>
+                        <li>
+                            <h3>
+                                100个
+                            </h3>
+                            <h6>
+                                远销美国、德国、伊朗等100多个国家
+                            </h6>
+                        </li>
+                        <li>
+                            <h3>
+                                100000+
+                            </h3>
+                            <h6>
+                                累计服务客户10万+
+                            </h6>
+                        </li>
+                    </ul>
+                </div>
+                <div class="part025_intro_triangle">
+                    <img alt=""
+                        src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part025_intro_triangle.png" />
+                </div>
+            </div>
+            <div class="part025_bottom">
+                <div class="part025_bottom_left">
+                    <div class="part025_bottom_left_title">
+                        <div class="part025_bottom_left_title_font">
+                            <h3>
+                                走进豫工
+                            </h3>
+                            <h6>
+                                近19年技术沉淀 工程机械实力品牌
+                            </h6>
+                        </div>
+                        <div class="part025_bottom_left_title_link">
+                            <a href="{dr_share_cat_value(2, 'url')}" style="display: block;text-decoration: none;"
+                                target="_blank">
+                                <div class="part025_bottom_left_title_link_block">
+                                    <h6 class="part025_bottom_left_title_link_block_h6">
+                                        更多详情
+                                    </h6>
+                                    <img alt="" class="part025_bottom_left_title_link_block_icon_circle"
+                                        src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part025_bottom_left_title_link_block_icon_circle.png" />
+                                    <img alt="" class="part025_bottom_left_title_link_block_icon_arrow"
+                                        src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part025_bottom_left_title_link_block_icon_arrow.png" />
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="part025_bottom_left_content">
+                        <p>
+                            郑州豫工工程机械有限公司，成立于2005年，是工程设备研发、生产、销售于一体的大型综合性企业，位于国家中心城市————郑州
+                        </p>
+                        <p>
+                            公司经过近19年高速发展，技术力量雄厚，加工设备齐全，检测手段完备，<b>专注于路面机械、隧道喷浆支护设备、桥梁设备、工程注浆泵、防汛除雪应急设备等的研发制造</b>，历经千百次改进，精工品质，稳定可靠。拥有8大产品系列，100多款产品，提供售前-售中-售后一站式服务，扎根市场，服务全球。
+                        </p>
+                        <p>
+                            豫工工程机械以“<b>优厂优品，优质优价</b>”为服务导向，客户遍布全球，与英国 法国、意大利、西班牙、南非、日本、韩国等100多个国家和地区 的企业建立合作关系。
+                        </p>
+                    </div>
+                </div>
+                <div class="part025_bottom_right">
+                    <div class="index_part03">
+                        <div class="index_part03_center">
+                            <div class="part03_right">
+                                <div class="part03_right_block">
+                                    <div class="part03_right_button">
+                                        <img alt=""
+                                            src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part03_right_button_image.png"
+                                            style="display: block;" />
+                                        <div class="point">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="part025_rainbow">
+            <img alt="" src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part025_rainbow_image.png" />
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="index_part027">
+    <div class="part027_center wow animate__animated animate__fadeInUp">
+        <div class="part027_block">
+            <div class="part027_top">
+                <div class="part027_top_left">
+                    <h3>
+                        新闻中心
+                    </h3>
+                    <h6>
+                        这里记录着豫工的重要时刻，无论是公司新闻、行业聚焦，都将真实呈现给每一位客户!
+                    </h6>
+                </div>
+                <div class="part027_top_right">
+                    <a href="{dr_share_cat_value(6, 'url')}" style="display: block;text-decoration: none;"
+                        target="_blank">
+                        <div class="part027_top_right_block">
+                            <h6 class="part027_top_right_block_h6">
+                                更多详情
+                            </h6>
+                            <img alt="" class="part027_top_right_block_icon_circle"
+                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part027_top_right_block_icon_circle.png" />
+                            <img alt="" class="part027_top_right_block_icon_arrow"
+                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part027_top_right_block_icon_arrow.png" />
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="part027_bottom">
+                <div class="part027_bottom_left">
+                    <div class="part027_bottom_left_picture">
+                        <ul>
+
+                            {module module=xinwenzhongxin catid=9 num=2 order=updatetime}
+
+
+                            <li>
+                                <a href="{$t['url']}" style="display: block;text-decoration:none;" target="_blank">
+                                    <div class="part027_bottom_left_picture_li">
+                                        <div class="part027_bottom_left_picture_li_image">
+                                            <img alt="" class="lazy"
+                                                data-src="{dr_thumb($t['thumb'], 613, 332 ,0, 'crop')}" />
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            {/module}
+
+
+                        </ul>
+                    </div>
+                    <div class="part027_bottom_left_font">
+                        <ul>
+
+
+                            {module module=xinwenzhongxin catid=9 num=2 order=updatetime}
+
+                            <li>
+                                <a href="{$t['url']}" style="display: block;text-decoration:none;" target="_blank">
+                                    <div class="part027_bottom_left_font_li">
+                                        <h3>
+                                            {$t['title']}
+                                        </h3>
+                                        <h6>
+                                            {dr_strcut($t['description'], 25, '...')}
+                                        </h6>
+                                    </div>
+                                    <div class="part027_bottom_left_picture_li_line">
+                                        <img alt=""
+                                            src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part027_bottom_left_picture_li_line.png" />
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            {/module}
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="part027_bottom_right">
+                    <ul>
+
+                        {module module=xinwenzhongxin catid=9 num=6 order=updatetime}
+
+                        <li>
+                            <a href="{$t['url']}" style="display: block;text-decoration:none;" target="_blank">
+                                <div class="part027_bottom_right_li">
+                                    <div class="part027_bottom_right_li_time">
+                                        <div class="part027_bottom_right_li_time_day">
+                                            <h3>
+                                                {dr_date($t['_inputtime'], 'd')}
+                                            </h3>
+                                        </div>
+                                        <div class="part027_bottom_right_li_time_year">
+                                            <h6>
+                                                {dr_date($t['_inputtime'], 'Y-m')}
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    <div class="part027_bottom_right_li_font">
+                                        <h3>
+                                            {$t['title']}
+                                        </h3>
+                                        <h6>
+                                            {dr_strcut($t['description'], 34, '...')}
+                                        </h6>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+
+
+                        {/module}
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="part027_line">
+                <img alt="" src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part027_line.png" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="index_part019">
+    <div class="part019_center wow animate__animated animate__fadeInUp">
+        <div class="part019_block">
+            <div class="part019_top">
+                <div class="part019_top_left">
+                    <h3>
+                        合作伙伴
+                    </h3>
+                    <h6>
+                        豫工机械优厂优品 优质优价，设备远销全球100多个国家和地区，累计服务客户10万人！
+                    </h6>
+                </div>
+                <div class="part019_top_right">
+                    <div class="part019_top_right_piece">
+                        <div class="part019_top_right_block">
+                            <ul>
+                                <li class="part019_top_right_block_active">
+                                    <h3>
+                                        国内
+                                    </h3>
+                                </li>
+                                <li>
+                                    <h3>
+                                        国外
+                                    </h3>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="part019_top_right_slider">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="part019_bottom">
+                <div class="part019_bottom_piece">
+                    <div class="swiper swiper-container13" id="swiper_container13">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="part019_bottom_piece_list1">
+                                    <ul>
+                                        <li>
+                                            <img alt=""
+                                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part019_bottom_piece_list1_image_01.png" />
+                                        </li>
+                                        <li>
+                                            <img alt=""
+                                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part019_bottom_piece_list1_image_02.png" />
+                                        </li>
+                                        <li>
+                                            <img alt=""
+                                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part019_bottom_piece_list1_image_03.png" />
+                                        </li>
+                                        <li>
+                                            <img alt=""
+                                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part019_bottom_piece_list1_image_04.png" />
+                                        </li>
+                                        <li>
+                                            <img alt=""
+                                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part019_bottom_piece_list1_image_05.png" />
+                                        </li>
+                                        <li>
+                                            <img alt=""
+                                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part019_bottom_piece_list1_image_06.png" />
+                                        </li>
+                                        <li>
+                                            <img alt=""
+                                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part019_bottom_piece_list1_image_07.png" />
+                                        </li>
+                                        <li>
+                                            <img alt=""
+                                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part019_bottom_piece_list1_image_08.png" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="part019_bottom_piece_list2">
+                                    <ul>
+                                        <li>
+                                            <img alt=""
+                                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part019_bottom_piece_list2_image_01.png" />
+                                        </li>
+                                        <li>
+                                            <img alt=""
+                                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part019_bottom_piece_list2_image_02.png" />
+                                        </li>
+                                        <li>
+                                            <img alt=""
+                                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part019_bottom_piece_list2_image_03.png" />
+                                        </li>
+                                        <li>
+                                            <img alt=""
+                                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part019_bottom_piece_list2_image_04.png" />
+                                        </li>
+                                        <li>
+                                            <img alt=""
+                                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part019_bottom_piece_list2_image_05.png" />
+                                        </li>
+                                        <li>
+                                            <img alt=""
+                                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part019_bottom_piece_list2_image_06.png" />
+                                        </li>
+                                        <li>
+                                            <img alt=""
+                                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part019_bottom_piece_list2_image_07.png" />
+                                        </li>
+                                        <li>
+                                            <img alt=""
+                                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part019_bottom_piece_list2_image_08.png" />
+                                        </li>
+                                        <li>
+                                            <img alt=""
+                                                src="https://www-zzyugong-cn.oss-cn-beijing.aliyuncs.com/images/part019_bottom_piece_list2_image_09.png" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{template "footer.html"}

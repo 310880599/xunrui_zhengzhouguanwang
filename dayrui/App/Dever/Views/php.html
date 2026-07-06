@@ -1,0 +1,69 @@
+{template "header.html"}
+
+
+
+<form action="" class="form-horizontal" method="post" id="sqlform">
+    {dr_form_hidden()}
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption">
+                <span class="caption-subject font-green sbold ">{dr_lang('执行PHP语句')}</span>
+            </div>
+        </div>
+        <div class="portlet-body">
+
+
+            <div class="form-body">
+
+
+                <div class="form-group row">
+                    <label class="col-md-2 control-label">{dr_lang('PHP语句')}</label>
+                    <div class="col-md-9">
+                        <textarea id="sql" class="form-control" style="height:200px" name="php"></textarea>
+                       </div>
+                </div>
+
+
+
+                <div id="sql_result_id" class="form-group row">
+                    <label class="col-md-2 control-label">{dr_lang('执行结果')}</label>
+                    <div class="col-md-9" id="sql_result">
+
+                    </div>
+                </div>
+
+
+                <div class="form-actions margin-bottom-30">
+                    <label class="col-md-2 control-label">&nbsp;</label>
+                    <div class="col-md-9" style="padding-left: 5px;">
+                        <button type="button" onclick="dr_submit_sql_todo2('sqlform', '{dr_url('dever/php/index')}')" class="btn blue"> <i class="fa fa-database"></i> {dr_lang('立即执行')}</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+</form>
+<script>
+    function dr_submit_sql_todo2(myform, url) {
+        var loading = layer.load(2, {
+            shade: [0.3,'#fff'], //0.1透明度的白色背景
+            time: 1000
+        });
+        $("#sql_result").html(' ... ');
+        $.ajax({type: "POST",dataType:"text", url: url, data: $('#'+myform).serialize(),
+            success: function(text) {
+                layer.close(loading);
+                $("#sql_result").html('<pre>'+text+'</pre>');
+            },
+            error: function(HttpRequest, ajaxOptions, thrownError) {
+                dr_ajax_alert_error(HttpRequest, this, thrownError);
+            }
+        });
+    }
+</script>
+
+{template "footer.html"}

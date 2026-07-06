@@ -1,0 +1,366 @@
+
+{template "header_news_list.html"}
+
+
+
+{template "nav.html"}
+
+
+
+<script>
+    
+    $(function(){
+        
+        $(".part01_right ul li").removeClass("part01_right_li_bg_active");
+        
+        $(".part01_right ul li:nth-child(3)").addClass("part01_right_li_bg_active");
+        
+    })
+    
+    
+</script>
+
+
+
+			<div class="index_part02">
+                <div class="part02_center">
+					<div class="part02_block">
+                    </div>
+                </div>
+			</div>
+
+
+
+
+
+			
+
+						
+
+
+
+
+                        
+	
+	
+            
+            
+
+
+
+
+
+			<div class="index_part011 animate__animated animate__fadeInUp">
+				<div class="part011_center">
+                    <div class="part011_block">
+                        <div class="part011_left">
+                            <div class="part011_left_piece">
+                                <div class="swiper-container15" id="swiper_container15">
+                                    <div class="swiper-button-prev">
+                                        <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesNewsList/part011_left_piece_button_left.png" alt="">
+                                    </div>
+                                    <div class="swiper-wrapper">
+
+
+                                        {module module=xinwenzhongxin catid=9 num=6 order=updatetime flag=1}
+
+
+                                            <div class="swiper-slide">
+                                                <a href="{$t['url']}" style="text-decoration: none;" target="_blank">
+                                                    <div class="part011_left_piece_li">
+                                                        <div class="part011_left_piece_li_top">
+                                                            <img src="{dr_thumb($t['thumb'], 1049, 512 ,0, 'crop')}" alt="">
+                                                        </div>
+                                                        <div class="part011_left_piece_li_middle">
+                                                            <div class="part011_left_piece_li_middle_title">
+                                                                <h3>
+                                                                    {$t['title']}
+                                                                </h3>
+                                                            </div>
+                                                            <div class="part011_left_piece_li_middle_content">   
+                                                                <p>
+                                                                    {dr_strcut($t['description'], 100, '...')}
+                                                                </p>
+                                                            </div>  
+                                                        </div>
+                                                        <div class="part011_left_piece_li_bottom">
+                                                            <div class="part011_left_piece_li_bottom_date">
+                                                                <h3>
+                                                                    {dr_date($t['_inputtime'], 'Y-m-d')}
+                                                                </h3>
+                                                            </div>
+                                                            <div class="part011_left_piece_li_bottom_link">
+                                                                <a href="{$t['url']}" style="display: block;text-decoration: none;" target="_blank">
+                                                                    <div class="part011_left_piece_li_bottom_link_lump">
+                                                                        <h6>
+                                                                            查看详情
+                                                                        </h6>
+                                                                        <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesNewsList/part011_left_piece_li_bottom_link_lump_icon.png" alt="">
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+
+
+                                        {/module}   
+
+                                    </div>
+                                    <div class="swiper-button-next">
+                                        <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesNewsList/part011_left_piece_button_right.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="part011_right">
+                            <div class="part011_right_top">
+                                <div class="part011_right_top_title">
+                                    <h3>
+                                        热门资讯
+                                    </h3>
+                                </div>
+                                <div class="part011_right_top_content">
+                                    <ul>
+                                        {module module=xinwenzhongxin catid=9 num=6 order=updatetime flag=2}
+                                            
+                                            <li>
+                                                <a href="{$t['url']}" style="text-decoration: none;" target="_blank">
+                                                    <div class="part011_right_top_content_li_font">
+                                                        <div class="part011_right_top_content_li_font_icon">
+                                                        <div class="part011_right_top_content_li_font_icon_circle">
+        
+                                                        </div>
+                                                        </div>
+                                                        <div class="part011_right_top_content_li_font_icon_h6">
+                                                            <h6>
+                                                                {dr_strcut($t['title'], 16, '...')}
+                                                            </h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="part011_right_top_content_li_line">
+                                                        <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesNewsList/part011_right_top_content_li_line.png" alt="">
+                                                    </div>
+                                                </a>
+                                            </li>
+            
+                                        {/module}  
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="part011_right_bottom">
+                                <ul>
+
+                                    {module module=xinwenzhongxin catid=9 num=6 order=updatetime flag=2}
+
+                                        <li>
+                                            <a href="{$t['url']}" style="display: block;text-decoration: none;" target="_blank">
+                                                <img src="{dr_thumb($t['thumb'], 403, 237 ,0, 'crop')}" alt="">
+                                            </a>
+                                        </li>
+
+                                    {/module}     
+
+                                </ul>
+                            </div>   
+                        </div>            
+                    </div>
+				</div>
+			</div>
+			
+
+
+			    
+		    <script>
+		    
+                document.addEventListener('DOMContentLoaded', function() {
+                  var firstLi = document.querySelector('.part011_right_top_content ul li:first-child');
+                  if (firstLi) {
+                    firstLi.classList.add('part011_right_top_content_active');
+                  }
+                });
+                
+                $(".part011_right_top_content ul li").hover(function(){
+                    
+                    $(this).addClass("part011_right_top_content_active").siblings().removeClass("part011_right_top_content_active");
+                    
+                    var i = $(this).index();
+                    
+                    //console.log(i);
+                    
+                    $(".part011_right_bottom ul li").eq(i).fadeIn().siblings("li").fadeOut();
+                    
+                    
+                },function(){
+                    
+                    
+                    
+                })
+                
+            </script>
+
+
+
+
+            
+            <script>
+
+				var mySwiper15= new Swiper('.swiper-container15', {	 
+					spaceBetween: 30,
+					effect: 'slide',
+					speed: 300,
+					autoplay: false,
+					loop:false,
+					navigation: {
+						nextEl: ".part011_left_piece .swiper-button-next",
+						prevEl: ".part011_left_piece .swiper-button-prev",
+					},
+				})
+
+			</script>
+
+
+
+
+
+
+
+
+            <div class="index_part023 wow animate__animated animate__fadeInUp">
+				<div class="part023_center">
+                    <div class="part023_block">
+                        <a href="https://affim.baidu.com/unique_52605121/chat?siteId=20180242&userId=52605121&siteToken=1477cbe4beb08b8aee40baefeb131573" style="text-decoration: none;" target="_blank">
+                            <img src="{dr_get_file($cat['xwzxzbggt'])}" alt="">         
+                        </a>
+                    </div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+            <div class="index_part026 wow animate__animated animate__fadeInUp">
+				<div class="part026_center">
+                    <div class="part026_block">
+                        <div class="part026_top">
+                            <div class="part026_top_font">
+                                <ul>
+                                    <li class="part026_top_active">
+                                        <h3>
+                                            公司动态
+                                        </h3>
+                                    </li>
+                                    <li>
+                                        <h3>
+                                            行业资讯
+                                        </h3>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="part026_top_bg">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesNewsList/part025_top_bg.png" alt="">
+                            </div>
+                            <div class="part026_top_line">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesNewsList/part025_top_line.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+
+
+            <script>
+
+                $(function(){
+
+                    $(".part026_top_font ul li").hover(function(){
+
+                        $(this).addClass("part026_top_active").siblings().removeClass("part026_top_active");
+
+                        var i = $(this).index();
+
+                        if(i==0){
+
+                            $(".part026_top_bg").css("left","0");
+
+                            $(".news_list_company").css("display","block");
+
+                            $(".news_list_industry").css("display","none");
+
+                        }else if(i==1){
+
+                            $(".part026_top_bg").css("left","2.78rem");
+
+                            $(".news_list_company").css("display","none");
+
+                            $(".news_list_industry").css("display","block");
+
+                        }else{
+
+
+
+                        }
+
+
+                    },function(){
+
+
+
+                    })
+
+                })
+
+            </script>
+
+
+
+
+
+
+            <div class="news_list_company">
+
+                {template "news_list_company.html"}
+                
+            </div>
+
+            <div class="news_list_industry">
+
+                {template "news_list_industry.html"}
+
+            </div>
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{template "footer.html"}
+
+
+
+
+
+
+
+
+
+
+

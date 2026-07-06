@@ -1,0 +1,222 @@
+
+{template "header_bid_list.html"}
+
+
+
+{template "nav.html"}
+
+
+
+<script>
+    
+    $(function(){
+        
+        $(".part01_right ul li").removeClass("part01_right_li_bg_active");
+        
+        $(".part01_right ul li:nth-child(6)").addClass("part01_right_li_bg_active");
+        
+    })
+    
+    
+</script>
+
+            
+
+			<div class="index_part02">
+                <div class="part02_center">
+					<div class="part02_block">
+					    <div class="part02_block_h3">
+					        <h3>
+					            
+					        </h3>
+					    </div>
+					    <div class="part02_block_h6">
+					        <h6>
+					            
+					        </h6>
+					        <h6>
+					            
+					        </h6>
+					    </div>
+                    </div>
+                </div>
+			</div>
+
+
+
+            
+
+			
+
+			<div class="index_part05">
+                <div class="part05_center">
+					<div class="part05_block">
+					   <ul>
+					       
+					                {module module=zhongbiaoxiangmu catid=29 order=updatetime page=1 pagesize=9}
+					       
+            					       <li>
+            					           <a href="{$t['url']}" style="text-decoration: none;">
+                					           <div class="part05_block_li_piece">
+                					               <div class="part05_block_li_piece_image">
+                					                   <img src="{dr_thumb($t['thumb'], 441, 297)}" alt="">
+                					               </div>
+                					               <div class="part05_block_li_piece_title">
+                					                   <h3>
+                					                       {dr_strcut($t['title'], 16, '')}
+                					                   </h3>
+                					               </div>
+                					               <div class="part05_block_li_piece_date">
+                					                   <h6>
+                					                       {dr_date($t['_updatetime'], 'Y')}年{dr_date($t['_updatetime'], 'm')}月{dr_date($t['_updatetime'], 'd')}日
+                					                   </h6>
+                					               </div>
+                					               <div class="part05_block_li_piece_p">
+                					                   <p>
+            					                          {dr_strcut($t['description'], 75, '...')}
+                					                   </p>
+                					               </div>
+                					               <div class="part05_block_li_piece_link">
+                					                   <a href="#" style="text-decoration: none;">
+                					                       <h3>
+                					                           了解更多&nbsp;&gt;&gt;
+                					                       </h3>
+                					                   </a>
+                					               </div>
+                					           </div>
+                					           <div class="part05_block_li_icon">
+                					               <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesBidList/part05_block_li_icon.png" alt="" />
+                					           </div>
+            					           </a>
+            					       </li>
+					       
+					              {/module}          
+					                
+					   </ul>
+                    </div>
+                </div>
+			</div>			
+
+
+            <script>
+                
+                // $(function(){
+                    
+                //     	var newId_01 = 11;
+            
+                //         $.ajax({
+                            
+                //             type: 'POST',
+                //             url: 'https://www.zzyugong.cn/index.php?s=httpapi&id=18&appid=1&appsecret=PHPCMF3F31E38DB9E65', 
+                //             data: {selectedId:newId_01},
+                //             dataType: 'text',
+                //             success: function(response) {
+            
+                //                 console.log(response);
+                                
+                //                 //$(".part05_block ul").html(response);
+                                
+                //             }
+                        
+                //          });
+                    
+                    
+                // })
+                
+                
+                
+            </script>    
+
+                        
+	
+	
+            
+            
+            <div class="index_part06">
+                <div class="part06_center">
+					<div class="part06_block">
+					    
+					   {$pages}
+					   
+                    </div>
+                </div>
+			</div>
+			
+			<script>
+			    
+			    $(function(){
+			        
+			        
+			        $(".part06_block ul li:first-child").hover(function(){
+			            
+			            
+			            $(this).css({"background-color":"#59B976","border":"2px solid #fff"});
+			            
+			            $(this).find("a").css("color","#fff");
+			            
+			            
+			            
+			        },function(){
+			            
+			            $(this).css({"background-color":"transparent","border":"2px solid #DCDEDD"});
+			            
+			            $(this).find("a").css("color","#333333");
+			            
+			        })
+			        
+			        
+			        $(".part06_block ul li:last-child").hover(function(){
+			            
+			            $(this).css({"background-color":"#59B976","border":"2px solid #fff"});
+			            
+			            $(this).find("a").css("color","#fff");
+			            
+			            
+			        },function(){
+			            
+			            $(this).css({"background-color":"transparent","border":"2px solid #DCDEDD"});
+			            
+			            $(this).find("a").css("color","#333333");
+			            
+			        })
+			        
+			        
+			    })
+			    
+			    
+			</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{template "footer.html"}
+
+
+
+
+
+
+
+
+
+
+

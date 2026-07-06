@@ -1,0 +1,28 @@
+
+<form class="form-horizontal" role="form" id="myform">
+    {$form}
+    <div style=" padding: 20px 10px 0 10px">
+    <textarea  name="code" style="height:85%;width: 100%;    padding: 6px 12px;
+    background-color: #fff;
+    border: 1px solid #E4E6EF;
+    color: #3F4254;
+    background-clip: padding-box;
+    border-radius: 4px;">{$data}</textarea>
+    </div>
+    <div style=" padding: 20px 10px 0 10px">
+        <div class="mt-radio-inline">
+            <label class="mt-radio">
+                <input  name="type" type="radio" checked value="0"> {dr_lang('默认')}
+                <span></span>
+            </label>
+            <label class="mt-radio">
+                <input name="type" type="radio" value="1"> {dr_lang('替换已有接口')}
+                <span></span>
+            </label>
+            <label class="mt-radio">
+                <input name="type" type="radio" value="-1"> {dr_lang('新增接口')}
+                <span></span>
+            </label>
+        </div>
+    </div>
+</form>

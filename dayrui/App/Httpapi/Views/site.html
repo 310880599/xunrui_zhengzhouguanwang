@@ -1,0 +1,117 @@
+{template "header.html"}
+
+<form action="" class="form-horizontal" method="post" name="myform" id="myform">
+    {dr_form_hidden()}
+    <div class="portlet bordered light myfbody">
+        <div class="portlet-title tabbable-line">
+            <ul class="nav nav-tabs" style="float:left;">
+                <li class="{if $page==0}active{/if}">
+                    <a href="#tab_0" data-toggle="tab" onclick="$('#dr_page').val('0')"> {dr_lang('网站信息接口')} </a>
+                </li>
+            </ul>
+        </div>
+        <div class="portlet-body">
+            <div class="tab-content">
+
+
+                <div class="tab-pane {if 0 == $page}active{/if}" id="tab_0">
+                    <div class="form-body">
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" style="padding-top:5px;">网站字段</label>
+                            <div class="col-md-9">
+                                <table class="table table-striped table-bordered table-hover table-checkable dataTable">
+                                    <thead>
+                                    <tr class="heading">
+                                        <th class="myselect">
+                                            {dr_lang('显示')}
+                                        </th>
+                                        <th width="180"> 字段 </th>
+                                        <th width="150"> 类型 </th>
+                                        <th> 格式化函数 </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="field-sort-items">
+                                    {loop $field $n $t}
+                                    <tr class="odd gradeX">
+                                        <td class="myselect">
+                                            <label class="mt-table mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                <input type="checkbox" class="checkboxes" name="data[field][{$t['fieldname']}][use]" value="1" {if $data['field'][$t['fieldname']]['use']} checked{/if} />
+                                                <span></span>
+                                            </label>
+                                        </td>
+                                        <td>{dr_lang($t.name)} ({$t['fieldname']})</td>
+                                        <td>{if $t.fieldtype} {$t.fieldtype} {else} 文本{/if}</td>
+                                       <td> <div class="input-group" >
+                                            <input class="form-control" type="text" name="data[field][{$t['fieldname']}][func]" value="{htmlspecialchars((string)$data['field'][$t['fieldname']]['func'])}" />
+                                           <span class="input-group-btn">
+                                            <a class="btn btn-success" href="javascript:dr_call_func();">{dr_lang('函数')}</a>
+                                        </span>
+                                        </div></td>
+                                    </tr>
+                                    {/loop}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">{dr_lang('回调方法')}</label>
+                            <div class="col-md-9">
+                                <label><input class="form-control input-large" id="dr_call" type="text" name="data[call]" value="{$data.call}"> </label>
+                                <label><a class="btn btn-sm blue" href="javascript:dr_test_call();"> 检测 </a></label>
+                                <span class="help-block"> <a href="javascript:dr_help('1054');"> {dr_lang('此功能需要有PHP编程经验，了解回调方法的定义')}</a> </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">{dr_lang('附加自定义模板代码')}</label>
+                            <div class="col-md-9">
+                                <textarea  {if !IS_EDIT_TPL} readonly{/if} class="form-control" style="height:160px; width:100%;" name="data[code]">{$data.code}</textarea>
+                                <span class="help-block"> <a href="javascript:dr_help('1147');"> {dr_lang('代码语法')}</a> </span>
+                                <span class="help-block">{dr_lang('可以任意写模板标签，根据格式来返回数据到API')}</span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="portlet-body form myfooter">
+        <div class="form-actions text-center">
+            <button type="button" onclick="dr_ajax_submit('{dr_now_url()}&page='+$('#dr_page').val(), 'myform', '2000')" class="btn green"> <i class="fa fa-save"></i> {dr_lang('保存配置')}</button>
+            <label><a href="javascript:dr_http_test();" class="btn  blue"> <i class="fa fa-code"></i> {dr_lang('接口测试')}</a></label>
+
+        </div>
+    </div>
+</form>
+
+<script>
+    function dr_test_call() {
+        $.ajax({type: "GET",dataType:"json", url: "{dr_url('httpapi/http/call_index')}&name="+$('#dr_call').val(),
+            success: function(json) {
+                dr_cmf_tips(json.code, json.msg);
+            },
+            error: function(HttpRequest, ajaxOptions, thrownError) {
+                dr_ajax_alert_error(HttpRequest, this, thrownError);
+            }
+        });
+    }
+    function dr_call_func() {
+        dr_iframe_show('回调函数', "{dr_url(APP_DIR.'/module/func_index')}");
+    }
+    function dr_http_test() {
+        var url = "{dr_url(APP_DIR.'/site/test_edit')}";
+        dr_iframe_show('接口测试', url);
+    }
+</script>
+
+
+
+{template "footer.html"}

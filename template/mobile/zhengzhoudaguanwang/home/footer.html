@@ -1,0 +1,54 @@
+		<div class="consult">
+			<div class="consult_center">
+				<div class="consult_center_left">
+					<a href="https://tb.53kf.com/code/client/94ed3a1a92adb3360088b64c2da46c228/1" style="text-decoration: none;">
+						<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/consult_center_left_icon.png" alt="">
+						<h6>
+							设备咨询
+						</h6>
+					</a>
+				</div>
+				<div class="consult_center_middle">
+					<a href="tel:18937135091" style="text-decoration: none;">
+						<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/consult_center_middle_icon.png" alt="">
+					</a>
+				</div>
+				<div class="consult_center_right">
+					<a href="https://tb.53kf.com/code/client/94ed3a1a92adb3360088b64c2da46c228/1" style="text-decoration: none;">
+						<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/consult_center_right_icon.png" alt="">
+						<h6>
+							在线咨询
+						</h6>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="backToTop">
+			<div class="backToTop_center">
+				<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/backToTop_center_image.png" alt="">
+			</div>
+		</div>
+
+		<script>
+						 
+						 
+			$(function() {
+
+				$(window).scroll(function() {
+					if ($(window).scrollTop() >= 300) {
+						$('.backToTop').fadeIn(600);
+					} else {
+						$('.backToTop').fadeOut(600);
+					}
+				});
+			   
+				$('.backToTop').click(function() {
+					$("html,body").animate({
+						scrollTop: 0
+					}, 500);
+				});
+				
+			});
+
+
+		</script>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	    <title>{$meta_title}</title>
+        <meta name="keywords" content="{$meta_keywords}"/>
+        <meta name="description" content="{$meta_description}" />
+		<link rel="stylesheet" href="{THEME_PATH}assets/zhengzhoudaguanwangmobile/css/common.css">		
+		<link rel="stylesheet" href="{THEME_PATH}assets/zhengzhoudaguanwangmobile/css/swiper.min.css">
+		<link rel="stylesheet" href="{THEME_PATH}assets/zhengzhoudaguanwangmobile/css/newsList.css">
+		<script type="text/javascript" src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/js/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript" src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/js/swiper.min.js"></script>
+		<script type='text/javascript' src='{THEME_PATH}assets/zhengzhoudaguanwangmobile/layer/layer.js'></script>
+		<script type="text/javascript">
+			(function (doc, win) {
+				var docEl = doc.documentElement,
+						resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+						recalc = function () {
+							var clientWidth = docEl.clientWidth;
+							if (!clientWidth) return;
+							if(clientWidth>=750){
+								docEl.style.fontSize = '100px';
+							}else{
+								docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+							}
+						};
+
+				if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<style>
+		    
+		    .layui-layer-content{color: #fff !important;}
+		    
+		    .layui-layer-padding{color: #333 !important}
+		    
+		</style>
+	</head>
+	<body style="position: relative;">
+
+
+        {template "header.html"}
+		
+        {template "nav.html"}
+
+
+		<div class="container">
+			<div class="part01">
+				<div class="part01_center">
+					<div class="part01_center_h3">
+						<h3>
+							新 / 闻 / 中 / 心
+                        </h3>
+					</div>
+					<div class="part01_center_h6">
+						<h6>
+                            为您提供多方面的产品知识详解，让您随时了解公司动态、产品市场
+							价格、产品性能亮点、产品维护保养等各种产品资讯！
+                        </h6>
+					</div>
+				</div>
+			</div>
+
+
+			
+			<div class="part05">
+				<div class="part05_center">
+					<ul>
+						<li class="part05_center_li_active">
+							<div class="part05_center_li_font">
+								<h3>
+									公司新闻
+								</h3>
+							</div>
+							<div class="part05_center_li_hr">
+								<hr>
+							</div>
+						</li>
+						<li>
+							<div class="part05_center_li_font">
+								<h3>
+									行业新闻
+								</h3>
+							</div>
+							<div class="part05_center_li_hr">
+								<hr>
+							</div>
+						</li>	
+					</ul>
+				</div>	
+			</div>
+
+
+
+
+			
+			
+			
+			<div class="part06">
+				<div class="part06_center">
+					<ul>
+						<li class="part06_center_li1">
+							<div class="part06_company">
+								<div class="part06_company_list part06_company_list_01" id="content_list_01">
+									<ul>
+									    
+                                        {template "news_list_company_data.html"}
+
+									</ul>
+								</div>
+								<div class="part06_company_button part06_company_button_01 more_01">
+    								<div class="part06_company_num part06_company_num_01">
+                                        <h6>
+                                            <b>2</b>/<span>{count action=module module=xinwenzhongxin catid=9}</span>
+                                        </h6>
+                                    </div>
+									<div class="part06_company_button_block part06_company_button_block_01">
+										<h3>
+											查看更多
+										</h3>
+									</div>
+								</div>
+							</div>
+							<div class="footer">
+                    			<h2>
+                    				咨询电话：
+                    				<a href="tel:18937135091" style="text-decoration:none;">
+                    				    189-3713-5091
+                    				</a>    
+                    			</h2>
+								<h3>
+									版权所有：郑州豫工工程机械有限公司
+								</h3>
+								<h4>
+									豫ICP备2023028284号-1
+								</h4>
+							</div>
+							<div style="height: 1rem;">
+					
+							</div>
+						</li>
+						<li class="part06_center_li2">
+							<div class="part06_industry">
+								<div class="part06_industry_list part06_industry_list_02" id="content_list_02">
+									<ul>
+									    
+									    
+									    {template "news_list_industry_data.html"}
+										
+										
+									</ul>
+								</div>
+								<div class="part06_industry_button part06_industry_button_02 more_02">
+    								<div class="part06_industry_num part06_industry_num_02">
+                                        <h6>
+                                            <b>2</b>/<span>{count action=module module=xinwenzhongxin catid=10}</span>
+                                        </h6>
+                                    </div>
+									<div class="part06_industry_button_block part06_industry_button_block_02">
+										<h3>
+											查看更多
+										</h3>
+									</div>
+								</div>
+							</div>
+							<div class="footer">
+                    			<h2>
+                    				咨询电话：
+                    				<a href="tel:18937135091" style="text-decoration:none;">
+                    				    189-3713-5091
+                    				</a>    
+                    			</h2>
+								<h3>
+									版权所有：郑州豫工工程机械有限公司
+								</h3>
+								<h4>
+									豫ICP备2023028284号-1
+								</h4>
+							</div>
+							<div style="height: 1rem;">
+					
+							</div>
+						</li>
+					</ul>
+				</div>	
+			</div>
+			
+			
+
+			<script>
+
+				$(function(){
+
+					$(".part05_center ul li").click(function(){
+
+						$(this).addClass("part05_center_li_active");
+
+						$(this).siblings().removeClass("part05_center_li_active");
+
+
+						var i = $(this).index();
+
+						if(i == 0){
+
+							$(".part06_center_li1").fadeIn();
+
+							$(".part06_center_li2").fadeOut(0);
+
+
+						}else if(i == 1){
+
+							$(".part06_center_li2").fadeIn();
+
+							$(".part06_center_li1").fadeOut(0);
+
+
+						}else{
+
+
+
+						}
+
+
+					})
+
+				})
+
+			</script>
+			
+			
+			
+			<script>
+			
+			    //新闻列表第一个ajax
+
+
+                var Mpage_01=1;
+            
+                //滚动显示更多
+                var scroll_get_01 = true;  //做个标志,不要反反复复的加载
+                
+                $(function(){
+            
+            
+                    $(".more_01").click(function(){
+                        //layer.msg('内容加截中,请稍候',{time:1000});
+                        dr_ajax_load_more_01();
+                    })
+            
+                    
+                });
+            
+                function dr_ajax_load_more_01(){
+            
+                    Mpage_01++;
+            
+                    $.get('/index.php?s=api&c=api&m=template&name=news_list_company_data.html&module={MOD_DIR}&catid=9&format=json&page='+Mpage_01+'&'+Math.random(),function(res){
+            
+            
+                        if(res.code==1){
+                            if(res.msg.trim()==''){
+            
+                                // layer.msg("已经显示完了",{time:500});
+            
+                                // $(".part025_bottom_right_lump_01").css("display","none");
+            
+                                // $(".part025_bottom_right_chunk_01").css("display","block");
+            
+                                //console.log(123);
+            
+                            }else{
+            
+                                $('#content_list_01').append(res.msg);
+                                scroll_get_01 = true;
+                                //console.log(res);
+                            }
+                        }else{
+                            layer.msg(res.msg,{time:2500});
+                        }
+            
+                        var newNum =  $("#content_list_01").find("li").length;
+            
+                        $(".part06_company_num_01 h6 b").text(newNum);
+                        
+                        
+                        // 在 AJAX 请求完成后获取最新的当前页码和总页数
+                        var currentPage = parseInt($(".part06_company_num_01 h6 b").text());
+                        var totalPages = parseInt($(".part06_company_num_01 h6 span").text());
+                        
+                        if(currentPage === totalPages){
+                            layer.msg("已经显示完了",{time:500});
+
+                            $(".part06_company_button_block_01").text("已经显示完了");
+
+                        }else{
+                            layer.msg("继续加载中",{time:500});
+                        }
+            
+            
+            
+                    }, 'json');
+                }
+                
+                
+                
+            </script>
+            
+            
+            
+            
+            <script>
+
+                
+                //新闻列表第二个ajax
+
+
+                var Mpage_02=1;
+            
+                //滚动显示更多
+                var scroll_get_02 = true;  //做个标志,不要反反复复的加载
+                
+                $(function(){
+            
+            
+                    $(".more_02").click(function(){
+                        //layer.msg('内容加截中,请稍候',{time:1000});
+                        dr_ajax_load_more_02();
+                    })
+            
+                    
+                });
+            
+                function dr_ajax_load_more_02(){
+            
+                    Mpage_02++;
+            
+                    $.get('/index.php?s=api&c=api&m=template&name=news_list_industry_data.html&module={MOD_DIR}&catid=10&format=json&page='+Mpage_02+'&'+Math.random(),function(res){
+            
+            
+                        if(res.code==1){
+                            if(res.msg.trim()==''){
+            
+                                // layer.msg("已经显示完了",{time:500});
+            
+                                // $(".part025_bottom_right_lump_01").css("display","none");
+            
+                                // $(".part025_bottom_right_chunk_01").css("display","block");
+            
+                                //console.log(123);
+            
+                            }else{
+            
+                                $('#content_list_02').append(res.msg);
+                                scroll_get_02 = true;
+                                //console.log(res);
+                            }
+                        }else{
+                            layer.msg(res.msg,{time:2500});
+                        }
+            
+                        var newNum =  $("#content_list_02").find("li").length;
+            
+                        $(".part06_industry_num_02 h6 b").text(newNum);
+                        
+                        
+                        // 在 AJAX 请求完成后获取最新的当前页码和总页数
+                        var currentPage = parseInt($(".part06_industry_num_02 h6 b").text());
+                        var totalPages = parseInt($(".part06_industry_num_02 h6 span").text());
+                        
+                        if(currentPage === totalPages){
+                            layer.msg("已经显示完了",{time:500});
+
+                            $(".part06_industry_button_block_02").text("已经显示完了");
+
+                        }else{
+                            layer.msg("继续加载中",{time:500});
+                        }
+            
+            
+            
+                    }, 'json');
+                }
+                
+                
+                
+            </script>
+
+			
+		</div>	
+
+
+                
+        {template footer.html}
+
+
+		<div style="height: 0.68rem;">
+
+		</div>
+	</body>
+</html>
+
+

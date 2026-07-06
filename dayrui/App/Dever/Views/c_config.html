@@ -1,0 +1,106 @@
+{template "header.html"}
+
+<form class="form-horizontal" role="form" id="myform">
+
+    <div class="form-body">
+
+
+        <div class="form-group">
+            <label class="col-xs-2  text-right">{dr_lang('插件目录')}</label>
+            <div class="col-xs-10">
+                <code>{$path}</code>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2  text-right">{dr_lang('安装之前的判断')}</label>
+            <div class="col-xs-10">
+                <code>{$path}Config/Before.php</code>
+                <label><a href="javascript:dr_help(708);" class="btn btn-xs blue"> <i class="fa fa-book"></i> {dr_lang('教程')} </a></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2  text-right">{dr_lang('安装时执行SQL')}</label>
+            <div class="col-xs-10">
+                <code>{$path}Config/Install.sql</code>
+                <label><a href="javascript:dr_help(377);" class="btn btn-xs blue"> <i class="fa fa-book"></i> {dr_lang('教程')} </a></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2  text-right">{dr_lang('卸载时执行SQL')}</label>
+            <div class="col-xs-10">
+                <code>{$path}Config/Uninstall.sql</code>
+                <label><a href="javascript:dr_help(377);" class="btn btn-xs blue"> <i class="fa fa-book"></i> {dr_lang('教程')} </a></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2  text-right">{dr_lang('安装时执行PHP脚本')}</label>
+            <div class="col-xs-10">
+                <code>{$path}Config/Install.php</code>
+                <label><a href="javascript:dr_help(377);" class="btn btn-xs blue"> <i class="fa fa-book"></i> {dr_lang('教程')} </a></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2  text-right">{dr_lang('卸载时执行PHP脚本')}</label>
+            <div class="col-xs-10">
+                <code>{$path}Config/Uninstall.php</code>
+                <label><a href="javascript:dr_help(377);" class="btn btn-xs blue"> <i class="fa fa-book"></i> {dr_lang('教程')} </a></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2  text-right">{dr_lang('安装时自动生成菜单')}</label>
+            <div class="col-xs-10">
+                <code>{$path}Config/Menu.php</code>
+                <label><a href="javascript:dr_help(522);" class="btn btn-xs blue"> <i class="fa fa-book"></i> {dr_lang('教程')} </a></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2  text-right">{dr_lang('联动更新缓存')}</label>
+            <div class="col-xs-10">
+                <code>{$path}Config/Cache.php</code>
+                <label><a href="javascript:dr_help(555);" class="btn btn-xs blue"> <i class="fa fa-book"></i> {dr_lang('教程')} </a></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2  text-right">{dr_lang('自动执行任务')}</label>
+            <div class="col-xs-10">
+                <code>{$path}Config/Cron.php</code>
+                <label><a href="javascript:dr_help(472);" class="btn btn-xs blue"> <i class="fa fa-book"></i> {dr_lang('教程')} </a></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2  text-right">{dr_lang('钩子执行配置')}</label>
+            <div class="col-xs-10">
+                <code>{$path}Config/Hooks.php</code>
+                <label><a href="javascript:dr_help(935);" class="btn btn-xs blue"> <i class="fa fa-book"></i> {dr_lang('教程')} </a></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2  text-right">{dr_lang('后台权限开发配置')}</label>
+            <div class="col-xs-10">
+                <code>{$path}Config/Auth.php</code>
+                <label><a href="javascript:dr_help(995);" class="btn btn-xs blue"> <i class="fa fa-book"></i> {dr_lang('教程')} </a></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2  text-right">{dr_lang('更新表结构的联动')}</label>
+            <div class="col-xs-10">
+                <code>{$path}Config/Update.php</code>
+                <label><a href="javascript:dr_help(1239);" class="btn btn-xs blue"> <i class="fa fa-book"></i> {dr_lang('教程')} </a></label>
+            </div>
+        </div>
+
+
+    </div>
+</form>
+{template "footer.html"}

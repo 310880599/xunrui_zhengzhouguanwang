@@ -1,0 +1,925 @@
+
+
+{template "header_products_list.html"}
+
+
+
+{template "nav.html"}    
+
+
+
+<script>
+    
+    $(function(){
+        
+        $(".part01_right ul li").removeClass("part01_right_li_bg_active");
+        
+        $(".part01_right ul li:nth-child(4)").addClass("part01_right_li_bg_active");
+        
+    })
+    
+</script>
+
+
+
+
+			<div class="index_part02">
+			    <div class="part02_img">
+                    <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesProductsList/index_part02_bg.jpg" alt="">    
+                </div>
+                <div class="part02_center">
+					<div class="part02_block">
+                        <div class="part02_top animate__animated animate__fadeInUp">
+                            <div class="part02_top_left">
+                                <h3>
+                                    大家都在搜：
+                                </h3>
+                            </div>
+                            <div class="part02_top_right">
+                                <ul>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="part02_bottom animate__animated animate__fadeInUp">
+                            <div class="part02_bottom_piece">
+                                <form class="search-form" action="/index.php" method="get" onsubmit="return checkSearchInput()"  target="_blank">
+                                    <input type="hidden" name="s" value="so">
+                                    <input name="different" type="hidden" value="2" />
+                                    <input  id="searchInput" type="text" class="part02_bottom_piece_form_content" placeholder="请输入产品关键词" name="keyword" style="color: #fff;border-radius: 1rem;background: transparent;">
+                                    <button type="submit" class="part02_bottom_piece_form_button">
+                                        <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesProductsList/part02_bottom_piece_form_button_icon.png" alt="">
+                                        <h3>
+                                            立即搜索
+                                        </h3>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                <script>
+    
+    
+                    $(function(){
+                        
+                            var newId = 1;
+                            
+                            $.ajax({
+                                
+                                type: 'POST',
+                                url: 'https://www.zzyugong.cn/index.php?s=httpapi&id=17&appid=1&appsecret=PHPCMF3F31E38DB9E65', 
+                                data: {selectedId:newId},
+                                dataType: 'text',
+                                success: function(response) {
+                
+                                    //console.log(response);
+                                    
+                                    $(".part02_top_right ul").html(response);
+                                    
+                                    //changestate();
+                                    
+                                    
+                                }
+                            
+                             });
+                        
+                        
+                    })
+                    
+                    
+                </script>
+
+                
+                
+                <script>
+                    
+                    $(function(){
+                        
+                        $(".part02_top_right ul li").hover(function(){
+                            
+                            $(this).find("h6").css("color","#59B976");
+                            $(this).find("h6").css("font-weight","bold");
+                            
+                        },function(){
+                            
+                            $(this).find("h6").css("color","#fff");
+                            $(this).find("h6").css("font-weight","normal");
+                            
+                        })
+                        
+                    })
+                    
+                </script>
+                
+                <script>
+                    function checkSearchInput() {
+                      var searchInput = document.getElementById('searchInput');
+                      if (searchInput.value.trim() === '') {
+                          
+                        layer.msg('请在搜索框填写搜索内容');
+                        
+                        return false; // 阻止表单提交
+                      }
+                      return true; // 允许表单提交
+                    }
+                </script>
+                                
+                
+                
+                <div class="part02_turn">
+                    <div class="part02_turn_piece main-title">
+                        <ul>
+                            <li class="part02_turn_piece_active">
+                                <a href="#a1">
+                                    <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesProductsList/part02_turn_piece_li_icon.png" alt="">
+                                    <h6>
+                                        应急热卖设备
+                                    </h6>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#a2">
+                                    <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesProductsList/part02_turn_piece_li_icon.png" alt="">
+                                    <h6>
+                                        环保系列设备
+                                    </h6>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#a3">
+                                    <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesProductsList/part02_turn_piece_li_icon.png" alt="">
+                                    <h6>
+                                        路面施工设备
+                                    </h6>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#a4">
+                                    <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesProductsList/part02_turn_piece_li_icon.png" alt="">
+                                    <h6>
+                                        桥梁预应力设备
+                                    </h6>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#a5">
+                                    <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesProductsList/part02_turn_piece_li_icon.png" alt="">
+                                    <h6>
+                                        隧道喷浆支护设备 
+                                    </h6>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#a6">
+                                    <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesProductsList/part02_turn_piece_li_icon.png" alt="">
+                                    <h6>
+                                        工程注浆泵
+                                    </h6>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#a7">
+                                    <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesProductsList/part02_turn_piece_li_icon.png" alt="">
+                                    <h6>
+                                        切割破拆系列
+                                    </h6>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#a8">
+                                    <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesProductsList/part02_turn_piece_li_icon.png" alt="">
+                                    <h6>
+                                        工程钻机
+                                    </h6>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+			</div>
+			
+			
+			
+			<script>
+
+				$(function(){
+					$(".part02_img img").css("transform","scale(1)");
+				})
+				
+			</script>
+
+
+
+
+
+
+
+
+
+
+			<div class="index_part011">
+				<div class="part011_center">
+                    <div class="part011_block">
+                        <ul>
+                            <li id="a1" class="sooll">
+                                {template "products_list_dongji.html"}
+                            </li> 
+                            <li id="a2" class="sooll wow animate__animated animate__fadeInUp">
+                                {template "products_list_huanbao.html"}
+                            </li>
+                            <li id="a3" class="sooll wow animate__animated animate__fadeInUp">
+                                {template "products_list_lumian.html"}
+                            </li>
+                            <li id="a4" class="sooll wow animate__animated animate__fadeInUp">
+                                {template "products_list_qiaoliang.html"}
+                            </li>
+                            <li id="a5" class="sooll wow animate__animated animate__fadeInUp">
+                                {template "products_list_suidao.html"}
+                            </li>
+                            <li id="a6" class="sooll wow animate__animated animate__fadeInUp">
+                                {template "products_list_zhujiang.html"}
+                            </li>
+                            <li id="a7" class="sooll wow animate__animated animate__fadeInUp">
+                                {template "products_list_qiege.html"}
+                            </li>
+                            <li id="a8" class="sooll wow animate__animated animate__fadeInUp">
+                                {template "products_list_zuanji.html"}
+                            </li>
+                        </ul>      
+                    </div>
+				</div>
+			</div>
+			
+			
+			
+			<script>
+    
+                $(document).ready(function(){
+                    var tooltip = $('#tooltip');
+                    
+                    
+                    //冬季产品左边
+                    $('#content_list_left_01').on('mouseenter', 'li', function(e){
+                        var text = $(this).find('h5').text();
+                        tooltip.text(text);
+                        tooltip.show();
+                    });
+                
+                    $('#content_list_left_01').on('mousemove', 'li', function(e){
+                        var topValue = e.clientY + 10;
+                        var leftValue = e.clientX + 10;
+                        //console.log('top:', topValue, 'left:', leftValue);
+                        tooltip.css({
+                            top: topValue + 'px',
+                            left: leftValue + 'px'
+                        });
+                    });
+                
+                    $('#content_list_left_01').on('mouseleave', 'li', function(){
+                        tooltip.hide();
+                    });
+                    
+                    
+                    //冬季产品右边
+                    $('#content_list_right_01').on('mouseenter', '.part011_block_li_right_top_li_right', function(e){
+                        var text = $(this).find('h5').text();
+                        tooltip.text(text);
+                        tooltip.show();
+                    });
+                
+                    $('#content_list_right_01').on('mousemove', '.part011_block_li_right_top_li_right', function(e){
+                        var topValue = e.clientY + 10;
+                        var leftValue = e.clientX + 10;
+                        //console.log('top:', topValue, 'left:', leftValue);
+                        tooltip.css({
+                            top: topValue + 'px',
+                            left: leftValue + 'px'
+                        });
+                    });
+                
+                    $('#content_list_right_01').on('mouseleave', '.part011_block_li_right_top_li_right', function(){
+                        tooltip.hide();
+                    });
+                    
+                    
+                    //环保产品左边
+                    $('#content_list_left_02').on('mouseenter', 'li', function(e){
+                        var text = $(this).find('h5').text();
+                        tooltip.text(text);
+                        tooltip.show();
+                    });
+                
+                    $('#content_list_left_02').on('mousemove', 'li', function(e){
+                        var topValue = e.clientY + 10;
+                        var leftValue = e.clientX + 10;
+                        //console.log('top:', topValue, 'left:', leftValue);
+                        tooltip.css({
+                            top: topValue + 'px',
+                            left: leftValue + 'px'
+                        });
+                    });
+                    
+                    $('#content_list_left_02').on('mouseleave', 'li', function(){
+                        tooltip.hide();
+                    });
+                    
+                    
+                    //环保产品右边
+                    $('#content_list_right_02').on('mouseenter', '.part011_block_li_right_top_li_right', function(e){
+                        var text = $(this).find('h5').text();
+                        tooltip.text(text);
+                        tooltip.show();
+                    });
+                
+                    $('#content_list_right_02').on('mousemove', '.part011_block_li_right_top_li_right', function(e){
+                        var topValue = e.clientY + 10;
+                        var leftValue = e.clientX + 10;
+                        //console.log('top:', topValue, 'left:', leftValue);
+                        tooltip.css({
+                            top: topValue + 'px',
+                            left: leftValue + 'px'
+                        });
+                    });
+                
+                    $('#content_list_right_02').on('mouseleave', '.part011_block_li_right_top_li_right', function(){
+                        tooltip.hide();
+                    });
+                    
+                    
+                     //路面产品左边
+                    $('#content_list_left_03').on('mouseenter', 'li', function(e){
+                        var text = $(this).find('h5').text();
+                        tooltip.text(text);
+                        tooltip.show();
+                    });
+                
+                    $('#content_list_left_03').on('mousemove', 'li', function(e){
+                        var topValue = e.clientY + 10;
+                        var leftValue = e.clientX + 10;
+                        //console.log('top:', topValue, 'left:', leftValue);
+                        tooltip.css({
+                            top: topValue + 'px',
+                            left: leftValue + 'px'
+                        });
+                    });
+                    
+                    $('#content_list_left_03').on('mouseleave', 'li', function(){
+                        tooltip.hide();
+                    });
+                    
+                    
+                    //路面产品右边
+                    $('#content_list_right_03').on('mouseenter', '.part011_block_li_right_top_li_right', function(e){
+                        var text = $(this).find('h5').text();
+                        tooltip.text(text);
+                        tooltip.show();
+                    });
+                
+                    $('#content_list_right_03').on('mousemove', '.part011_block_li_right_top_li_right', function(e){
+                        var topValue = e.clientY + 10;
+                        var leftValue = e.clientX + 10;
+                        //console.log('top:', topValue, 'left:', leftValue);
+                        tooltip.css({
+                            top: topValue + 'px',
+                            left: leftValue + 'px'
+                        });
+                    });
+                
+                    $('#content_list_right_03').on('mouseleave', '.part011_block_li_right_top_li_right', function(){
+                        tooltip.hide();
+                    });
+                    
+                    
+                    
+                    //桥梁产品左边
+                    $('#content_list_left_04').on('mouseenter', 'li', function(e){
+                        var text = $(this).find('h5').text();
+                        tooltip.text(text);
+                        tooltip.show();
+                    });
+                
+                    $('#content_list_left_04').on('mousemove', 'li', function(e){
+                        var topValue = e.clientY + 10;
+                        var leftValue = e.clientX + 10;
+                        //console.log('top:', topValue, 'left:', leftValue);
+                        tooltip.css({
+                            top: topValue + 'px',
+                            left: leftValue + 'px'
+                        });
+                    });
+                    
+                    $('#content_list_left_04').on('mouseleave', 'li', function(){
+                        tooltip.hide();
+                    });
+                    
+                    
+                    //桥梁产品右边
+                    $('#content_list_right_04').on('mouseenter', '.part011_block_li_right_top_li_right', function(e){
+                        var text = $(this).find('h5').text();
+                        tooltip.text(text);
+                        tooltip.show();
+                    });
+                
+                    $('#content_list_right_04').on('mousemove', '.part011_block_li_right_top_li_right', function(e){
+                        var topValue = e.clientY + 10;
+                        var leftValue = e.clientX + 10;
+                        //console.log('top:', topValue, 'left:', leftValue);
+                        tooltip.css({
+                            top: topValue + 'px',
+                            left: leftValue + 'px'
+                        });
+                    });
+                
+                    $('#content_list_right_04').on('mouseleave', '.part011_block_li_right_top_li_right', function(){
+                        tooltip.hide();
+                    });
+                    
+                    
+                    
+                    //隧道产品左边
+                    $('#content_list_left_05').on('mouseenter', 'li', function(e){
+                        var text = $(this).find('h5').text();
+                        tooltip.text(text);
+                        tooltip.show();
+                    });
+                
+                    $('#content_list_left_05').on('mousemove', 'li', function(e){
+                        var topValue = e.clientY + 10;
+                        var leftValue = e.clientX + 10;
+                        //console.log('top:', topValue, 'left:', leftValue);
+                        tooltip.css({
+                            top: topValue + 'px',
+                            left: leftValue + 'px'
+                        });
+                    });
+                    
+                    $('#content_list_left_05').on('mouseleave', 'li', function(){
+                        tooltip.hide();
+                    });
+                    
+                    
+                    //隧道产品右边
+                    $('#content_list_right_05').on('mouseenter', '.part011_block_li_right_top_li_right', function(e){
+                        var text = $(this).find('h5').text();
+                        tooltip.text(text);
+                        tooltip.show();
+                    });
+                
+                    $('#content_list_right_05').on('mousemove', '.part011_block_li_right_top_li_right', function(e){
+                        var topValue = e.clientY + 10;
+                        var leftValue = e.clientX + 10;
+                        //console.log('top:', topValue, 'left:', leftValue);
+                        tooltip.css({
+                            top: topValue + 'px',
+                            left: leftValue + 'px'
+                        });
+                    });
+                
+                    $('#content_list_right_05').on('mouseleave', '.part011_block_li_right_top_li_right', function(){
+                        tooltip.hide();
+                    });
+                    
+                    
+                    
+                    //注浆产品左边
+                    $('#content_list_left_06').on('mouseenter', 'li', function(e){
+                        var text = $(this).find('h5').text();
+                        tooltip.text(text);
+                        tooltip.show();
+                    });
+                
+                    $('#content_list_left_06').on('mousemove', 'li', function(e){
+                        var topValue = e.clientY + 10;
+                        var leftValue = e.clientX + 10;
+                        //console.log('top:', topValue, 'left:', leftValue);
+                        tooltip.css({
+                            top: topValue + 'px',
+                            left: leftValue + 'px'
+                        });
+                    });
+                    
+                    $('#content_list_left_06').on('mouseleave', 'li', function(){
+                        tooltip.hide();
+                    });
+                    
+                    
+                    //注浆产品右边
+                    $('#content_list_right_06').on('mouseenter', '.part011_block_li_right_top_li_right', function(e){
+                        var text = $(this).find('h5').text();
+                        tooltip.text(text);
+                        tooltip.show();
+                    });
+                
+                    $('#content_list_right_06').on('mousemove', '.part011_block_li_right_top_li_right', function(e){
+                        var topValue = e.clientY + 10;
+                        var leftValue = e.clientX + 10;
+                        //console.log('top:', topValue, 'left:', leftValue);
+                        tooltip.css({
+                            top: topValue + 'px',
+                            left: leftValue + 'px'
+                        });
+                    });
+                
+                    $('#content_list_right_06').on('mouseleave', '.part011_block_li_right_top_li_right', function(){
+                        tooltip.hide();
+                    });
+                    
+                    
+                    //切割产品左边
+                    $('#content_list_left_07').on('mouseenter', 'li', function(e){
+                        var text = $(this).find('h5').text();
+                        tooltip.text(text);
+                        tooltip.show();
+                    });
+                
+                    $('#content_list_left_07').on('mousemove', 'li', function(e){
+                        var topValue = e.clientY + 10;
+                        var leftValue = e.clientX + 10;
+                        //console.log('top:', topValue, 'left:', leftValue);
+                        tooltip.css({
+                            top: topValue + 'px',
+                            left: leftValue + 'px'
+                        });
+                    });
+                    
+                    $('#content_list_left_07').on('mouseleave', 'li', function(){
+                        tooltip.hide();
+                    });
+                    
+                    
+                    //切割产品右边
+                    $('#content_list_right_07').on('mouseenter', '.part011_block_li_right_top_li_right', function(e){
+                        var text = $(this).find('h5').text();
+                        tooltip.text(text);
+                        tooltip.show();
+                    });
+                
+                    $('#content_list_right_07').on('mousemove', '.part011_block_li_right_top_li_right', function(e){
+                        var topValue = e.clientY + 10;
+                        var leftValue = e.clientX + 10;
+                        //console.log('top:', topValue, 'left:', leftValue);
+                        tooltip.css({
+                            top: topValue + 'px',
+                            left: leftValue + 'px'
+                        });
+                    });
+                
+                    $('#content_list_right_07').on('mouseleave', '.part011_block_li_right_top_li_right', function(){
+                        tooltip.hide();
+                    });
+                    
+                    
+                    
+                    //钻机产品左边
+                    $('#content_list_left_08').on('mouseenter', 'li', function(e){
+                        var text = $(this).find('h5').text();
+                        tooltip.text(text);
+                        tooltip.show();
+                    });
+                
+                    $('#content_list_left_08').on('mousemove', 'li', function(e){
+                        var topValue = e.clientY + 10;
+                        var leftValue = e.clientX + 10;
+                        //console.log('top:', topValue, 'left:', leftValue);
+                        tooltip.css({
+                            top: topValue + 'px',
+                            left: leftValue + 'px'
+                        });
+                    });
+                    
+                    $('#content_list_left_08').on('mouseleave', 'li', function(){
+                        tooltip.hide();
+                    });
+                    
+                    
+                    //钻机产品右边
+                    $('#content_list_right_08').on('mouseenter', '.part011_block_li_right_top_li_right', function(e){
+                        var text = $(this).find('h5').text();
+                        tooltip.text(text);
+                        tooltip.show();
+                    });
+                
+                    $('#content_list_right_08').on('mousemove', '.part011_block_li_right_top_li_right', function(e){
+                        var topValue = e.clientY + 10;
+                        var leftValue = e.clientX + 10;
+                        //console.log('top:', topValue, 'left:', leftValue);
+                        tooltip.css({
+                            top: topValue + 'px',
+                            left: leftValue + 'px'
+                        });
+                    });
+                
+                    $('#content_list_right_08').on('mouseleave', '.part011_block_li_right_top_li_right', function(){
+                        tooltip.hide();
+                    });
+                    
+                    
+                    
+                    
+                    
+                });
+                
+                
+            </script>
+			
+			
+			<script>
+			    
+			    $(function(){
+			        
+			        // 获取所有的<li>元素
+                    const listItems_01 = document.querySelectorAll('#content_list_right_01 li');
+                    
+                    // 获取含有data-boolean="2"属性的<li>元素
+                    const booleanTwoItems_01 = document.querySelectorAll('#content_list_right_01 li[data-boolean="2"]');
+                    
+                    // 遍历含有data-boolean="2"属性的<li>元素
+                    booleanTwoItems_01.forEach(item => {
+                      // 将当前<li>元素从列表中移除
+                      item.parentNode.removeChild(item);
+                      // 将当前<li>元素添加到列表的末尾
+                      document.querySelector('#content_list_right_01').appendChild(item);
+                    });
+                    
+                    
+                    
+                    // 获取所有的<li>元素
+                    const listItems_02 = document.querySelectorAll('#content_list_right_02 li');
+                    
+                    // 获取含有data-boolean="2"属性的<li>元素
+                    const booleanTwoItems_02 = document.querySelectorAll('#content_list_right_02 li[data-boolean="2"]');
+                    
+                    // 遍历含有data-boolean="2"属性的<li>元素
+                    booleanTwoItems_02.forEach(item => {
+                      // 将当前<li>元素从列表中移除
+                      item.parentNode.removeChild(item);
+                      // 将当前<li>元素添加到列表的末尾
+                      document.querySelector('#content_list_right_02').appendChild(item);
+                    });
+                    
+                    
+                    
+                    // 获取所有的<li>元素
+                    const listItems_03 = document.querySelectorAll('#content_list_right_03 li');
+                    
+                    // 获取含有data-boolean="2"属性的<li>元素
+                    const booleanTwoItems_03 = document.querySelectorAll('#content_list_right_03 li[data-boolean="2"]');
+                    
+                    // 遍历含有data-boolean="2"属性的<li>元素
+                    booleanTwoItems_03.forEach(item => {
+                      // 将当前<li>元素从列表中移除
+                      item.parentNode.removeChild(item);
+                      // 将当前<li>元素添加到列表的末尾
+                      document.querySelector('#content_list_right_03').appendChild(item);
+                    });
+                    
+                    
+                    
+                    // 获取所有的<li>元素
+                    const listItems_04 = document.querySelectorAll('#content_list_right_04 li');
+                    
+                    // 获取含有data-boolean="2"属性的<li>元素
+                    const booleanTwoItems_04 = document.querySelectorAll('#content_list_right_04 li[data-boolean="2"]');
+                    
+                    // 遍历含有data-boolean="2"属性的<li>元素
+                    booleanTwoItems_04.forEach(item => {
+                      // 将当前<li>元素从列表中移除
+                      item.parentNode.removeChild(item);
+                      // 将当前<li>元素添加到列表的末尾
+                      document.querySelector('#content_list_right_04').appendChild(item);
+                    });
+                    
+                    
+                    
+                    // 获取所有的<li>元素
+                    const listItems_05 = document.querySelectorAll('#content_list_right_05 li');
+                    
+                    // 获取含有data-boolean="2"属性的<li>元素
+                    const booleanTwoItems_05 = document.querySelectorAll('#content_list_right_05 li[data-boolean="2"]');
+                    
+                    // 遍历含有data-boolean="2"属性的<li>元素
+                    booleanTwoItems_05.forEach(item => {
+                      // 将当前<li>元素从列表中移除
+                      item.parentNode.removeChild(item);
+                      // 将当前<li>元素添加到列表的末尾
+                      document.querySelector('#content_list_right_05').appendChild(item);
+                    });
+                    
+                    
+                    
+                    // 获取所有的<li>元素
+                    const listItems_06 = document.querySelectorAll('#content_list_right_06 li');
+                    
+                    // 获取含有data-boolean="2"属性的<li>元素
+                    const booleanTwoItems_06 = document.querySelectorAll('#content_list_right_06 li[data-boolean="2"]');
+                    
+                    // 遍历含有data-boolean="2"属性的<li>元素
+                    booleanTwoItems_06.forEach(item => {
+                      // 将当前<li>元素从列表中移除
+                      item.parentNode.removeChild(item);
+                      // 将当前<li>元素添加到列表的末尾
+                      document.querySelector('#content_list_right_06').appendChild(item);
+                    });
+                    
+                    
+                    
+                    // 获取所有的<li>元素
+                    const listItems_07 = document.querySelectorAll('#content_list_right_07 li');
+                    
+                    // 获取含有data-boolean="2"属性的<li>元素
+                    const booleanTwoItems_07 = document.querySelectorAll('#content_list_right_07 li[data-boolean="2"]');
+                    
+                    // 遍历含有data-boolean="2"属性的<li>元素
+                    booleanTwoItems_07.forEach(item => {
+                      // 将当前<li>元素从列表中移除
+                      item.parentNode.removeChild(item);
+                      // 将当前<li>元素添加到列表的末尾
+                      document.querySelector('#content_list_right_07').appendChild(item);
+                    });
+                    
+                    
+                    
+                    // 获取所有的<li>元素
+                    const listItems_08 = document.querySelectorAll('#content_list_right_08 li');
+                    
+                    // 获取含有data-boolean="2"属性的<li>元素
+                    const booleanTwoItems_08 = document.querySelectorAll('#content_list_right_08 li[data-boolean="2"]');
+                    
+                    // 遍历含有data-boolean="2"属性的<li>元素
+                    booleanTwoItems_08.forEach(item => {
+                      // 将当前<li>元素从列表中移除
+                      item.parentNode.removeChild(item);
+                      // 将当前<li>元素添加到列表的末尾
+                      document.querySelector('#content_list_right_08').appendChild(item);
+                    });
+			        
+			    })
+			    
+			</script>
+			
+			
+			
+			<script>
+			    
+                document.querySelectorAll('.part011_block_li_right_top_ul li').forEach(li => {
+                  li.addEventListener('mouseenter', () => {
+                    const link = li.querySelector('a');
+                    if (link) {
+                      link.classList.add('border-effect');
+                    }
+                  });
+                
+                  li.addEventListener('mouseleave', () => {
+                    const link = li.querySelector('a');
+                    if (link) {
+                      link.classList.remove('border-effect');
+                    }
+                  });
+                });
+			    
+			</script>
+			
+			
+			
+			
+			<script>
+			    
+                    // 使用jQuery选择器找到所有带有data-boolean="1"的li元素
+                    $('li[data-boolean="1"]').each(function() {
+                      // 在当前li元素内查找part023_bottom_li_fire类的元素，并设置其display属性为block
+                      $(this).find('.part023_bottom_li_fire').css('display', 'block');
+                      
+
+                      
+                    });
+                
+			
+			</script>
+			
+			
+			<script>
+			    
+			    $(function(){
+			        
+			        $(".part011_block>ul>li").hover(function(){
+			            
+			            $(this).addClass("part011_block_li_active");
+			            
+			        },function(){
+			            
+			            $(this).removeClass("part011_block_li_active");
+			            
+			        })
+			        
+			        
+			    })
+			    
+			</script>
+			
+			
+			
+			
+			
+			<!-- 表格部分电梯导航 -->
+                <script>
+                    $(function () {
+
+                        var asideNavTop = $(".main-title").offset().top;
+
+
+                        toggleTool();
+                        // 切换侧边导航的状态
+                        function toggleTool() {
+                            if ($(document).scrollTop() >= asideNavTop) {
+
+                                $(".main-title").css({
+                                    "position": "fixed",
+                                    "left": "1.46rem",
+                                    "top": "0",
+                                    "z-index": "900",
+                                });
+
+                            } else {
+
+                                $(".main-title").css({
+                                    "position": "absolute",
+                                    "left": "1.46rem",
+                                    "top": "0",
+                                    "z-index": "",
+                                });
+
+                            };
+                        }
+                            
+                        // 页面滚动事件 $(window).scroll()
+                        $(window).scroll(function () {
+                            toggleTool();
+                        
+                            var scrollTop = $(window).scrollTop();
+                            
+                            var scrollTop = scrollTop + 106;
+                        
+                            $(".main-content .sooll").each(function (index) {
+                                var currentLocation = $(this).offset().top - $(".main-title").outerHeight();
+                                var sectionHeight = $(this).outerHeight();
+                        
+                                if (scrollTop >= currentLocation && scrollTop < currentLocation + sectionHeight) {
+                                    $(".main-title ul li").eq(index).addClass("part02_turn_piece_active").siblings().removeClass("part02_turn_piece_active");
+                                    return false; // 找到匹配的区域后，提前结束遍历
+                                }
+                            });
+                        });
+
+                        // 2. 点击li页面跳转到对应的区域
+                        $(".main-title ul li").on("click", function () {
+                            // 获取当前被点击的li的索引号
+                            let index = $(this).index();
+                            
+                            $(".part011_right ul li").eq(index).addClass("part02_turn_piece_active").siblings().removeClass("part02_turn_piece_active");                                
+
+                            var currentLocation = $(".main-content .sooll").eq(index).offset().top - 86;
+                            // 页面跳转的比较生硬，可以采取动画来做跳转
+                            // $("html,body").scrollTop(currentLocation);
+                            // (1)要记住：只有元素才有动画
+
+                            $("html,body").stop().animate({
+                                scrollTop: currentLocation
+                            })
+
+                        })
+                    })
+                </script>
+
+
+
+
+            <script type="text/javascript" charset="utf-8">
+    
+                $(function(){
+                    
+                    $(".scale").hover(function(){
+                        
+                        $(this).find(".part011_block_li_right_top_li_right_piece img").css("transform","scale(0.9)");
+                        
+                    },function(){
+                        
+                        
+                        $(this).find(".part011_block_li_right_top_li_right_piece img").css("transform","scale(1)");
+                        
+                    })
+                    
+                })
+                
+            </script>
+
+
+
+{template "footer.html"}
+
+
+
+

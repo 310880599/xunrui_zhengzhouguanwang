@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<title>{$meta_title}</title>
+        <meta name="keywords" content="{$meta_keywords}"/>
+        <meta name="description" content="{$meta_description}" />
+		<link rel="stylesheet" href="{THEME_PATH}assets/zhengzhoudaguanwangmobile/css/common.css">		
+		<link rel="stylesheet" href="{THEME_PATH}assets/zhengzhoudaguanwangmobile/css/swiper.min.css">
+		<link rel="stylesheet" href="{THEME_PATH}assets/zhengzhoudaguanwangmobile/css/contactUs.css">
+		<script type="text/javascript" src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/js/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript" src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/js/swiper.min.js"></script>
+		<script type='text/javascript' src='{THEME_PATH}assets/zhengzhoudaguanwangmobile/layer/layer.js'></script>
+		<script type="text/javascript">
+			(function (doc, win) {
+				var docEl = doc.documentElement,
+						resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+						recalc = function () {
+							var clientWidth = docEl.clientWidth;
+							if (!clientWidth) return;
+							if(clientWidth>=750){
+								docEl.style.fontSize = '100px';
+							}else{
+								docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+							}
+						};
+
+				if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<style>
+		    
+		    .layui-layer-content{color: #fff !important;}
+		    
+		    .layui-layer-padding{color: #333 !important}
+		    
+		</style>
+		
+        <!-- 百度地图 -->
+        <script type="text/javascript"
+            src="https://api.map.baidu.com/api?v=1.0&&type=webgl&ak=yuj4yE8YnPk9sytSH6nBUVRirmpPme6Q">
+        </script>
+        
+	</head>
+	<body style="position: relative;">
+
+
+        {template "header.html"}
+		
+        {template "nav.html"}
+	
+
+		<div class="container">
+			<div class="part01">
+				<div class="part01_center">
+					<div class="part01_center_h3">
+						<h3>
+							郑州豫工工程机械有限公司
+						</h3>
+					</div>
+					<div class="part01_center_h6">
+						<h6>
+							热忱欢迎社会各界与我们联系，我们全天恭候您的垂询！
+						</h6>
+					</div>
+					<div class="part01_center_tel">
+						<div class="part01_center_tel_h6">
+							<h6>
+								·  全国24小时销售热线  ·
+							</h6>
+						</div>
+						<div class="part01_center_tel_h3">
+							<a href="tel:18937135091" style="text-decoration: none;">
+								<h3>
+									189-3713-5091
+								</h3>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			
+			<div class="part05">
+				<div class="part05_center">
+					<div class="part05_top">
+						<h3>
+                            ·即可获得工厂&nbsp;<b>优惠补贴</b>
+                        </h3>
+					</div>
+					<div class="part05_bottom">
+						<ul>
+							<li>
+								<div class="part05_bottom_li">
+									<div class="part05_bottom_li_font">
+										<h3 style="color: #2F8E4C;">
+											总部地址
+										</h3>
+										<h6 style="font-size: 0.2rem;font-weight: normal;">
+											郑州市二七区京广南路8号京莎广场B座26/27F
+										</h6>
+									</div>
+									<div class="part05_bottom_li_icon">
+										<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/contactUsMobile/part05_bottom_li_icon_01.png" alt="">
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="part05_bottom_li">
+									<div class="part05_bottom_li_font">
+										<h3>
+											免费预约来厂
+										</h3>
+										<h6>
+											豫工就近<b style="color: #8C60FF;">考察工地</b>
+										</h6>
+									</div>
+									<div class="part05_bottom_li_icon">
+										<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/contactUsMobile/part05_bottom_li_icon_02.png" alt="">
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="part05_bottom_li">
+									<div class="part05_bottom_li_font">
+										<h3>
+											优惠补贴大放送
+										</h3>
+										<h6>
+											<b style="color: #F26760;">豪气大礼</b>拿不停
+										</h6>
+									</div>
+									<div class="part05_bottom_li_icon">
+										<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/contactUsMobile/part05_bottom_li_icon_03.png" alt="">
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>	
+			</div>
+
+
+			<div class="part03">
+				<div class="part03_top">
+				    <a href="https://tb.53kf.com/code/client/94ed3a1a92adb3360088b64c2da46c228/1" style="text-decoration: none;">
+					    <img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part03_top_image.png" alt="">
+					</a>
+				</div>
+				<div class="part03_center">
+					<div class="part03_center_top">
+						<h3>
+							算一算 购买一套设备需要多少钱?
+						</h3>
+						<h6>
+							一台也是批发价 快留下信息锁定工厂优惠报价吧
+						</h6>
+					</div>
+					<div class="part03_center_form">
+						<form>
+							<input class="part03_center_form_name" id="name4" type="text" placeholder="请输入姓名">
+							<input class="part03_center_form_tel" id="tel4" type="text" placeholder="请输入手机号">
+							<input type="text" id="cp4" style="display:none" value="郑州大官网手机端联系我们中间">
+							<button class="part03_center_form_button" type="button" id="fenge_zixun3">
+								<h3>
+									免费获取工厂活动价
+								</h3>
+							</button>
+						</form>
+					</div>
+				</div>	
+			</div>
+			
+			
+			
+			<script>
+                   
+                    $(function(){
+                        
+                        $('#fenge_zixun3').click(function(){
+                            
+                            
+                            
+                            
+                            var newTitle = document.getElementById("cp4").value;
+                            
+                            var newAuthor = document.getElementById("name4").value;
+                            
+                            var newDianhua = document.getElementById("tel4").value;
+                            
+                            var newWangzhi = window.location.href;
+                            
+                            //var newLiuyan = document.getElementById("ly").value;
+                            
+                            var newLiuyan = "";
+                            
+                            var newData = "is_ajax=1&data[title]="+newTitle+"&data[author]="+newAuthor+"&data[dianhua]="+newDianhua+"&data[wangzhi]="+newWangzhi+"&data[liuyan]="+newLiuyan+"";
+                            
+                            
+                            //console.log(newTitle);
+                            
+                            //console.log(newAuthor);
+                            
+                            //console.log(newWangzhi);
+                        
+                            //console.log(newLiuyan);
+                            
+                            
+                            if(newDianhua){
+                                
+                                
+                                
+                            
+                                newDianhua = Number(newDianhua);
+                                
+                                newDianhua = String(newDianhua);
+                                
+                            
+                                //console.log(newDianhua.length);
+                                
+                                
+                                //console.log(typeof(newDianhua));
+                                
+                                
+                                //console.log(newDianhua);
+                                
+                                
+                                //console.log(typeof(newDianhua) == "string");
+                                
+                                
+                                //console.log(newDianhua.length == 11);
+                                
+                            
+                                if((typeof(newDianhua) == "string")&&(newDianhua.length == 11)){
+                                    
+                                    
+                                    $.ajax({
+                                         type: "post",
+                                         url: "https://kuayu2.hnyugong.com/index.php?v=1&appid=1&appsecret=PHPCMF32C04A005323F&s=form&c=biaodan12&m=post",
+                                         data: newData,
+                                         header: {
+                                                'Content-Type': 'application/x-www-form-urlencoded',
+                                         },
+                                         //dataType: "json",
+                                         success: function(data){
+                                             
+                                            console.log(data.code);
+                                            console.log(data.msg);
+                                            
+                                            if(data.code == 0){
+                                                
+                                                //layer.alert('见到你真的很高兴', {icon: 6});
+                                                
+                                            }else if(data.code > 0){
+                                                
+                                                //layer.alert('见到你真的很高兴', {icon: 6});
+                                                
+                                                layer.alert('恭喜报名成功！稍后产品经理会与您联系',{icon: 1});
+                                                
+                                                
+                                                
+                                                document.getElementById("name4").value = "";
+                                                
+                                                document.getElementById("tel4").value = "";
+                                                
+                                                //document.getElementById("ly").value = "";
+                                                
+                                            }else{
+                                                
+                                                
+                                            }
+                                                     
+                                         },
+                                         error:function(XMLHttpRequest, textstatus,errorThrown){
+                                            //debugger
+                                            // 状态码
+                                            console.log(XMLHttpRequest.status);
+                                            // 状态
+                                            console.log(XMLHttpRequest.readyState);
+                                            // 错误信息
+                                            console.log(textstatus);
+                                            ___hideLoading();
+                                            if(XMLHttpRequest.readyState==0){
+                                                // 对应登录超时问题，直接酷到登录页面
+                                                location.href='../Login.action';
+                                            }else{
+                                                 $.messager.alert("提示'，系统内部错误，请联系管理员处理!",'info');
+                                            }
+                                        }
+                                     });
+                                     
+                                    
+                                }else{
+                                    
+                                    
+                                    layer.msg('电话号码不是11位');
+                                    
+                                    //console.log(123);
+                                    
+                                    
+                                }
+                                
+                                
+                                
+                                
+                            
+                                
+                                
+                            }else{
+                                
+                                layer.msg('电话不能为空');
+                                
+                                
+                            }
+                            
+                
+                            
+                            
+                            
+                            
+                             
+                             
+                        });
+                    });
+                            
+            </script> 
+			
+			
+
+
+			<div class="part06">
+				<div class="part06_center">
+					<div class="part06_top">
+						<div class="part06_top_font">
+							<h3>
+								我们的位置
+							<h6>
+								郑州豫工工程机械有限公司欢迎社会各界来厂参观
+							</h6>
+						</div>
+					</div>
+					<div class="part06_bottom">
+						<ul>
+							<li>
+								<div class="part06_bottom_li">
+									<div class="part06_bottom_li_icon_01">
+										<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/contactUsMobile/part06_bottom_li_icon_01.png" alt="">
+									</div>
+									<div class="part06_bottom_li_font">
+										<h3>
+											20年行业经验保障 • 放心选购 
+										</h3>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="part06_bottom_li">
+									<div class="part06_bottom_li_icon_02">
+										<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/contactUsMobile/part06_bottom_li_icon_02.png" alt="">
+									</div>
+									<div class="part06_bottom_li_font">
+										<h3>
+											200+专业技术人员
+										</h3>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>	
+			</div>
+		</div>
+		
+		            
+        <div class="part07">
+            <div class="part07_center">
+                <div id="container" style="height: 100%;width: 100%;"></div>
+                <script type="text/javascript">
+                    var map = new BMapGL.Map("container");
+                    // 创建地图实例 
+                    var point = new BMapGL.Point(113.6627903713419, 34.723703941937025);
+                    // 创建点坐标 
+                    map.centerAndZoom(point, 15);
+                    // 初始化地图，设置中心点坐标和地图级别
+                    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+
+                    var scaleCtrl = new BMapGL.ScaleControl();  // 添加比例尺控件
+                    map.addControl(scaleCtrl);
+                    var zoomCtrl = new BMapGL.ZoomControl();  // 添加缩放控件
+                    map.addControl(zoomCtrl);
+                    var cityCtrl = new BMapGL.CityListControl();  // 添加城市列表控件
+                    map.addControl(cityCtrl);
+                    var point = new BMapGL.Point(113.6627903713419, 34.723703941937025);
+                    var marker = new BMapGL.Marker(point);        // 创建标注   
+                    map.addOverlay(marker);                     // 将标注添加到地图中
+
+                    var opts = {
+                        width: 250,     // 信息窗口宽度
+                        height: 100,    // 信息窗口高度
+                        title: "郑州豫工工程机械有限公司"  // 信息窗口标题
+                    }
+                    var infoWindow = new BMapGL.InfoWindow("地址：河南省郑州市二七区京莎广场B座2706", opts);  // 创建信息窗口对象
+                    map.openInfoWindow(infoWindow, map.getCenter());        // 打开信息窗口
+
+                </script>
+            </div>
+        </div>
+
+		
+		<div class="footer">
+			<h2>
+				咨询电话：
+				<a href="tel:18937135091" style="text-decoration:none;">
+				    189-3713-5091
+				</a>    
+			</h2>
+			<h3>
+				版权所有：郑州豫工工程机械有限公司
+			</h3>
+			<h4>
+				豫ICP备2023028284号-1
+			</h4>
+		</div>
+
+        
+        {template footer.html}
+
+
+		<div style="height: 0.68rem;">
+
+		</div>
+	</body>
+</html>
+
+

@@ -1,0 +1,55 @@
+{module module=xinwenzhongxin catid=10 order=inputtime page=1 sbpage=1 pagesize=7}
+
+        <li>
+            <a href="{$t['url']}" style="display: block;text-decoration: none;" target="_blank">
+                <div class="part025_middle_li">
+                    <div class="part025_middle_li_left">
+                        <img src="{dr_thumb($t['thumb'], 450, 257 ,0, 'crop')}" alt="" class="lazy">
+                    </div>
+                    <div class="part025_middle_li_right">
+                        <div class="part025_middle_li_right_font">
+                            <div class="part025_middle_li_right_font_h3">
+                                <h3>
+                                    {$t['title']}
+                                </h3>
+                            </div>
+                            <div class="part025_middle_li_right_font_p">
+                                <p>
+                                    <!--{dr_strcut($t['description'], 75, '...')}-->
+                                    {cut_str_by_punctuation($t['description'],105,'')}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="part025_middle_li_right_contact">
+                            <div class="part025_middle_li_right_date">
+                                <div class="part025_middle_li_right_date_day">
+                                    <h3>
+                                        {dr_date($t['_updatetime'], 'd')}
+                                    </h3>
+                                </div>
+                                <div class="part025_middle_li_right_date_year">
+                                    <h6>
+                                        {dr_date($t['_updatetime'], 'Y-m')}
+                                    </h6>
+                                </div>
+                            </div>
+                            <div class="part025_middle_li_right_link">
+                                <div class="part025_middle_li_right_link_h3">
+                                    <h3>
+                                        查看详情
+                                    </h3>
+                                </div>
+                                <div class="part025_middle_li_right_link_arrow">
+                                    <div class="part025_middle_li_right_link_arrow_piece">
+                                        <img class="part025_middle_li_right_link_arrow_piece_green" src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesNewsList/part025_middle_li_right_link_icon.png" alt="">
+                                        <img class="part025_middle_li_right_link_arrow_piece_white" src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesNewsList/part025_middle_li_right_link_icon_white.png" alt="">
+                                    </div>
+                                </div>
+                            </div>           
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+
+{/module}    

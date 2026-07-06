@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<title>{$meta_title}</title>
+        <meta name="keywords" content="{$meta_keywords}"/>
+        <meta name="description" content="{$meta_description}" />
+		<link rel="stylesheet" href="{THEME_PATH}assets/zhengzhoudaguanwangmobile/css/common.css">		
+		<link rel="stylesheet" href="{THEME_PATH}assets/zhengzhoudaguanwangmobile/css/swiper.min.css">
+		<link rel="stylesheet" href="{THEME_PATH}assets/zhengzhoudaguanwangmobile/css/index.css">
+		<script type="text/javascript" src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/js/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript" src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/js/swiper.min.js"></script>
+		<script type='text/javascript' src='{THEME_PATH}assets/zhengzhoudaguanwangmobile/layer/layer.js'></script>
+		<script type="text/javascript">
+			(function (doc, win) {
+				var docEl = doc.documentElement,
+						resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+						recalc = function () {
+							var clientWidth = docEl.clientWidth;
+							if (!clientWidth) return;
+							if(clientWidth>=750){
+								docEl.style.fontSize = '100px';
+							}else{
+								docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+							}
+						};
+
+				if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<style>
+		    
+		    .layui-layer-content{color: #fff !important;}
+		    
+		    .layui-layer-padding{color: #333 !important}
+		    
+		    .part03_center_top p{color: #fff !important;font-size: 0.22rem;font-weight: normal;}
+		    
+		</style>
+	</head>
+	<body style="position: relative;">
+
+		{template "header.html"}
+		
+        {template "nav.html"}
+        
+
+
+		<div class="container">
+			<div class="part01">
+				<div class="part01_center">
+					<div class="swiper swiper-container12" id="swiper_container12">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide">
+                                <div class="part01_center_block_image">
+                                    <a href="https://www.zzyugong.cn/yingjishebei.html" style="text-decoration:none;" target="_blank">
+                                        <img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part01_center_block_image_07.jpg" alt=""/>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div class="swiper-slide">
+                                <div class="part01_center_block_image">
+                                    <a href="https://www.zzyugong.cn/show-136.html" style="text-decoration:none;" target="_blank">
+                                        <img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part01_center_block_image_01.jpg" alt=""/>
+                                    </a>
+                                </div>
+                            </div>
+							<div class="swiper-slide">
+                                <div class="part01_center_block_image">
+                                    <a href="https://www.zzyugong.cn/show-137.html" style="text-decoration:none;" target="_blank">
+                                        <img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part01_center_block_image_02.jpg" alt=""/>
+                                    </a>
+                                </div>
+                            </div>
+							<div class="swiper-slide">
+                                <div class="part01_center_block_image">
+                                    <a href="https://www.zzyugong.cn/show-327.html" style="text-decoration:none;" target="_blank">
+                                        <img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part01_center_block_image_03.jpg" alt=""/>
+                                    </a>
+                                </div>
+                            </div>
+							<!--<div class="swiper-slide">-->
+       <!--                         <div class="part01_center_block_image">-->
+       <!--                             <a href="#" style="text-decoration:none;" target="_blank">-->
+       <!--                                 <img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part01_center_block_image_04.jpg" alt=""/>-->
+       <!--                             </a>-->
+       <!--                         </div>-->
+       <!--                     </div>-->
+							<div class="swiper-slide">
+                                <div class="part01_center_block_image">
+                                    <a href="https://www.zzyugong.cn/show-147.html" style="text-decoration:none;" target="_blank">
+                                        <img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part01_center_block_image_05.jpg" alt=""/>
+                                    </a>
+                                </div>
+                            </div>
+							<div class="swiper-slide">
+                                <div class="part01_center_block_image">
+                                    <a href="https://www.zzyugong.cn/show-121.html" style="text-decoration:none;" target="_blank">
+                                        <img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part01_center_block_image_06.jpg" alt=""/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+						<div class="swiper-pagination"></div>
+                    </div>
+				</div>
+			</div>
+
+
+			<script>
+
+				var mySwiper12 = new Swiper('.swiper-container12', {
+					slidesPerView: 1,
+					spaceBetween: 20,
+					effect: 'slide',
+					autoplay: false,
+					speed: 300,
+					loop: false,
+					pagination: {
+						el: ".part01_center .swiper-pagination",
+						clickable: true,
+					}
+				})
+
+			</script>	
+
+
+			<div class="part02">
+				<div class="part02_center">
+					<ul>
+						<li>
+							<a href="{dr_share_cat_value(2,'url')}" style="text-decoration: none;">
+								<div class="part02_center_li_block">
+									<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part02_center_li_block_icon_01.png" alt="">
+									<h3>
+										关于豫工
+									</h3>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="{dr_share_cat_value(6,'url')}" style="text-decoration: none;">
+								<div class="part02_center_li_block">
+									<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part02_center_li_block_icon_02.png" alt="">
+									<h3>
+										新闻资讯
+									</h3>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="{dr_share_cat_value(4,'url')}" style="text-decoration: none;">
+								<div class="part02_center_li_block">
+									<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part02_center_li_block_icon_03.png" alt="">
+									<h3>
+										产品中心
+									</h3>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="{dr_share_cat_value(5,'url')}" style="text-decoration: none;">
+								<div class="part02_center_li_block">
+									<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part02_center_li_block_icon_04.png" alt="">
+									<h3>
+										合作案例
+									</h3>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="{dr_share_cat_value(3,'url')}" style="text-decoration: none;">
+								<div class="part02_center_li_block">
+									<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part02_center_li_block_icon_05.png" alt="">
+									<h3>
+										联系我们
+									</h3>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>	
+			</div>
+
+			<div class="part03">
+				<div class="part03_top">
+				    <a href="https://tb.53kf.com/code/client/94ed3a1a92adb3360088b64c2da46c228/1" style="text-decoration: none;">
+					    <img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part03_top_image.png" alt="">
+					</a>
+				</div>
+				<div class="part03_center">
+					<div class="part03_center_top">
+						<h3>
+							算一算 购买一套设备需要多少钱?
+						</h3>
+						<p>
+							一台也是批发价 快留下信息锁定工厂优惠报价吧
+						</p>
+					</div>
+					<div class="part03_center_form">
+						<form>
+							<input class="part03_center_form_name" id="name2" type="text" placeholder="请输入姓名">
+							<input class="part03_center_form_tel" id="tel2" type="text" placeholder="请输入手机号">
+							<input type="text" id="cp2" style="display:none" value="郑州大官网手机端首页中间">
+							<button class="part03_center_form_button" type="button" id="fenge_zixun">
+								<h3>
+									免费获取工厂活动价
+								</h3>
+							</button>
+						</form>
+					</div>
+				</div>	
+			</div>
+			
+			<script>
+                   
+                    $(function(){
+                        
+                        $('#fenge_zixun').click(function(){
+                            
+                            
+                            
+                            
+                            var newTitle = document.getElementById("cp2").value;
+                            
+                            var newAuthor = document.getElementById("name2").value;
+                            
+                            var newDianhua = document.getElementById("tel2").value;
+                            
+                            var newWangzhi = window.location.href;
+                            
+                            //var newLiuyan = document.getElementById("ly").value;
+                            
+                            var newLiuyan = "";
+                            
+                            var newData = "is_ajax=1&data[title]="+newTitle+"&data[author]="+newAuthor+"&data[dianhua]="+newDianhua+"&data[wangzhi]="+newWangzhi+"&data[liuyan]="+newLiuyan+"";
+                            
+                            
+                            //console.log(newTitle);
+                            
+                            //console.log(newAuthor);
+                            
+                            //console.log(newWangzhi);
+                        
+                            //console.log(newLiuyan);
+                            
+                            
+                            if(newDianhua){
+                                
+                                
+                                
+                            
+                                newDianhua = Number(newDianhua);
+                                
+                                newDianhua = String(newDianhua);
+                                
+                            
+                                //console.log(newDianhua.length);
+                                
+                                
+                                //console.log(typeof(newDianhua));
+                                
+                                
+                                //console.log(newDianhua);
+                                
+                                
+                                //console.log(typeof(newDianhua) == "string");
+                                
+                                
+                                //console.log(newDianhua.length == 11);
+                                
+                            
+                                if((typeof(newDianhua) == "string")&&(newDianhua.length == 11)){
+                                    
+                                    
+                                    $.ajax({
+                                         type: "post",
+                                         url: "https://kuayu2.hnyugong.com/index.php?v=1&appid=1&appsecret=PHPCMF32C04A005323F&s=form&c=biaodan12&m=post",
+                                         data: newData,
+                                         header: {
+                                                'Content-Type': 'application/x-www-form-urlencoded',
+                                         },
+                                         //dataType: "json",
+                                         success: function(data){
+                                             
+                                            console.log(data.code);
+                                            console.log(data.msg);
+                                            
+                                            if(data.code == 0){
+                                                
+                                                //layer.alert('见到你真的很高兴', {icon: 6});
+                                                
+                                            }else if(data.code > 0){
+                                                
+                                                //layer.alert('见到你真的很高兴', {icon: 6});
+                                                
+                                                layer.alert('恭喜报名成功！稍后产品经理会与您联系',{icon: 1});
+                                                
+                                                
+                                                
+                                                document.getElementById("name2").value = "";
+                                                
+                                                document.getElementById("tel2").value = "";
+                                                
+                                                //document.getElementById("ly").value = "";
+                                                
+                                            }else{
+                                                
+                                                
+                                            }
+                                                     
+                                         },
+                                         error:function(XMLHttpRequest, textstatus,errorThrown){
+                                            //debugger
+                                            // 状态码
+                                            console.log(XMLHttpRequest.status);
+                                            // 状态
+                                            console.log(XMLHttpRequest.readyState);
+                                            // 错误信息
+                                            console.log(textstatus);
+                                            ___hideLoading();
+                                            if(XMLHttpRequest.readyState==0){
+                                                // 对应登录超时问题，直接酷到登录页面
+                                                location.href='../Login.action';
+                                            }else{
+                                                 $.messager.alert("提示'，系统内部错误，请联系管理员处理!",'info');
+                                            }
+                                        }
+                                     });
+                                     
+                                    
+                                }else{
+                                    
+                                    
+                                    layer.msg('电话号码不是11位');
+                                    
+                                    //console.log(123);
+                                    
+                                    
+                                }
+                                
+                                
+                                
+                                
+                            
+                                
+                                
+                            }else{
+                                
+                                layer.msg('电话不能为空');
+                                
+                                
+                            }
+                            
+                
+                            
+                            
+                            
+                            
+                             
+                             
+                        });
+                    });
+                            
+            </script>        
+			
+			
+			
+			
+			<div class="part04">
+				<div class="part04_center">
+					<div class="part04_top">
+						<div class="part04_top_font">
+							<h3>
+								品  /  牌  /  展  /  示
+							</h3>
+						</div>
+						<div class="part04_top_arrow">
+							<div class="part04_top_arrow_block">
+								<a href="{dr_share_cat_value(2,'url')}" style="text-decoration: none;">
+									<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part04_top_arrow_block.png" alt="">
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="part04_bottom">
+						<div class="part04_bottom_block">
+							<div class="swiper swiper-container13" id="swiper_container13">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="part04_bottom_block_image">
+											<a href="#" style="text-decoration:none;" target="_blank">
+												<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part04_bottom_block_image_01.jpg" alt=""/>
+											</a>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="part04_bottom_block_image">
+											<a href="#" style="text-decoration:none;" target="_blank">
+												<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part04_bottom_block_image_02.jpg" alt=""/>
+											</a>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="part04_bottom_block_image">
+											<a href="#" style="text-decoration:none;" target="_blank">
+												<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part04_bottom_block_image_03.jpg" alt=""/>
+											</a>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="part04_bottom_block_image">
+											<a href="#" style="text-decoration:none;" target="_blank">
+												<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part04_bottom_block_image_04.jpg" alt=""/>
+											</a>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="part04_bottom_block_image">
+											<a href="#" style="text-decoration:none;" target="_blank">
+												<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part04_bottom_block_image_05.jpg" alt=""/>
+											</a>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="part04_bottom_block_image">
+											<a href="#" style="text-decoration:none;" target="_blank">
+												<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part04_bottom_block_image_06.jpg" alt=""/>
+											</a>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="part04_bottom_block_image">
+											<a href="#" style="text-decoration:none;" target="_blank">
+												<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part04_bottom_block_image_07.jpg" alt=""/>
+											</a>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="part04_bottom_block_image">
+											<a href="#" style="text-decoration:none;" target="_blank">
+												<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part04_bottom_block_image_08.jpg" alt=""/>
+											</a>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="part04_bottom_block_image">
+											<a href="#" style="text-decoration:none;" target="_blank">
+												<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part04_bottom_block_image_09.jpg" alt=""/>
+											</a>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="part04_bottom_block_image">
+											<a href="#" style="text-decoration:none;" target="_blank">
+												<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part04_bottom_block_image_10.jpg" alt=""/>
+											</a>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="part04_bottom_block_image">
+											<a href="#" style="text-decoration:none;" target="_blank">
+												<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part04_bottom_block_image_11.jpg" alt=""/>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>	
+			</div>
+
+
+			<script>
+
+				var mySwiper13 = new Swiper('.swiper-container13', {
+					slidesPerView: 1.42,
+					spaceBetween: 15,
+					effect: 'slide',
+					autoplay: false,
+					speed: 300,
+					loop: false,
+				})
+
+			</script>	
+
+			<div class="part05">
+				<div class="part05_center">
+					<div class="part05_top">
+						<div class="part05_top_font">
+							<h3>
+								100000+工程案例展示
+							</h3>
+							<h6>
+								工厂发货 设备安装调试现场
+							</h6>
+						</div>
+						<div class="part05_top_arrow">
+							<div class="part05_top_arrow_block">
+								<a href="{dr_share_cat_value(5,'url')}" style="text-decoration: none;">
+									<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part05_top_arrow_block.png" alt="">
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="part05_bottom">
+						<ul>
+						    
+						    
+						            {module module=anlizhongxin catid=5 order=updatetime num=4}
+						        
+						    
+                							<li>
+                								<div class="part05_bottom_li">
+                									<a href="{$t['url']}" style="text-decoration: none;">
+                										<div class="part05_bottom_li_image">
+                											<img src="{dr_thumb($t['thumb'], 190, 110, 0, 'crop')}" alt="">
+                										</div>
+                										<div class="part05_bottom_li_font">
+                											<div class="part05_bottom_li_font_h3">
+                												<h3>
+                													{dr_strcut($t['title'], 11, '...')}
+                												</h3>
+                											</div>
+                											<div class="part05_bottom_li_font_icon">
+                												<div class="part05_bottom_li_font_icon_block">
+                													<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part05_bottom_li_font_icon_block.png" alt="">
+                												</div>
+                											</div>
+                										</div>
+                									</a>
+                								</div>
+                							</li>
+							
+							        
+							        {/module}
+							
+
+						</ul>
+					</div>
+				</div>	
+			</div>
+
+			<div class="part06">
+				<div class="part06_center">
+					<div class="part06_top">
+						<div class="part06_top_font">
+							<h3>
+								新  /  闻  /  中  /  心
+							<h6>
+								这里记录豫工重要时刻，无论公司或行业，都将真实呈现给您!
+							</h6>
+						</div>
+						<div class="part06_top_arrow">
+							<div class="part06_top_arrow_block">
+								<a href="{dr_share_cat_value(6,'url')}" style="text-decoration: none;">
+									<img src="{THEME_PATH}assets/zhengzhoudaguanwangmobile/images/indexMobile/part06_top_arrow_block.png" alt="">
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="part06_bottom">
+						<ul>
+						    
+						    
+						          {module module=xinwenzhongxin catid=9 order=updatetime num=3}
+						        
+						    
+						    
+            							<li>
+            								<div class="part06_bottom_li">
+            									<a href="{$t['url']}" style="text-decoration: none;">
+            										<div class="part06_bottom_li_date">
+            											<div class="part06_bottom_li_date_h3">
+            												<h3>
+            													{dr_date($t['_inputtime'], 'd')}
+            												</h3>
+            											</div>
+            											<div class="part06_bottom_li_date_h6">
+            												<h6>
+            													{dr_date($t['_inputtime'], 'Y . m')}
+            												</h6>
+            											</div>
+            										</div>
+            										<div class="part06_bottom_li_font">
+            											<h3>
+            												{dr_strcut($t['title'], 16, '...')}
+            											</h3>
+            											<h6>
+            												{dr_strcut($t['description'], 18, '...')}
+            											</h6>
+            										</div>
+            									</a>
+            								</div>
+            							</li>
+
+
+                                 {/module}
+
+						</ul>
+					</div>
+				</div>	
+			</div>
+		</div>	
+		<div class="footer">
+			<h2>
+				咨询电话：
+				<a href="tel:18937135091" style="text-decoration:none;">
+				    189-3713-5091
+				</a>    
+			</h2>
+			<h3>
+				版权所有：郑州豫工工程机械有限公司
+			</h3>
+			<h4>
+				豫ICP备2023028284号-1
+			</h4>
+		</div>
+        
+        {template footer.html}
+
+		<div style="height: 0.68rem;">
+
+		</div>
+	</body>
+</html>
+
+

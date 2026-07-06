@@ -1,0 +1,387 @@
+{template "header_news_list.html"}
+
+
+
+{template "nav.html"}
+
+
+
+<script>
+    
+    $(function(){
+        
+        $(".part01_right ul li").removeClass("part01_right_li_bg_active");
+        
+        $(".part01_right ul li:nth-child(3)").addClass("part01_right_li_bg_active");
+        
+    })
+    
+    
+</script>
+
+
+
+			<div class="index_part02">
+                <div class="part02_center">
+					<div class="part02_block">
+					    
+                    </div>
+                </div>
+			</div>
+
+
+
+
+
+			
+
+						
+
+
+
+
+                        
+	
+	
+            
+            
+
+
+
+
+
+			<div class="index_part011 animate__animated animate__fadeInUp">
+				<div class="part011_center">
+                    <div class="part011_block">
+                        <div class="part011_left">
+                            <div class="part011_left_piece">
+                                <div class="swiper-container15" id="swiper_container15">
+                                    <div class="swiper-button-prev">
+                                        <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesNewsList/part011_left_piece_button_left.png" alt="">
+                                    </div>
+                                    <div class="swiper-wrapper">
+
+                                    </div>
+                                    <div class="swiper-button-next">
+                                        <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesNewsList/part011_left_piece_button_right.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="part011_right">
+                            <div class="part011_right_top">
+                                <div class="part011_right_top_title">
+                                    <h3>
+                                        热门资讯
+                                    </h3>
+                                </div>
+                                <div class="part011_right_top_content">
+                                    <ul>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="part011_right_bottom">
+                                <ul>
+
+                                </ul>
+                            </div>   
+                        </div>            
+                    </div>
+				</div>
+			</div>
+			
+			
+			
+			<script>
+			
+			    
+			    $(function(){
+			        
+			        
+			        
+			            var newId_01 = 9;
+            
+                        $.ajax({
+                            
+                            type: 'POST',
+                            url: 'https://www.zzyugong.cn/index.php?s=httpapi&id=14&appid=1&appsecret=PHPCMF3F31E38DB9E65', 
+                            data: {selectedId:newId_01},
+                            dataType: 'text',
+                            success: function(response) {
+            
+                                //console.log(response);
+                                
+                                $(".part011_left_piece .swiper-wrapper").html(response);
+                                
+                                startslide();
+                                
+                            }
+                        
+                         });
+                         
+                         
+                        var newId_02 = 9;
+            
+                        $.ajax({
+                            
+                            type: 'POST',
+                            url: 'https://www.zzyugong.cn/index.php?s=httpapi&id=15&appid=1&appsecret=PHPCMF3F31E38DB9E65', 
+                            data: {selectedId:newId_02},
+                            dataType: 'text',
+                            success: function(response) {
+            
+                                //console.log(response);
+                                
+                                $(".part011_right_top_content ul").html(response);
+                                
+                                changecolor();
+                                
+                            }
+                        
+                         });
+                         
+                         
+                         
+                        //var newId_02 = 2;
+            
+                        $.ajax({
+                            
+                            type: 'POST',
+                            url: 'https://www.zzyugong.cn/index.php?s=httpapi&id=16&appid=1&appsecret=PHPCMF3F31E38DB9E65', 
+                            data: {selectedId:newId_02},
+                            dataType: 'text',
+                            success: function(response) {
+            
+                                //console.log(response);
+                                
+                                $(".part011_right_bottom ul").html(response);
+                                
+                                changecolor();
+                                
+                                
+                            }
+                        
+                         });
+                			        
+			        
+			    })
+			    
+			    
+			</script>
+			
+
+
+			    
+		    <script>
+		    
+		    
+		            function changecolor(){
+		                
+		                
+		                
+		                    document.addEventListener('DOMContentLoaded', function() {
+                             var firstLi = document.querySelector('.part011_right_top_content ul li:first-child');
+                              if (firstLi) {
+                                firstLi.classList.add('part011_right_top_content_active');
+                              }
+                            });
+                            
+                            $(".part011_right_top_content ul li").hover(function(){
+                                
+                                $(this).addClass("part011_right_top_content_active").siblings().removeClass("part011_right_top_content_active");
+                                
+                                var i = $(this).index();
+                                
+                                //console.log(i);
+                                
+                                $(".part011_right_bottom ul li").eq(i).fadeIn().siblings("li").fadeOut();
+                                
+                                
+                            },function(){
+                                
+                                
+                                
+                            })
+		                
+		                
+		                
+		            }
+		    
+		    
+
+                
+            </script>
+
+
+
+
+            
+            <script>
+            
+                function startslide(){
+                    
+                    
+                    var mySwiper15= new Swiper('.swiper-container15', {	 
+    					spaceBetween: 30,
+    					effect: 'slide',
+    					speed: 300,
+    					autoplay: false,
+    					loop:false,
+    					navigation: {
+    						nextEl: ".part011_left_piece .swiper-button-next",
+    						prevEl: ".part011_left_piece .swiper-button-prev",
+    					},
+    				})
+                    
+                    
+                }
+
+
+
+			</script>
+
+
+
+
+
+
+
+
+            <div class="index_part023 wow animate__animated animate__fadeInUp">
+				<div class="part023_center">
+                    <div class="part023_block">
+                        <a href="https://tb.53kf.com/code/client/94ed3a1a92adb3360088b64c2da46c228/1" style="text-decoration: none;" target="_blank">
+                            <img src="{dr_get_file($cat['xwzxzbggt'])}" alt="工程机械焕新季">         
+                        </a>
+                    </div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+            <div class="index_part026 wow animate__animated animate__fadeInUp">
+				<div class="part026_center">
+                    <div class="part026_block">
+                        <div class="part026_top">
+                            <div class="part026_top_font">
+                                <ul>
+                                    <li class="part026_top_active">
+                                        <h3>
+                                            公司动态
+                                        </h3>
+                                    </li>
+                                    <li>
+                                        <h3>
+                                            行业资讯
+                                        </h3>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="part026_top_bg">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesNewsList/part025_top_bg.png" alt="">
+                            </div>
+                            <div class="part026_top_line">
+                                <img src="{THEME_PATH}assets/zhengzhoudaguanwang/images/zzImagesNewsList/part025_top_line.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+
+
+            <script>
+
+                $(function(){
+
+                    $(".part026_top_font ul li").hover(function(){
+
+                        $(this).addClass("part026_top_active").siblings().removeClass("part026_top_active");
+
+                        var i = $(this).index();
+
+                        if(i==0){
+
+                            $(".part026_top_bg").css("left","0");
+
+                            $(".news_list_company").css("display","block");
+
+                            $(".news_list_industry").css("display","none");
+
+                        }else if(i==1){
+
+                            $(".part026_top_bg").css("left","2.78rem");
+
+                            $(".news_list_company").css("display","none");
+
+                            $(".news_list_industry").css("display","block");
+
+                        }else{
+
+
+
+                        }
+
+
+                    },function(){
+
+
+
+                    })
+
+                })
+
+            </script>
+
+
+
+
+
+
+            <div class="news_list_company">
+
+                {template "news_list_company.html"}
+                
+            </div>
+
+            <div class="news_list_industry">
+
+                {template "news_list_industry.html"}
+
+            </div>
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{template "footer.html"}
+
+
+
+
+
+
+
+
+
+
+

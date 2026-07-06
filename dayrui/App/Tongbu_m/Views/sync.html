@@ -1,0 +1,27 @@
+{template "header.html"}
+
+<form class="form-horizontal" method="post" role="form" id="myform">
+    {dr_form_hidden()}
+    <div class="form-body">
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <label class="">{dr_lang('本次批量同步')}</label>
+                <label class="label label-danger">{count($ids)}</label>
+                <label class="">{dr_lang('条数据')}</label>
+            </div>
+        </div>
+
+        {loop $list $sid $t}
+        <div class="form-group">
+            <label class="col-md-2 control-label ajax_name">模块：{$t.name}</label>
+            <div class="col-md-8">
+                {$t.select}
+            </div>
+        </div>
+        {/loop}
+
+    </div>
+
+</form>
+{template "footer.html"}

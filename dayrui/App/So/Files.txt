@@ -1,0 +1,1 @@
+,/APPSPATH/So/Views/config.html,/APPSPATH/So/Views/form.html,/APPSPATH/So/Config/App.php,/APPSPATH/So/Config/Version.php,/APPSPATH/So/Config/Menu.php,/APPSPATH/So/Config/Routes.php,/APPSPATH/So/Controllers/Admin/Config.php,/APPSPATH/So/Controllers/Home.php,/TPLPATH/pc/default/home/so/so.html
