@@ -1,6 +1,16 @@
 <?php
 
-require_once dr_get_app_dir('contentsync').'Libraries/SyncService.php';
+try {
+    require_once dr_get_app_dir('contentsync').'Libraries/SyncService.php';
+} catch (\Throwable $e) {
+    file_put_contents(
+        WRITEPATH.'logs/contentsync_debug.log',
+        date('Y-m-d H:i:s').' '.$e->getMessage().PHP_EOL.$e->getTraceAsString().PHP_EOL,
+        FILE_APPEND
+    );
+    return;
+}
+
 
 // 内容发布完成后触发同步发送
 \Phpcmf\Hooks::app_on('contentsync', 'module_content_after', function ($data, $old = []) {
