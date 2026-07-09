@@ -11,34 +11,83 @@ use Phpcmf\App\Contentsync\Models\SyncLog;
 class SyncService
 {
     /**
+     * 诊断日志文件
+     */
+    const TRACE_LOG_FILE = WRITEPATH.'logs/contentsync_trace.log';
+
+    /**
      * 钩子回调入口
      *
      * @param array $data
      * @param array $old
      */
     public function handleModuleContentAfter($data, $old = []) {
+        self::trace('service_enter', [
+            'time' => date('Y-m-d H:i:s'),
+        ]);
 
         $module = \Phpcmf\Service::C()->module;
-        $dirname = is_array($module) && isset($module['dirname']) ? strtolower((string)$module['dirname']) : '';
+        $service_dirname_raw = is_array($module) && isset($module['dirname']) ? (string)$module['dirname'] : '';
+        $dirname = strtolower($service_dirname_raw);
+        $mod_dir_defined = defined('MOD_DIR');
+        $mod_dir_value = $mod_dir_defined ? (string)MOD_DIR : '';
+
+        self::trace('module_detect', [
+            'mod_dir_defined' => $mod_dir_defined,
+            'mod_dir' => $mod_dir_value,
+            'service_module_is_array' => is_array($module),
+            'service_module_has_dirname' => is_array($module) && isset($module['dirname']),
+            'service_module_dirname' => $service_dirname_raw,
+            'dirname' => $dirname,
+        ]);
 
         // 当前阶段只处理新闻中心模块
         if ($dirname !== 'xinwenzhongxin') {
+            self::trace('return_module_mismatch', [
+                'dirname' => $dirname,
+            ]);
             return;
         }
 
         $main = isset($data[1]) && is_array($data[1]) ? $data[1] : [];
         $extend = isset($data[0]) && is_array($data[0]) ? $data[0] : [];
+        self::trace('data_parsed', [
+            'main_id' => isset($main['id']) ? (int)$main['id'] : null,
+            'main_status' => isset($main['status']) ? (int)$main['status'] : null,
+            'main_title_empty' => empty($main['title']),
+        ]);
         if (!$main || empty($main['id'])) {
+            self::trace('return_invalid_main', [
+                'main_exists' => !empty($main),
+                'main_id_exists' => isset($main['id']),
+            ]);
             return;
         }
 
         // 仅在正式发布状态下发送
         if ((int)($main['status'] ?? 0) !== 9) {
+            self::trace('return_status', [
+                'status' => isset($main['status']) ? (int)$main['status'] : null,
+            ]);
             return;
         }
 
         // 仅在新增发布时发送，修改内容不发送（兼容审核通过新增）
-        if (!$this->isNewPublishedContent($old)) {
+        self::trace('new_check_before', [
+            'old_empty' => empty($old),
+            'old_is_array' => is_array($old),
+            'old_keys' => is_array($old) ? array_keys($old) : [],
+            'old_id_exists' => is_array($old) && array_key_exists('id', $old),
+            'old_id' => is_array($old) && array_key_exists('id', $old) ? $old['id'] : null,
+            'old_verify_isnew_exists' => is_array($old) && isset($old['verify']) && is_array($old['verify']) && array_key_exists('isnew', $old['verify']),
+            'old_verify_isnew' => is_array($old) && isset($old['verify']) && is_array($old['verify']) && array_key_exists('isnew', $old['verify']) ? $old['verify']['isnew'] : null,
+        ]);
+        $is_new = $this->isNewPublishedContent($old);
+        self::trace('new_check_result', [
+            'is_new' => $is_new,
+        ]);
+        if (!$is_new) {
+            self::trace('return_not_new', []);
             return;
         }
 
@@ -53,9 +102,19 @@ class SyncService
             'seo_keywords' => (string)(isset($main['seo_keywords']) ? $main['seo_keywords'] : (isset($main['keywords']) ? $main['keywords'] : '')),
             'seo_description' => (string)(isset($main['seo_description']) ? $main['seo_description'] : (isset($main['description']) ? $main['description'] : '')),
         ];
+        self::trace('payload_ready', [
+            'content_id' => (int)$main['id'],
+            'title' => (string)($main['title'] ?? ''),
+            'catid' => (int)($main['catid'] ?? 0),
+            'content_length' => strlen((string)$payload['content']),
+        ]);
 
         $sites = $this->getEnabledSites();
+        self::trace('sites_loaded', [
+            'enabled_site_count' => is_array($sites) ? count($sites) : 0,
+        ]);
         if (!$sites) {
+            self::trace('return_no_sites', []);
             return;
         }
 
@@ -69,18 +128,49 @@ class SyncService
                 $headers = [
                     'X-API-KEY' => (string)($site['api_key'] ?? ''),
                 ];
+                $site_id = isset($site['id']) ? (int)$site['id'] : 0;
+                self::trace('site_enter', [
+                    'site_id' => $site_id,
+                    'site_name' => $site_name,
+                    'api_url' => $site_url,
+                ]);
 
                 // 最小化防重复：同内容在同站点已有成功记录时，不再重复发送
-                if ($this->hasSuccessfulSync((int)$main['id'], $dirname, $site_name)) {
+                $has_success = $this->hasSuccessfulSync((int)$main['id'], $dirname, $site_name);
+                self::trace('duplicate_check', [
+                    'content_id' => (int)$main['id'],
+                    'site_name' => $site_name,
+                    'has_success' => $has_success,
+                ]);
+                if ($has_success) {
+                    self::trace('return_duplicate_site', [
+                        'content_id' => (int)$main['id'],
+                        'site_name' => $site_name,
+                    ]);
                     continue;
                 }
 
+                self::trace('http_before', [
+                    'site_name' => $site_name,
+                    'api_url' => $site_url,
+                ]);
                 $response = $client->postJson($site_url, $payload, $headers, 10);
                 $status = !empty($response['success']) ? 1 : 0;
                 $safe_headers = $this->maskHeadersForLog($headers);
                 $safe_response_body = $this->sanitizeTextForLog((string)($response['body'] ?? ''));
                 $safe_error = $this->sanitizeTextForLog((string)($response['error'] ?? ''));
+                self::trace('http_after', [
+                    'site_name' => $site_name,
+                    'success' => !empty($response['success']),
+                    'http_code' => isset($response['http_code']) ? (int)$response['http_code'] : 0,
+                    'error' => $safe_error,
+                ]);
 
+                self::trace('sync_log_before', [
+                    'site_name' => $site_name,
+                    'content_id' => (int)$main['id'],
+                    'status' => $status,
+                ]);
                 $this->writeSyncLog($log_model, [
                     'content_id' => (int)$main['id'],
                     'module' => $dirname,
@@ -96,8 +186,24 @@ class SyncService
                     'error_message' => $safe_error,
                     'create_time' => SYS_TIME,
                 ]);
+                self::trace('sync_log_after', [
+                    'site_name' => $site_name,
+                    'content_id' => (int)$main['id'],
+                    'status' => $status,
+                ]);
             } catch (\Throwable $e) {
                 // 单站点异常隔离，不影响其他站点
+                self::trace('http_after', [
+                    'site_name' => (string)($site['name'] ?? ''),
+                    'success' => false,
+                    'http_code' => 0,
+                    'error' => $this->sanitizeTextForLog($e->getMessage()),
+                ]);
+                self::trace('sync_log_before', [
+                    'site_name' => (string)($site['name'] ?? ''),
+                    'content_id' => (int)$main['id'],
+                    'status' => 0,
+                ]);
                 $this->writeSyncLog($log_model, [
                     'content_id' => (int)$main['id'],
                     'module' => $dirname,
@@ -115,8 +221,96 @@ class SyncService
                     'error_message' => $this->sanitizeTextForLog($e->getMessage()),
                     'create_time' => SYS_TIME,
                 ]);
+                self::trace('sync_log_after', [
+                    'site_name' => (string)($site['name'] ?? ''),
+                    'content_id' => (int)$main['id'],
+                    'status' => 0,
+                ]);
             }
         }
+    }
+
+    /**
+     * 写入临时诊断日志（失败不影响主流程）
+     *
+     * @param string $stage
+     * @param array  $context
+     *
+     * @return void
+     */
+    public static function trace($stage, array $context = []) {
+        try {
+            $record = [
+                'time' => date('Y-m-d H:i:s'),
+                'stage' => (string)$stage,
+                'context' => self::normalizeTraceContext($context),
+            ];
+            $line = json_encode($record, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+            if ($line === false) {
+                return;
+            }
+            @file_put_contents(self::TRACE_LOG_FILE, $line.PHP_EOL, FILE_APPEND);
+        } catch (\Throwable $e) {
+            // 临时诊断日志失败时静默处理，避免影响发布流程
+        }
+    }
+
+    /**
+     * 诊断上下文最小化与脱敏
+     *
+     * @param array $context
+     *
+     * @return array
+     */
+    private static function normalizeTraceContext(array $context) {
+        $safe = [];
+        foreach ($context as $key => $value) {
+            $k = strtolower((string)$key);
+            if (strpos($k, 'api_key') !== false || strpos($k, 'authorization') !== false || strpos($k, 'cookie') !== false) {
+                continue;
+            }
+            if ($k === 'content') {
+                continue;
+            }
+
+            if (is_string($value)) {
+                $safe[$key] = self::sanitizeTraceText($value);
+            } elseif (is_array($value)) {
+                $safe[$key] = self::normalizeTraceContext($value);
+            } elseif (is_bool($value) || is_int($value) || is_float($value) || $value === null) {
+                $safe[$key] = $value;
+            } else {
+                $safe[$key] = (string)$value;
+            }
+        }
+
+        return $safe;
+    }
+
+    /**
+     * 诊断文本脱敏
+     *
+     * @param string $text
+     *
+     * @return string
+     */
+    private static function sanitizeTraceText($text) {
+        if ($text === '') {
+            return '';
+        }
+
+        $text = preg_replace(
+            '/(X-API-KEY|Authorization|Proxy-Authorization|X-Auth-Token|X-Access-Token)\s*[:=]\s*([^\r\n]+)/i',
+            '$1: ***',
+            $text
+        );
+        $text = preg_replace(
+            '/(Cookie|Set-Cookie)\s*[:=]\s*([^\r\n]+)/i',
+            '$1: [MASKED]',
+            $text
+        );
+
+        return (string)$text;
     }
 
     /**
