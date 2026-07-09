@@ -1,5 +1,3 @@
-
-DROP TABLE IF EXISTS `{dbprefix}content_sync_site`;
 CREATE TABLE IF NOT EXISTS `{dbprefix}content_sync_site` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `name` varchar(100) NOT NULL COMMENT '网站名称',
@@ -11,7 +9,6 @@ CREATE TABLE IF NOT EXISTS `{dbprefix}content_sync_site` (
   KEY `status` (`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='内容同步目标站点配置表';
 
-DROP TABLE IF EXISTS `{dbprefix}content_sync_log`;
 CREATE TABLE IF NOT EXISTS `{dbprefix}content_sync_log` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `content_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '内容ID',

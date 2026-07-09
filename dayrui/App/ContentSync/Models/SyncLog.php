@@ -1,4 +1,4 @@
-<?php namespace Phpcmf\App\ContentSync\Models;
+<?php namespace Phpcmf\App\Contentsync\Models;
 
 /**
  * 内容同步日志模型
@@ -14,7 +14,6 @@ class SyncLog extends \Phpcmf\Model
      */
     public function add($data) {
         $table = $this->dbprefix('content_sync_log');
-        $this->db->table($table)->insert($data);
-        return true;
+        return (bool)$this->db->table($table)->insert($data);
     }
 }

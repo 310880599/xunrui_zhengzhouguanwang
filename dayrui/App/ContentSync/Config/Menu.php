@@ -11,7 +11,7 @@ return [
                 'app-plugin' => [
                     'link' => [
                         [
-                            'name' => '内容同步',
+                            'name' => '内容同步发送',
                             'icon' => 'fa fa-send',
                             'uri' => 'contentsync/home/index',
                         ],

@@ -1,4 +1,4 @@
-<?php namespace Phpcmf\App\ContentSync\Libraries;
+<?php namespace Phpcmf\App\Contentsync\Libraries;
 
 /**
  * 内容同步HTTP客户端
@@ -29,6 +29,8 @@ class HttpClient
             if ($payload === false) {
                 $payload = '{}';
             }
+            $scheme = strtolower((string)parse_url((string)$url, PHP_URL_SCHEME));
+            $is_https = $scheme === 'https';
             $http_headers = [
                 'Content-Type: application/json; charset=utf-8',
                 'Accept: application/json',
@@ -48,8 +50,10 @@ class HttpClient
                 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
                 curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
                 curl_setopt($ch, CURLOPT_HTTPHEADER, $http_headers);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+                if ($is_https) {
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+                }
 
                 $body = curl_exec($ch);
                 $error = curl_error($ch);
@@ -74,13 +78,22 @@ class HttpClient
                         'ignore_errors' => true,
                     ],
                 ];
+                if ($is_https) {
+                    $opts['ssl'] = [
+                        'verify_peer' => true,
+                        'verify_peer_name' => true,
+                        'allow_self_signed' => false,
+                    ];
+                }
                 $context = stream_context_create($opts);
                 $body = @file_get_contents($url, false, $context);
                 $result['body'] = is_string($body) ? $body : '';
-                $result['success'] = $body !== false;
-                $result['http_code'] = $result['success'] ? 200 : 0;
+                $result['http_code'] = $this->parseHttpCodeFromHeaders(isset($http_response_header) ? $http_response_header : []);
+                $result['success'] = $body !== false
+                    && ($result['http_code'] === 0 || ($result['http_code'] >= 200 && $result['http_code'] < 300));
                 if ($body === false) {
-                    $result['error'] = '请求失败，且当前环境不支持curl扩展';
+                    $error = error_get_last();
+                    $result['error'] = isset($error['message']) ? (string)$error['message'] : '请求失败，且当前环境不支持curl扩展';
                 }
             }
         } catch (\Throwable $e) {
@@ -88,5 +101,27 @@ class HttpClient
         }
 
         return $result;
+    }
+
+    /**
+     * 从响应头解析HTTP状态码
+     *
+     * @param array $headers
+     *
+     * @return int
+     */
+    private function parseHttpCodeFromHeaders(array $headers) {
+        if (!$headers) {
+            return 0;
+        }
+
+        $http_code = 0;
+        foreach ($headers as $line) {
+            if (preg_match('#^HTTP/\S+\s+(\d{3})#i', (string)$line, $match)) {
+                $http_code = (int)$match[1];
+            }
+        }
+
+        return $http_code;
     }
 }

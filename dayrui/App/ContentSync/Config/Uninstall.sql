@@ -1,2 +1,1 @@
-DROP TABLE IF EXISTS `{dbprefix}content_sync_site`;
-DROP TABLE IF EXISTS `{dbprefix}content_sync_log`;
+-- 数据安全策略：卸载插件时不删除业务表与同步日志数据

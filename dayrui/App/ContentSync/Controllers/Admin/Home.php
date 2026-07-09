@@ -37,10 +37,13 @@ class Home extends \Phpcmf\App
      */
     private function save_site() {
         $post = \Phpcmf\Service::L('input')->post('data');
+        if (!is_array($post)) {
+            $post = [];
+        }
 
-        $name = trim((string)$post['name']);
-        $api_url = trim((string)$post['api_url']);
-        $api_key = trim((string)$post['api_key']);
+        $name = trim((string)($post['name'] ?? ''));
+        $api_url = trim((string)($post['api_url'] ?? ''));
+        $api_key = trim((string)($post['api_key'] ?? ''));
         $status = isset($post['status']) ? 1 : 0;
 
         if (!$name) {
