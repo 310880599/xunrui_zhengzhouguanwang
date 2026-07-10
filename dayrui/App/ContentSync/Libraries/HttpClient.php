@@ -31,6 +31,11 @@ class HttpClient
             }
             $scheme = strtolower((string)parse_url((string)$url, PHP_URL_SCHEME));
             $is_https = $scheme === 'https';
+            $host = strtolower((string)parse_url((string)$url, PHP_URL_HOST));
+            $port = (int)parse_url((string)$url, PHP_URL_PORT);
+            if (!$port) {
+                $port = $is_https ? 443 : 80;
+            }
             $http_headers = [
                 'Content-Type: application/json; charset=utf-8',
                 'Accept: application/json',
@@ -53,6 +58,15 @@ class HttpClient
                 if ($is_https) {
                     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
                     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+                }
+                if (
+                    $host === 'www.hnyugong.com'
+                    && $is_https
+                    && defined('CURLOPT_RESOLVE')
+                ) {
+                    curl_setopt($ch, CURLOPT_RESOLVE, [
+                        $host.':'.$port.':172.17.163.109',
+                    ]);
                 }
 
                 $body = curl_exec($ch);
