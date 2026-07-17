@@ -102,6 +102,7 @@ class SyncService
             'seo_keywords' => (string)(isset($main['seo_keywords']) ? $main['seo_keywords'] : (isset($main['keywords']) ? $main['keywords'] : '')),
             'seo_description' => (string)(isset($main['seo_description']) ? $main['seo_description'] : (isset($main['description']) ? $main['description'] : '')),
         ];
+        $payload['thumb_data'] = $this->getThumbAttachmentData($main['thumb'] ?? '');
         self::trace('payload_ready', [
             'content_id' => (int)$main['id'],
             'title' => (string)($main['title'] ?? ''),
@@ -362,6 +363,66 @@ class SyncService
             ->countAllResults();
 
         return $count > 0;
+    }
+
+    /**
+     * 根据缩略图附件ID提取附件信息
+     *
+     * @param mixed $thumb
+     *
+     * @return array|null
+     */
+    private function getThumbAttachmentData($thumb) {
+        $thumb_value = trim((string)$thumb);
+        if ($thumb_value === '' || !ctype_digit($thumb_value)) {
+            return null;
+        }
+
+        $thumb_id = (int)$thumb_value;
+        if ($thumb_id <= 0) {
+            return null;
+        }
+
+        try {
+            $table = \Phpcmf\Service::M()->dbprefix('attachment_data');
+            $row = \Phpcmf\Service::M()->db->table($table)
+                ->select('id,filename,fileext,filesize,attachment,remote,attachinfo,inputtime')
+                ->where('id', $thumb_id)
+                ->get()
+                ->getRowArray();
+        } catch (\Throwable $e) {
+            return null;
+        }
+
+        if (!$row) {
+            return null;
+        }
+
+        $attachment = isset($row['attachment']) ? (string)$row['attachment'] : '';
+        $attachment_url = '';
+        if ($attachment !== '') {
+            if (function_exists('dr_get_file_url')) {
+                $attachment_url = (string)dr_get_file_url($row);
+            } elseif (function_exists('dr_get_file')) {
+                $attachment_url = (string)dr_get_file($thumb_id, 1);
+            } elseif (defined('SYS_UPLOAD_URL')) {
+                $attachment_url = rtrim((string)SYS_UPLOAD_URL, '/').'/'.ltrim($attachment, '/');
+            } elseif (defined('SITE_URL')) {
+                $attachment_url = rtrim((string)SITE_URL, '/').'/uploadfile/'.ltrim($attachment, '/');
+            }
+        }
+
+        return [
+            'id' => isset($row['id']) ? (int)$row['id'] : 0,
+            'filename' => isset($row['filename']) ? (string)$row['filename'] : '',
+            'fileext' => isset($row['fileext']) ? (string)$row['fileext'] : '',
+            'filesize' => isset($row['filesize']) ? (int)$row['filesize'] : 0,
+            'attachment' => $attachment,
+            'url' => $attachment_url,
+            'remote' => isset($row['remote']) ? (int)$row['remote'] : 0,
+            'attachinfo' => isset($row['attachinfo']) ? (string)$row['attachinfo'] : '',
+            'inputtime' => isset($row['inputtime']) ? (int)$row['inputtime'] : 0,
+        ];
     }
 
     /**
