@@ -46,6 +46,18 @@ class HttpClient
                 $http_headers[] = $k.': '.$v;
             }
 
+            $payload_log_data = json_decode($payload, true);
+            file_put_contents(
+                WRITEPATH . 'logs/send_payload.log',
+                date('Y-m-d H:i:s') . PHP_EOL .
+                json_encode(
+                    $payload_log_data === null ? $payload : $payload_log_data,
+                    JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
+                )
+                . PHP_EOL . PHP_EOL,
+                FILE_APPEND
+            );
+
             if (function_exists('curl_init')) {
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $url);
