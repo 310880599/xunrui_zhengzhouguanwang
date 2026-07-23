@@ -83,7 +83,7 @@
                 <td>{if $t.status}<span class="label label-sm label-success">启用</span>{else}<span class="label label-sm label-default">禁用</span>{/if}</td>
                 <td>{dr_date($t.create_time)}</td>
                 <td>
-                    <a href="javascript:dr_ajax_url('{dr_url(APP_DIR."/home/status_edit")}&id={$t.id}');" class="btn btn-xs blue">切换状态</a>
+                    <a href="javascript:change_site_status({$t.id});" class="btn btn-xs blue">{if $t.status}禁用{else}启用{/if}</a>
                     <a href="javascript:dr_ajax_url('{dr_url(APP_DIR."/home/delete")}&id={$t.id}');" class="btn btn-xs red">删除</a>
                 </td>
             </tr>
@@ -131,5 +131,39 @@
         </table>
     </div>
 </div>
+
+<script type="text/javascript">
+function change_site_status(id) {
+    var url = '{dr_url(APP_DIR."/home/status_edit")}&id=' + id;
+    var loading = layer.load(2, {
+        shade: [.3, "#fff"],
+        time: 1e8
+    });
+    $.ajax({
+        type: "GET",
+        url: url,
+        dataType: "json",
+        success: function(json) {
+            layer.close(loading);
+            if (json.code) {
+                dr_cmf_tips(json.code, json.msg, json.data.time);
+                setTimeout(function() {
+                    window.location.reload();
+                }, 300);
+                return;
+            }
+            $(".fc-code img").click();
+            if (json.data.field) {
+                $("#dr_row_" + json.data.field).addClass("has-error");
+                $("#dr_" + json.data.field).focus();
+            }
+            dr_cmf_tips(json.code, json.msg, json.data.time);
+        },
+        error: function(e, a, t) {
+            dr_ajax_alert_error(e, this, t);
+        }
+    });
+}
+</script>
 
 {template "footer.html"}
